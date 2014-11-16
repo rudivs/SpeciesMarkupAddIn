@@ -11,8 +11,15 @@ namespace SpeciesMarkupAddIn
 {
     public partial class ThisAddIn
     {
+        private bool markupEnabled;
+        private Microsoft.Office.Tools.CustomTaskPane taxonMarkupPanel;
+        public TaxonPanel myTaxonPanel;
+        public string currentText;
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            this.Application.WindowSelectionChange += new Word.ApplicationEvents4_WindowSelectionChangeEventHandler(Application_WindowSelectionChange);
+            this.Application.DocumentChange += new Word.ApplicationEvents4_DocumentChangeEventHandler(Application_DocumentChange);
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -32,5 +39,59 @@ namespace SpeciesMarkupAddIn
         }
         
         #endregion
+
+        internal void setDisplayFlag(bool value)
+        {
+            markupEnabled = value;
+            if (markupEnabled)
+            {
+                taxonMarkupPanel.Visible = true;
+            }
+            else
+            {
+                taxonMarkupPanel.Visible = false;
+            }
+        }
+
+        void Application_DocumentChange()
+        {
+
+            LoadTaxonPanel();
+        }
+
+        public void LoadTaxonPanel()
+        {
+            if (taxonMarkupPanel != null)
+            {
+                this.CustomTaskPanes.Remove(taxonMarkupPanel);
+            }
+
+            myTaxonPanel = new TaxonPanel();
+            taxonMarkupPanel = this.CustomTaskPanes.Add(myTaxonPanel, "Taxon Markup Panel");
+            taxonMarkupPanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
+            taxonMarkupPanel.Width = 350;
+        }
+
+        void Application_WindowSelectionChange(Word.Selection Sel)
+        {
+            if (markupEnabled)
+            {
+                int i = 1;
+                int rangeLength = 40 - Sel.Text.Length;
+                string next40char = "";
+                Word.Range range;
+                while (i <= rangeLength && rangeLength >= 1)
+                {
+                    range = Sel.Next(Word.WdUnits.wdCharacter, i++);
+                    if (range == null)
+                        break;
+                    next40char += range.Text;
+                }
+
+                string str = Sel.Text + next40char.Trim();
+                currentText = str;
+                //((TextBox)myTip.Controls["WordName"]).Text = str;
+            }
+        }
     }
 }
