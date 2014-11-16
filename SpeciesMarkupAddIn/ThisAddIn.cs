@@ -76,21 +76,7 @@ namespace SpeciesMarkupAddIn
         {
             if (markupEnabled)
             {
-                int i = 1;
-                int rangeLength = 40 - Sel.Text.Length;
-                string next40char = "";
-                Word.Range range;
-                while (i <= rangeLength && rangeLength >= 1)
-                {
-                    range = Sel.Next(Word.WdUnits.wdCharacter, i++);
-                    if (range == null)
-                        break;
-                    next40char += range.Text;
-                }
-
-                string str = Sel.Text + next40char.Trim();
-                currentText = str;
-                //((TextBox)myTip.Controls["WordName"]).Text = str;
+                currentText = Sel.Text;
             }
         }
     }
