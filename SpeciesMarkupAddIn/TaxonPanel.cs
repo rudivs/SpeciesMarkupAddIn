@@ -12,9 +12,9 @@ namespace SpeciesMarkupAddIn
 {
     public partial class TaxonPanel : UserControl
     {
-        private Point position1 = new Point(0,210);
-        private Point position2 = new Point(0,311);
-        private Point position3 = new Point(0,374);
+        private Point position1 = new Point(0,127);
+        private Point position2 = new Point(0,228);
+        private Point position3 = new Point(0,291);
 
         public TaxonPanel()
         {
@@ -181,71 +181,6 @@ namespace SpeciesMarkupAddIn
         private void btnTreatmentAuthorsCopy_Click(object sender, EventArgs e)
         {
             CopySelection(textboxTreatmentAuthors);
-        }
-
-        private void btnJournalOrBookTitleCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxJournalOrBookTitle);
-        }
-
-        private void btnPublicationYearCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPublicationYear);
-        }
-
-        private void btnPublicationAuthorsCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPublicationAuthors);
-        }
-
-        private void btnPublicationTitleCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPublicationTitle);
-        }
-
-        private void btnEditorCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxEditors);
-        }
-
-        private void btnPublisherCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPublisher);
-        }
-
-        private void btnPublisherCityCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPublisherCity);
-        }
-
-        private void btnVolumeCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxVolume);
-        }
-
-        private void btnIssueCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxIssue);
-        }
-
-        private void btnPartCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPart);
-        }
-
-        private void btnFascicleCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxFascicle);
-        }
-
-        private void btnPageStartCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPageStart);
-        }
-
-        private void btnPageEndCopy_Click(object sender, EventArgs e)
-        {
-            CopySelection(textboxPageEnd);
         }
 
         private void btnNotesAdd_Click(object sender, EventArgs e)
