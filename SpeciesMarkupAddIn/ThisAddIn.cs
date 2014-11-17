@@ -69,7 +69,7 @@ namespace SpeciesMarkupAddIn
             myTaxonPanel = new TaxonPanel();
             taxonMarkupPanel = this.CustomTaskPanes.Add(myTaxonPanel, "Taxon Markup Panel");
             taxonMarkupPanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
-            taxonMarkupPanel.Width = 350;
+            taxonMarkupPanel.Width = 370;
         }
 
         void Application_WindowSelectionChange(Word.Selection Sel)
