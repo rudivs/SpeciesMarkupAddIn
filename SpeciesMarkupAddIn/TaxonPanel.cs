@@ -12,10 +12,6 @@ namespace SpeciesMarkupAddIn
 {
     public partial class TaxonPanel : UserControl
     {
-        private Point position1 = new Point(0,127);
-        private Point position2 = new Point(0,228);
-        private Point position3 = new Point(0,291);
-
         public TaxonPanel()
         {
             InitializeComponent();
@@ -97,13 +93,11 @@ namespace SpeciesMarkupAddIn
             if (radiobuttonInfra1None.Checked)
             {
                 panelInfraspecific1.Visible = false;
-                panel3.Location = Point.Add(position1, new Size(this.AutoScrollPosition));
                 radiobuttonInfra2None.Checked = true;
             }
             else
             {
                 panelInfraspecific1.Visible = true;
-                panel3.Location = Point.Add(position2, new Size(this.AutoScrollPosition)); ;
             }
         }
 
@@ -122,25 +116,16 @@ namespace SpeciesMarkupAddIn
             if (radiobuttonInfra2None.Checked)
             {
                 panelInfraspecific2.Visible = false;
-                if (radiobuttonInfra1None.Checked)
-                {
-                    panel3.Location = Point.Add(position1, new Size(this.AutoScrollPosition)); ;
-                }
-                else
-                {
-                    panel3.Location = Point.Add(position2, new Size(this.AutoScrollPosition)); ;
-                }
             }
             else
             {
                 panelInfraspecific2.Visible = true;
-                panel3.Location = Point.Add(position3, new Size(this.AutoScrollPosition));;
             }
         }
 
         private void TaxonPanel_Load(object sender, EventArgs e)
         {
-            panel3.Location = Point.Add(position1, new Size(this.AutoScrollPosition)); ;
+
         }
 
         private void btnMorphDescriptionCopy_Click(object sender, EventArgs e)

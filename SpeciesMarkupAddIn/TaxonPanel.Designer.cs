@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label4 = new System.Windows.Forms.Label();
             this.textboxGenus = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textboxSpecies = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.textboxSpeciesAuthor = new System.Windows.Forms.TextBox();
             this.btnGenusCopy = new System.Windows.Forms.Button();
             this.btnSpeciesCopy = new System.Windows.Forms.Button();
@@ -43,7 +40,6 @@
             this.radiobuttonInfra1Form = new System.Windows.Forms.RadioButton();
             this.radiobuttonInfra1Subspecies = new System.Windows.Forms.RadioButton();
             this.radiobuttonInfra1Var = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
             this.panelInfraspecific1 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnInfra1AuthorCopy = new System.Windows.Forms.Button();
@@ -92,22 +88,21 @@
             this.textboxMorphDescription = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tooltipMorphologicalDescription = new System.Windows.Forms.ToolTip(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfraspecific2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-1, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Genus";
             // 
             // textboxGenus
             // 
@@ -116,30 +111,12 @@
             this.textboxGenus.Size = new System.Drawing.Size(252, 20);
             this.textboxGenus.TabIndex = 6;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(-1, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Species";
-            // 
             // textboxSpecies
             // 
             this.textboxSpecies.Location = new System.Drawing.Point(59, 29);
             this.textboxSpecies.Name = "textboxSpecies";
             this.textboxSpecies.Size = new System.Drawing.Size(252, 20);
             this.textboxSpecies.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(-1, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Species Author";
             // 
             // textboxSpeciesAuthor
             // 
@@ -232,24 +209,17 @@
             this.radiobuttonInfra1Var.Text = "var";
             this.radiobuttonInfra1Var.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(-1, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Infraspecific Rank 1";
-            // 
             // panelInfraspecific1
             // 
+            this.panelInfraspecific1.AutoSize = true;
+            this.panelInfraspecific1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelInfraspecific1.Controls.Add(this.panel1);
             this.panelInfraspecific1.Controls.Add(this.panelInfraspecific2);
             this.panelInfraspecific1.Controls.Add(this.label12);
             this.panelInfraspecific1.Controls.Add(this.groupBox2);
-            this.panelInfraspecific1.Location = new System.Drawing.Point(0, 127);
+            this.panelInfraspecific1.Location = new System.Drawing.Point(3, 133);
             this.panelInfraspecific1.Name = "panelInfraspecific1";
-            this.panelInfraspecific1.Size = new System.Drawing.Size(348, 158);
+            this.panelInfraspecific1.Size = new System.Drawing.Size(341, 161);
             this.panelInfraspecific1.TabIndex = 18;
             this.panelInfraspecific1.Visible = false;
             // 
@@ -439,6 +409,8 @@
             // 
             // panel3
             // 
+            this.panel3.AutoSize = true;
+            this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel3.Controls.Add(this.btnTreatmentAuthorsCopy);
             this.panel3.Controls.Add(this.textboxTreatmentAuthors);
             this.panel3.Controls.Add(this.label20);
@@ -465,9 +437,9 @@
             this.panel3.Controls.Add(this.btnMorphDescriptionCopy);
             this.panel3.Controls.Add(this.textboxMorphDescription);
             this.panel3.Controls.Add(this.label13);
-            this.panel3.Location = new System.Drawing.Point(0, 291);
+            this.panel3.Location = new System.Drawing.Point(3, 300);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(348, 496);
+            this.panel3.Size = new System.Drawing.Size(340, 493);
             this.panel3.TabIndex = 19;
             // 
             // btnTreatmentAuthorsCopy
@@ -703,26 +675,90 @@
             this.label13.Text = "Morph. Descr.";
             this.tooltipMorphologicalDescription.SetToolTip(this.label13, "Morphological Description");
             // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.btnSpeciesAuthorCopy);
+            this.panel2.Controls.Add(this.btnSpeciesCopy);
+            this.panel2.Controls.Add(this.btnGenusCopy);
+            this.panel2.Controls.Add(this.textboxSpeciesAuthor);
+            this.panel2.Controls.Add(this.textboxSpecies);
+            this.panel2.Controls.Add(this.textboxGenus);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(340, 124);
+            this.panel2.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(-1, 99);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Infraspecific Rank 1";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(-1, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Species Author";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(-1, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Species";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(-1, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Genus";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panelInfraspecific1, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 819);
+            this.tableLayoutPanel1.TabIndex = 21;
+            // 
             // TaxonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnSpeciesAuthorCopy);
-            this.Controls.Add(this.btnSpeciesCopy);
-            this.Controls.Add(this.btnGenusCopy);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textboxSpeciesAuthor);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textboxSpecies);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textboxGenus);
-            this.Controls.Add(this.panelInfraspecific1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TaxonPanel";
-            this.Size = new System.Drawing.Size(363, 792);
+            this.Size = new System.Drawing.Size(363, 819);
             this.Load += new System.EventHandler(this.TaxonPanel_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -736,6 +772,10 @@
             this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -743,11 +783,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textboxGenus;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textboxSpecies;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textboxSpeciesAuthor;
         private System.Windows.Forms.Button btnGenusCopy;
         private System.Windows.Forms.Button btnSpeciesCopy;
@@ -756,7 +793,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radiobuttonInfra1Subspecies;
         private System.Windows.Forms.RadioButton radiobuttonInfra1Var;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton radiobuttonInfra1Form;
         private System.Windows.Forms.Panel panelInfraspecific1;
         private System.Windows.Forms.Label label8;
@@ -806,5 +842,11 @@
         private System.Windows.Forms.TextBox textboxVouchers;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnNotesAdd;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
