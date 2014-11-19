@@ -17,5 +17,10 @@ namespace SpeciesMarkupAddIn
         {
             Globals.ThisAddIn.setDisplayFlag(((RibbonCheckBox)sender).Checked);
         }
+
+        private void btnExportExcel_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.ThisAddIn.ExportToExcel();
+        }
     }
 }
