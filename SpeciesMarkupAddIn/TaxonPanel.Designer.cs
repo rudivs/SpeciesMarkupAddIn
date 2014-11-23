@@ -61,6 +61,9 @@
             this.radiobuttonInfra2Var = new System.Windows.Forms.RadioButton();
             this.radiobuttonInfra2None = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboboxFloweringEnd = new System.Windows.Forms.ComboBox();
+            this.comboboxFloweringStart = new System.Windows.Forms.ComboBox();
+            this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnTreatmentAuthorsCopy = new System.Windows.Forms.Button();
             this.textboxTreatmentAuthors = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -73,10 +76,8 @@
             this.textboxNotes = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnFloweringEndCopy = new System.Windows.Forms.Button();
-            this.textboxFlowerinEnd = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnFloweringStartCopy = new System.Windows.Forms.Button();
-            this.textboxFloweringStart = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.btnHabitatCopy = new System.Windows.Forms.Button();
             this.textboxHabitat = new System.Windows.Forms.TextBox();
@@ -94,14 +95,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.collectionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInfraspecific2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource1)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textboxGenus
@@ -411,6 +415,8 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.comboboxFloweringEnd);
+            this.panel3.Controls.Add(this.comboboxFloweringStart);
             this.panel3.Controls.Add(this.btnTreatmentAuthorsCopy);
             this.panel3.Controls.Add(this.textboxTreatmentAuthors);
             this.panel3.Controls.Add(this.label20);
@@ -423,10 +429,8 @@
             this.panel3.Controls.Add(this.textboxNotes);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.btnFloweringEndCopy);
-            this.panel3.Controls.Add(this.textboxFlowerinEnd);
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.btnFloweringStartCopy);
-            this.panel3.Controls.Add(this.textboxFloweringStart);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.btnHabitatCopy);
             this.panel3.Controls.Add(this.textboxHabitat);
@@ -441,6 +445,26 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(340, 493);
             this.panel3.TabIndex = 19;
+            // 
+            // comboboxFloweringEnd
+            // 
+            this.comboboxFloweringEnd.FormattingEnabled = true;
+            this.comboboxFloweringEnd.Location = new System.Drawing.Point(86, 279);
+            this.comboboxFloweringEnd.Name = "comboboxFloweringEnd";
+            this.comboboxFloweringEnd.Size = new System.Drawing.Size(227, 21);
+            this.comboboxFloweringEnd.TabIndex = 52;
+            // 
+            // comboboxFloweringStart
+            // 
+            this.comboboxFloweringStart.FormattingEnabled = true;
+            this.comboboxFloweringStart.Location = new System.Drawing.Point(86, 253);
+            this.comboboxFloweringStart.Name = "comboboxFloweringStart";
+            this.comboboxFloweringStart.Size = new System.Drawing.Size(227, 21);
+            this.comboboxFloweringStart.TabIndex = 51;
+            // 
+            // collectionDataBindingSource1
+            // 
+            this.collectionDataBindingSource1.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
             // 
             // btnTreatmentAuthorsCopy
             // 
@@ -552,13 +576,6 @@
             this.btnFloweringEndCopy.UseVisualStyleBackColor = true;
             this.btnFloweringEndCopy.Click += new System.EventHandler(this.btnFloweringEndCopy_Click);
             // 
-            // textboxFlowerinEnd
-            // 
-            this.textboxFlowerinEnd.Location = new System.Drawing.Point(86, 278);
-            this.textboxFlowerinEnd.Name = "textboxFlowerinEnd";
-            this.textboxFlowerinEnd.Size = new System.Drawing.Size(227, 20);
-            this.textboxFlowerinEnd.TabIndex = 37;
-            // 
             // label17
             // 
             this.label17.Location = new System.Drawing.Point(-1, 282);
@@ -577,13 +594,6 @@
             this.btnFloweringStartCopy.Text = "<";
             this.btnFloweringStartCopy.UseVisualStyleBackColor = true;
             this.btnFloweringStartCopy.Click += new System.EventHandler(this.btnFloweringStartCopy_Click);
-            // 
-            // textboxFloweringStart
-            // 
-            this.textboxFloweringStart.Location = new System.Drawing.Point(86, 252);
-            this.textboxFloweringStart.Name = "textboxFloweringStart";
-            this.textboxFloweringStart.Size = new System.Drawing.Size(227, 20);
-            this.textboxFloweringStart.TabIndex = 34;
             // 
             // label16
             // 
@@ -751,6 +761,10 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 819);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
+            // collectionDataBindingSource
+            // 
+            this.collectionDataBindingSource.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
+            // 
             // TaxonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -772,10 +786,12 @@
             this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -826,10 +842,8 @@
         private System.Windows.Forms.TextBox textboxDistribution;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnFloweringEndCopy;
-        private System.Windows.Forms.TextBox textboxFlowerinEnd;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnFloweringStartCopy;
-        private System.Windows.Forms.TextBox textboxFloweringStart;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnNotesCopy;
         private System.Windows.Forms.TextBox textboxNotes;
@@ -848,5 +862,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ComboBox comboboxFloweringStart;
+        private System.Windows.Forms.ComboBox comboboxFloweringEnd;
+        private System.Windows.Forms.BindingSource collectionDataBindingSource1;
+        private System.Windows.Forms.BindingSource collectionDataBindingSource;
     }
 }
