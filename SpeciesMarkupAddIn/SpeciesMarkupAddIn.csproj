@@ -160,6 +160,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="CollectionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -180,6 +181,7 @@
       <DependentUpon>TaxonPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CollectionData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -194,6 +196,7 @@
     <Compile Include="Ribbon.Designer.cs">
       <DependentUpon>Ribbon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Taxon.cs" />
     <Compile Include="TaxonPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
