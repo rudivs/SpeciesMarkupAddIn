@@ -180,6 +180,9 @@
     <EmbeddedResource Include="TaxonPanel.resx">
       <DependentUpon>TaxonPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TextEditForm.resx">
+      <DependentUpon>TextEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CollectionData.datasource" />
     <None Include="Properties\Settings.settings">
@@ -202,6 +205,12 @@
     </Compile>
     <Compile Include="TaxonPanel.Designer.cs">
       <DependentUpon>TaxonPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextEditForm.Designer.cs">
+      <DependentUpon>TextEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>

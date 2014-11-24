@@ -16,12 +16,12 @@ namespace SpeciesMarkupAddIn
         public TaxonPanel()
         {
             InitializeComponent();
-            comboboxFloweringStart.DataSource = new BindingSource(CollectionData.Months,null);
-            comboboxFloweringStart.ValueMember = "Key";
-            comboboxFloweringStart.DisplayMember = "Value";
-            comboboxFloweringEnd.DataSource = new BindingSource(CollectionData.Months, null);
-            comboboxFloweringEnd.ValueMember = "Key";
-            comboboxFloweringEnd.DisplayMember = "Value";
+            this.comboboxFloweringStart.DataSource = new BindingSource(CollectionData.Months,null);
+            this.comboboxFloweringStart.ValueMember = "Key";
+            this.comboboxFloweringStart.DisplayMember = "Value";
+            this.comboboxFloweringEnd.DataSource = new BindingSource(CollectionData.Months, null);
+            this.comboboxFloweringEnd.ValueMember = "Key";
+            this.comboboxFloweringEnd.DisplayMember = "Value";
         }
 
         private string FilterText(string inputText)
@@ -70,6 +70,14 @@ namespace SpeciesMarkupAddIn
             return filteredText;
         }
 
+        private int GetMonthNumber(string lookup)
+        {
+            int outMonth = 0;
+            lookup = lookup.Trim().TrimEnd('?', '!', '.', ',');
+            CollectionData.MonthLookup.TryGetValue(lookup, out outMonth);
+            return outMonth;
+        }
+
         private void CopySelection(TextBox textboxTarget)
         {
             if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
@@ -86,18 +94,29 @@ namespace SpeciesMarkupAddIn
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void CopyMonth(ComboBox comboboxTarget)
         {
-
+            if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
+            {
+                int returnMonth = GetMonthNumber(Globals.ThisAddIn.currentText);
+                if (returnMonth > 0)
+                {
+                    comboboxTarget.SelectedValue = GetMonthNumber(Globals.ThisAddIn.currentText);
+                }
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void EditText(TextBox textboxTarget)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+            using (var form = new TextEditForm())
+            {
+                form.Controls[0].Controls["textboxEditText"].Text = textboxTarget.Text;
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    textboxTarget.Text = form.ReturnText;
+                }
+            }
 
         }
 
@@ -114,21 +133,6 @@ namespace SpeciesMarkupAddIn
         private void btnSpeciesAuthorCopy_Click(object sender, EventArgs e)
         {
             CopySelection(textboxSpeciesAuthor);
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textboxInfraTaxon1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnInfraTaxon1Copy_Click(object sender, EventArgs e)
@@ -198,12 +202,12 @@ namespace SpeciesMarkupAddIn
 
         private void btnFloweringStartCopy_Click(object sender, EventArgs e)
         {
-            //CopySelection(comboboxFloweringStart);
+            CopyMonth(comboboxFloweringStart);
         }
 
         private void btnFloweringEndCopy_Click(object sender, EventArgs e)
         {
-            //CopySelection(comboboxFloweringEnd);
+            CopyMonth(comboboxFloweringEnd);
         }
 
         private void btnNotesCopy_Click(object sender, EventArgs e)
@@ -229,6 +233,31 @@ namespace SpeciesMarkupAddIn
         private void btnVouchersAdd_Click(object sender, EventArgs e)
         {
             AddSelection(textboxVouchers);
+        }
+
+        private void textboxMorphDescription_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditText(textboxMorphDescription);
+        }
+
+        private void textboxDistribution_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditText(textboxDistribution);
+        }
+
+        private void textboxHabitat_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditText(textboxHabitat);
+        }
+
+        private void textboxNotes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditText(textboxNotes);
+        }
+
+        private void textboxVouchers_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditText(textboxVouchers);
         }
 
     }

@@ -63,7 +63,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboboxFloweringEnd = new System.Windows.Forms.ComboBox();
             this.comboboxFloweringStart = new System.Windows.Forms.ComboBox();
-            this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnTreatmentAuthorsCopy = new System.Windows.Forms.Button();
             this.textboxTreatmentAuthors = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -95,6 +94,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collectionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
@@ -102,9 +102,9 @@
             this.panelInfraspecific2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource1)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -258,7 +258,6 @@
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 23;
             this.label9.Text = "Infra. Author";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // textboxInfra1Author
             // 
@@ -284,7 +283,6 @@
             this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 20;
             this.label8.Text = "Infra. Taxon";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // textboxInfra1Taxon
             // 
@@ -292,7 +290,6 @@
             this.textboxInfra1Taxon.Name = "textboxInfra1Taxon";
             this.textboxInfra1Taxon.Size = new System.Drawing.Size(227, 20);
             this.textboxInfra1Taxon.TabIndex = 19;
-            this.textboxInfra1Taxon.TextChanged += new System.EventHandler(this.textboxInfraTaxon1_TextChanged);
             // 
             // panelInfraspecific2
             // 
@@ -462,10 +459,6 @@
             this.comboboxFloweringStart.Size = new System.Drawing.Size(227, 21);
             this.comboboxFloweringStart.TabIndex = 51;
             // 
-            // collectionDataBindingSource1
-            // 
-            this.collectionDataBindingSource1.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
-            // 
             // btnTreatmentAuthorsCopy
             // 
             this.btnTreatmentAuthorsCopy.Location = new System.Drawing.Point(319, 469);
@@ -519,6 +512,7 @@
             this.textboxVouchers.Name = "textboxVouchers";
             this.textboxVouchers.Size = new System.Drawing.Size(227, 77);
             this.textboxVouchers.TabIndex = 44;
+            this.textboxVouchers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxVouchers_MouseDoubleClick);
             // 
             // label19
             // 
@@ -556,6 +550,7 @@
             this.textboxNotes.Name = "textboxNotes";
             this.textboxNotes.Size = new System.Drawing.Size(227, 77);
             this.textboxNotes.TabIndex = 40;
+            this.textboxNotes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxNotes_MouseDoubleClick);
             // 
             // label18
             // 
@@ -621,6 +616,7 @@
             this.textboxHabitat.Name = "textboxHabitat";
             this.textboxHabitat.Size = new System.Drawing.Size(227, 77);
             this.textboxHabitat.TabIndex = 31;
+            this.textboxHabitat.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxHabitat_MouseDoubleClick);
             // 
             // label15
             // 
@@ -648,6 +644,7 @@
             this.textboxDistribution.Name = "textboxDistribution";
             this.textboxDistribution.Size = new System.Drawing.Size(227, 77);
             this.textboxDistribution.TabIndex = 28;
+            this.textboxDistribution.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxDistribution_MouseDoubleClick);
             // 
             // label14
             // 
@@ -675,6 +672,7 @@
             this.textboxMorphDescription.Name = "textboxMorphDescription";
             this.textboxMorphDescription.Size = new System.Drawing.Size(227, 77);
             this.textboxMorphDescription.TabIndex = 25;
+            this.textboxMorphDescription.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxMorphDescription_MouseDoubleClick);
             // 
             // label13
             // 
@@ -761,6 +759,10 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 819);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
+            // collectionDataBindingSource1
+            // 
+            this.collectionDataBindingSource1.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
+            // 
             // collectionDataBindingSource
             // 
             this.collectionDataBindingSource.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
@@ -786,11 +788,11 @@
             this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.collectionDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
