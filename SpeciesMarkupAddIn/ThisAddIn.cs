@@ -19,6 +19,7 @@ namespace SpeciesMarkupAddIn
         private Microsoft.Office.Tools.CustomTaskPane taxonMarkupPanel;
         public TaxonPanel myTaxonPanel;
         public string currentText;
+        List<Taxon> currentTaxa = new List<Taxon>();
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
@@ -59,7 +60,6 @@ namespace SpeciesMarkupAddIn
 
         void Application_DocumentChange()
         {
-
             LoadTaxonPanel();
         }
 
@@ -71,6 +71,7 @@ namespace SpeciesMarkupAddIn
             }
 
             myTaxonPanel = new TaxonPanel();
+            Taxon currentTaxon = new Taxon();
             taxonMarkupPanel = this.CustomTaskPanes.Add(myTaxonPanel, "Taxon Markup Panel");
             taxonMarkupPanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
             taxonMarkupPanel.Width = 370;

@@ -61,6 +61,14 @@
             this.radiobuttonInfra2Var = new System.Windows.Forms.RadioButton();
             this.radiobuttonInfra2None = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnMaxAltCopy = new System.Windows.Forms.Button();
+            this.btnMinAltCopy = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textboxMaxAlt = new System.Windows.Forms.TextBox();
+            this.textboxMinAlt = new System.Windows.Forms.TextBox();
             this.comboboxFloweringEnd = new System.Windows.Forms.ComboBox();
             this.comboboxFloweringStart = new System.Windows.Forms.ComboBox();
             this.btnVouchersAdd = new System.Windows.Forms.Button();
@@ -91,14 +99,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textboxMinAlt = new System.Windows.Forms.TextBox();
-            this.textboxMaxAlt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnMinAltCopy = new System.Windows.Forms.Button();
-            this.btnMaxAltCopy = new System.Windows.Forms.Button();
             this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collectionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnNew = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -415,6 +418,9 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.btnNew);
+            this.panel3.Controls.Add(this.btnNext);
+            this.panel3.Controls.Add(this.btnPrevious);
             this.panel3.Controls.Add(this.btnMaxAltCopy);
             this.panel3.Controls.Add(this.btnMinAltCopy);
             this.panel3.Controls.Add(this.label2);
@@ -446,9 +452,83 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Location = new System.Drawing.Point(3, 300);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(340, 521);
+            this.panel3.Size = new System.Drawing.Size(340, 564);
             this.panel3.TabIndex = 19;
             this.tooltipMorphologicalDescription.SetToolTip(this.panel3, "Minimum altitude at which taxon is recorded");
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNext.Location = new System.Drawing.Point(262, 538);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 60;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrevious.Location = new System.Drawing.Point(2, 538);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.TabIndex = 59;
+            this.btnPrevious.Text = "Previous";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            // 
+            // btnMaxAltCopy
+            // 
+            this.btnMaxAltCopy.Location = new System.Drawing.Point(319, 331);
+            this.btnMaxAltCopy.Name = "btnMaxAltCopy";
+            this.btnMaxAltCopy.Size = new System.Drawing.Size(18, 20);
+            this.btnMaxAltCopy.TabIndex = 58;
+            this.btnMaxAltCopy.Text = "<";
+            this.btnMaxAltCopy.UseVisualStyleBackColor = true;
+            this.btnMaxAltCopy.Click += new System.EventHandler(this.btnMaxAltCopy_Click);
+            // 
+            // btnMinAltCopy
+            // 
+            this.btnMinAltCopy.Location = new System.Drawing.Point(319, 305);
+            this.btnMinAltCopy.Name = "btnMinAltCopy";
+            this.btnMinAltCopy.Size = new System.Drawing.Size(18, 20);
+            this.btnMinAltCopy.TabIndex = 57;
+            this.btnMinAltCopy.Text = "<";
+            this.btnMinAltCopy.UseVisualStyleBackColor = true;
+            this.btnMinAltCopy.Click += new System.EventHandler(this.btnMinAltCopy_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-1, 334);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Max. Altitude";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label2, "Maximum altitude at which taxon is recorded, in meters");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(-1, 308);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Min. Altitude";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label1, "Minimum altitude at which taxon is recorded, in meters");
+            // 
+            // textboxMaxAlt
+            // 
+            this.textboxMaxAlt.Location = new System.Drawing.Point(86, 331);
+            this.textboxMaxAlt.Name = "textboxMaxAlt";
+            this.textboxMaxAlt.Size = new System.Drawing.Size(100, 20);
+            this.textboxMaxAlt.TabIndex = 54;
+            // 
+            // textboxMinAlt
+            // 
+            this.textboxMinAlt.Location = new System.Drawing.Point(86, 305);
+            this.textboxMinAlt.Name = "textboxMinAlt";
+            this.textboxMinAlt.Size = new System.Drawing.Size(100, 20);
+            this.textboxMinAlt.TabIndex = 53;
             // 
             // comboboxFloweringEnd
             // 
@@ -737,62 +817,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 837);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 871);
             this.tableLayoutPanel1.TabIndex = 21;
-            // 
-            // textboxMinAlt
-            // 
-            this.textboxMinAlt.Location = new System.Drawing.Point(86, 305);
-            this.textboxMinAlt.Name = "textboxMinAlt";
-            this.textboxMinAlt.Size = new System.Drawing.Size(100, 20);
-            this.textboxMinAlt.TabIndex = 53;
-            // 
-            // textboxMaxAlt
-            // 
-            this.textboxMaxAlt.Location = new System.Drawing.Point(86, 331);
-            this.textboxMaxAlt.Name = "textboxMaxAlt";
-            this.textboxMaxAlt.Size = new System.Drawing.Size(100, 20);
-            this.textboxMaxAlt.TabIndex = 54;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-1, 308);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Min. Altitude";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label1, "Minimum altitude at which taxon is recorded, in meters");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-1, 334);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Max. Altitude";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label2, "Maximum altitude at which taxon is recorded, in meters");
-            // 
-            // btnMinAltCopy
-            // 
-            this.btnMinAltCopy.Location = new System.Drawing.Point(319, 305);
-            this.btnMinAltCopy.Name = "btnMinAltCopy";
-            this.btnMinAltCopy.Size = new System.Drawing.Size(18, 20);
-            this.btnMinAltCopy.TabIndex = 57;
-            this.btnMinAltCopy.Text = "<";
-            this.btnMinAltCopy.UseVisualStyleBackColor = true;
-            this.btnMinAltCopy.Click += new System.EventHandler(this.btnMinAltCopy_Click);
-            // 
-            // btnMaxAltCopy
-            // 
-            this.btnMaxAltCopy.Location = new System.Drawing.Point(319, 331);
-            this.btnMaxAltCopy.Name = "btnMaxAltCopy";
-            this.btnMaxAltCopy.Size = new System.Drawing.Size(18, 20);
-            this.btnMaxAltCopy.TabIndex = 58;
-            this.btnMaxAltCopy.Text = "<";
-            this.btnMaxAltCopy.UseVisualStyleBackColor = true;
-            this.btnMaxAltCopy.Click += new System.EventHandler(this.btnMaxAltCopy_Click);
             // 
             // collectionDataBindingSource1
             // 
@@ -802,6 +828,15 @@
             // 
             this.collectionDataBindingSource.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(132, 538);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 61;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            // 
             // TaxonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,7 +844,7 @@
             this.AutoScroll = true;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TaxonPanel";
-            this.Size = new System.Drawing.Size(363, 837);
+            this.Size = new System.Drawing.Size(363, 871);
             this.Load += new System.EventHandler(this.TaxonPanel_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -906,5 +941,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textboxMaxAlt;
         private System.Windows.Forms.TextBox textboxMinAlt;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNew;
     }
 }
