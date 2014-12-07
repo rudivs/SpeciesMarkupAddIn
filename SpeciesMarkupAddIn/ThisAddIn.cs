@@ -21,12 +21,17 @@ namespace SpeciesMarkupAddIn
         public string currentText;
         public TaxonList currentBatch;
         public Taxon currentTaxon;
+        Serializer serializer;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             this.Application.WindowSelectionChange += new Word.ApplicationEvents4_WindowSelectionChangeEventHandler(Application_WindowSelectionChange);
             this.Application.DocumentChange += new Word.ApplicationEvents4_DocumentChangeEventHandler(Application_DocumentChange);
-            currentBatch = new TaxonList();
+            serializer = new Serializer();
+            if (!Deserialize())
+            {
+                currentBatch = new TaxonList();
+            }
             if (currentBatch.Count > 0)
             {
                 currentTaxon = currentBatch.Current;
@@ -41,6 +46,7 @@ namespace SpeciesMarkupAddIn
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            Serialize();
         }
 
         #region VSTO generated code
@@ -86,6 +92,7 @@ namespace SpeciesMarkupAddIn
             taxonMarkupPanel = this.CustomTaskPanes.Add(myTaxonPanel, "Taxon Markup Panel");
             taxonMarkupPanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
             taxonMarkupPanel.Width = 370;
+            this.myTaxonPanel.LoadCurrentTaxon();
         }
 
         void Application_WindowSelectionChange(Word.Selection Sel)
@@ -95,6 +102,61 @@ namespace SpeciesMarkupAddIn
                 currentText = Sel.Text;
             }
         }
+
+        public bool Serialize()
+        {
+            try
+            {
+                string filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CurrentTaxonBatch.bin");
+                serializer.SerializeObject(filename, currentBatch);
+                return true;
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                // MessageBox.Show("Serialization error (directory not found). " + ex,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return false;
+            }
+            catch (IOException ex)
+            {
+                // MessageBox.Show("Serialization error (error accessing file). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Deserialize()
+        {
+            try
+            {
+                string filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CurrentTaxonBatch.bin");
+                currentBatch = serializer.DeSerializeObject(filename);
+                return true;
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                // MessageBox.Show("Deserialization error (directory not found). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (FileNotFoundException ex)
+            {
+                // MessageBox.Show("Deserialization error (file not found). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (IOException ex)
+            {
+                // MessageBox.Show("Deserialization error (error accessing file). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+        }
+
 
         internal void ExportToExcel()
         {

@@ -25,7 +25,7 @@ namespace SpeciesMarkupAddIn
             this.comboboxFloweringEnd.DisplayMember = "Value";
         }
 
-        private void LoadCurrentTaxon()
+        public void LoadCurrentTaxon()
         {
             Globals.ThisAddIn.currentTaxon = Globals.ThisAddIn.currentBatch.Current;
             this.textboxGenus.Text = Globals.ThisAddIn.currentTaxon.Genus;
@@ -647,6 +647,7 @@ namespace SpeciesMarkupAddIn
 
         private void btnNew_Click(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.Serialize();
             Globals.ThisAddIn.currentTaxon = new Taxon();
             Globals.ThisAddIn.currentBatch.AddTaxon(Globals.ThisAddIn.currentTaxon);
             LoadCurrentTaxon();
@@ -654,12 +655,14 @@ namespace SpeciesMarkupAddIn
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.Serialize();
             Globals.ThisAddIn.currentBatch.MoveNext();
             LoadCurrentTaxon();
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.Serialize();
             Globals.ThisAddIn.currentBatch.MovePrevious();
             LoadCurrentTaxon();
         }
