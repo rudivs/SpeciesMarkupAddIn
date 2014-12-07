@@ -46,11 +46,8 @@ namespace SpeciesMarkupAddIn
                     this.radiobuttonInfra1None.Checked = true;
                     break;
             }
-            if (!this.radiobuttonInfra1None.Checked)
-            {
-                this.textboxInfra1Taxon.Text = Globals.ThisAddIn.currentTaxon.Infra1Taxon;
-                this.textboxInfra1Author.Text = Globals.ThisAddIn.currentTaxon.Infra1Author;
-            }
+            this.textboxInfra1Taxon.Text = Globals.ThisAddIn.currentTaxon.Infra1Taxon;
+            this.textboxInfra1Author.Text = Globals.ThisAddIn.currentTaxon.Infra1Author;
             switch (Globals.ThisAddIn.currentTaxon.Infra2Rank)
             {
                 case "var.":
@@ -63,11 +60,8 @@ namespace SpeciesMarkupAddIn
                     this.radiobuttonInfra2None.Checked = true;
                     break;
             }
-            if (!this.radiobuttonInfra2None.Checked)
-            {
-                this.textboxInfra2Taxon.Text = Globals.ThisAddIn.currentTaxon.Infra2Taxon;
-                this.textboxInfra2Author.Text = Globals.ThisAddIn.currentTaxon.Infra2Author;
-            }
+            this.textboxInfra2Taxon.Text = Globals.ThisAddIn.currentTaxon.Infra2Taxon;
+            this.textboxInfra2Author.Text = Globals.ThisAddIn.currentTaxon.Infra2Author;
             this.textboxMorphDescription.Text = Globals.ThisAddIn.currentTaxon.MorphDescription;
             this.comboboxFloweringStart.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringStart;
             this.comboboxFloweringEnd.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringEnd;
@@ -668,21 +662,6 @@ namespace SpeciesMarkupAddIn
         {
             Globals.ThisAddIn.currentBatch.MovePrevious();
             LoadCurrentTaxon();
-        }
-
-        private void btnNew_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPrevious_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnNext_Click_1(object sender, EventArgs e)
-        {
-
         }
 
 

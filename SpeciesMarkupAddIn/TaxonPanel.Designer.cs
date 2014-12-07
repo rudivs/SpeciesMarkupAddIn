@@ -837,7 +837,7 @@
             this.btnNew.TabIndex = 64;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click_1);
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnNext
             // 
@@ -848,7 +848,7 @@
             this.btnNext.TabIndex = 63;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click_1);
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -858,7 +858,7 @@
             this.btnPrevious.TabIndex = 62;
             this.btnPrevious.Text = "Previous";
             this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click_1);
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // collectionDataBindingSource1
             // 
