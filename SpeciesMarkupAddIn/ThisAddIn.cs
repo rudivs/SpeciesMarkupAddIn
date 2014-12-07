@@ -19,12 +19,24 @@ namespace SpeciesMarkupAddIn
         private Microsoft.Office.Tools.CustomTaskPane taxonMarkupPanel;
         public TaxonPanel myTaxonPanel;
         public string currentText;
-        List<Taxon> currentTaxa = new List<Taxon>();
+        public TaxonList currentBatch;
+        public Taxon currentTaxon;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             this.Application.WindowSelectionChange += new Word.ApplicationEvents4_WindowSelectionChangeEventHandler(Application_WindowSelectionChange);
             this.Application.DocumentChange += new Word.ApplicationEvents4_DocumentChangeEventHandler(Application_DocumentChange);
+            currentBatch = new TaxonList();
+            if (currentBatch.Count > 0)
+            {
+                currentTaxon = currentBatch.Current;
+            }
+            else
+            {
+                currentTaxon = new Taxon();
+                currentBatch.AddTaxon(currentTaxon);
+            }
+            
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -71,7 +83,6 @@ namespace SpeciesMarkupAddIn
             }
 
             myTaxonPanel = new TaxonPanel();
-            Taxon currentTaxon = new Taxon();
             taxonMarkupPanel = this.CustomTaskPanes.Add(myTaxonPanel, "Taxon Markup Panel");
             taxonMarkupPanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
             taxonMarkupPanel.Width = 370;

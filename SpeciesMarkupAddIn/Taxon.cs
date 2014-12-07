@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpeciesMarkupAddIn
 {
-    class Taxon
+    public class Taxon
     {
         public Taxon()
         {
@@ -34,5 +35,72 @@ namespace SpeciesMarkupAddIn
         public int MaxAlt { get; set; }
         public string Notes { get; set; }
         public string Vouchers { get; set; }
+    }
+
+    public class TaxonList
+    {
+        private List<Taxon> taxa;
+        private int _index;
+
+        public TaxonList()
+        {
+            taxa = new List<Taxon>();
+            _index = -1;
+        }
+
+        public void AddTaxon(Taxon taxon)
+        {
+            taxa.Add(taxon);
+            _index = taxa.Count - 1;
+        }
+
+        public int Count
+        {
+            get
+            {
+                return taxa.Count;
+            }
+        }
+
+        public Taxon Current
+        {
+            get
+            {
+                if (_index < 0 || _index > taxa.Count)
+                {
+                    throw new InvalidOperationException();
+                }
+                else
+                {
+                    return taxa[_index];
+                }
+            }
+        }
+
+        public bool MoveNext()
+        {
+            if (_index < taxa.Count -1)
+            {
+                _index++;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool MovePrevious()
+        {
+            if (_index <= 0)
+            {
+                return false;
+            }
+            else
+            {
+                _index--;
+                return true;
+            }
+        }
     }
 }

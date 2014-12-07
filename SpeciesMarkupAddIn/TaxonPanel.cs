@@ -25,6 +25,60 @@ namespace SpeciesMarkupAddIn
             this.comboboxFloweringEnd.DisplayMember = "Value";
         }
 
+        private void LoadCurrentTaxon()
+        {
+            Globals.ThisAddIn.currentTaxon = Globals.ThisAddIn.currentBatch.Current;
+            this.textboxGenus.Text = Globals.ThisAddIn.currentTaxon.Genus;
+            this.textboxSpecies.Text = Globals.ThisAddIn.currentTaxon.Species;
+            this.textboxSpeciesAuthor.Text = Globals.ThisAddIn.currentTaxon.SpeciesAuthor;
+            switch (Globals.ThisAddIn.currentTaxon.Infra1Rank)
+            {
+                case "subsp.":
+                    this.radiobuttonInfra1Subspecies.Checked = true;
+                    break;
+                case "var.":
+                    this.radiobuttonInfra1Var.Checked = true;
+                    break;
+                case "f.":
+                    this.radiobuttonInfra1Form.Checked = true;
+                    break;
+                default:
+                    this.radiobuttonInfra1None.Checked = true;
+                    break;
+            }
+            if (!this.radiobuttonInfra1None.Checked)
+            {
+                this.textboxInfra1Taxon.Text = Globals.ThisAddIn.currentTaxon.Infra1Taxon;
+                this.textboxInfra1Author.Text = Globals.ThisAddIn.currentTaxon.Infra1Author;
+            }
+            switch (Globals.ThisAddIn.currentTaxon.Infra2Rank)
+            {
+                case "var.":
+                    this.radiobuttonInfra2Var.Checked = true;
+                    break;
+                case "f.":
+                    this.radiobuttonInfra2Form.Checked = true;
+                    break;
+                default:
+                    this.radiobuttonInfra2None.Checked = true;
+                    break;
+            }
+            if (!this.radiobuttonInfra2None.Checked)
+            {
+                this.textboxInfra2Taxon.Text = Globals.ThisAddIn.currentTaxon.Infra2Taxon;
+                this.textboxInfra2Author.Text = Globals.ThisAddIn.currentTaxon.Infra2Author;
+            }
+            this.textboxMorphDescription.Text = Globals.ThisAddIn.currentTaxon.MorphDescription;
+            this.comboboxFloweringStart.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringStart;
+            this.comboboxFloweringEnd.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringEnd;
+            this.textboxDistribution.Text = Globals.ThisAddIn.currentTaxon.Distribution;
+            this.textboxHabitat.Text = Globals.ThisAddIn.currentTaxon.Habitat;
+            this.textboxMinAlt.Text = Globals.ThisAddIn.currentTaxon.MinAlt.ToString();
+            this.textboxMaxAlt.Text = Globals.ThisAddIn.currentTaxon.MaxAlt.ToString();
+            this.textboxNotes.Text = Globals.ThisAddIn.currentTaxon.Notes;
+            this.textboxVouchers.Text = Globals.ThisAddIn.currentTaxon.Vouchers;
+        }
+
         private string FilterText(string inputText)
         {
             string filteredText = inputText;
@@ -311,61 +365,99 @@ namespace SpeciesMarkupAddIn
 
         private void btnGenusCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxGenus);
+            CopySelection(this.textboxGenus);
         }
 
         private void btnSpeciesCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxSpecies);
+            CopySelection(this.textboxSpecies);
         }
 
         private void btnSpeciesAuthorCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxSpeciesAuthor);
+            CopySelection(this.textboxSpeciesAuthor);
         }
 
         private void btnInfraTaxon1Copy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxInfra1Taxon);
+            CopySelection(this.textboxInfra1Taxon);
         }
 
         private void btnInfra1AuthorCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxInfra1Author);
+            CopySelection(this.textboxInfra1Author);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radiobuttonInfra1None.Checked)
+            UpdateInfra1Rank();
+            if (this.radiobuttonInfra1None.Checked)
             {
-                panelInfraspecific1.Visible = false;
-                radiobuttonInfra2None.Checked = true;
+                this.panelInfraspecific1.Visible = false;
+                this.radiobuttonInfra2None.Checked = true;
             }
             else
             {
-                panelInfraspecific1.Visible = true;
+                this.panelInfraspecific1.Visible = true;
+            }
+        }
+
+        private void UpdateInfra1Rank()
+        {
+            if (this.radiobuttonInfra1None.Checked == true)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra1Rank = String.Empty;
+            }
+            if (this.radiobuttonInfra1Subspecies.Checked == true)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra1Rank = "subsp.";
+            }
+            if (this.radiobuttonInfra1Var.Checked == true)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra1Rank = "var.";
+            }
+            if (this.radiobuttonInfra1Form.Checked == true)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra1Rank = "f.";
+            }
+        }
+
+        private void UpdateInfra2Rank()
+        {
+            if (this.radiobuttonInfra2None.Checked == true)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra2Rank = String.Empty;
+            }
+            if (this.radiobuttonInfra2Var.Checked == true)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra2Rank = "var.";
+            }
+            if (this.radiobuttonInfra2Form.Checked == true)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra2Rank = "f.";
             }
         }
 
         private void btnInfra2TaxonCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxInfra2Taxon);
+            CopySelection(this.textboxInfra2Taxon);
         }
 
         private void btnInfra2AuthorCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxInfra2Author);
+            CopySelection(this.textboxInfra2Author);
         }
 
         private void radiobuttonInfra2None_CheckedChanged(object sender, EventArgs e)
         {
-            if (radiobuttonInfra2None.Checked)
+            UpdateInfra2Rank();
+            if (this.radiobuttonInfra2None.Checked)
             {
-                panelInfraspecific2.Visible = false;
+                this.panelInfraspecific2.Visible = false;
             }
             else
             {
-                panelInfraspecific2.Visible = true;
+                this.panelInfraspecific2.Visible = true;
             }
         }
 
@@ -376,83 +468,223 @@ namespace SpeciesMarkupAddIn
 
         private void btnMorphDescriptionCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxMorphDescription);
+            CopySelection(this.textboxMorphDescription);
         }
 
         private void btnDistributionCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxDistribution);
+            CopySelection(this.textboxDistribution);
         }
 
         private void btnHabitatCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxHabitat);
+            CopySelection(this.textboxHabitat);
         }
 
         private void btnFloweringStartCopy_Click(object sender, EventArgs e)
         {
-            CopyMonth(comboboxFloweringStart);
+            CopyMonth(this.comboboxFloweringStart);
         }
 
         private void btnFloweringEndCopy_Click(object sender, EventArgs e)
         {
-            CopyMonth(comboboxFloweringEnd);
+            CopyMonth(this.comboboxFloweringEnd);
         }
 
         private void btnNotesCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxNotes);
+            CopySelection(this.textboxNotes);
         }
 
         private void btnVouchersCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(textboxVouchers);
+            CopySelection(this.textboxVouchers);
         }
 
         private void btnNotesAdd_Click(object sender, EventArgs e)
         {
-            AddSelection(textboxNotes);
+            AddSelection(this.textboxNotes);
         }
 
         private void btnVouchersAdd_Click(object sender, EventArgs e)
         {
-            AddSelection(textboxVouchers);
+            AddSelection(this.textboxVouchers);
         }
 
         private void textboxMorphDescription_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EditText(textboxMorphDescription);
+            EditText(this.textboxMorphDescription);
         }
 
         private void textboxDistribution_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EditText(textboxDistribution);
+            EditText(this.textboxDistribution);
         }
 
         private void textboxHabitat_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EditText(textboxHabitat);
+            EditText(this.textboxHabitat);
         }
 
         private void textboxNotes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EditText(textboxNotes);
+            EditText(this.textboxNotes);
         }
 
         private void textboxVouchers_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EditText(textboxVouchers);
+            EditText(this.textboxVouchers);
         }
 
         private void btnMinAltCopy_Click(object sender, EventArgs e)
         {
-            CopyNumber(textboxMinAlt);
+            CopyNumber(this.textboxMinAlt);
         }
 
         private void btnMaxAltCopy_Click(object sender, EventArgs e)
         {
-            CopyNumber(textboxMaxAlt);
+            CopyNumber(this.textboxMaxAlt);
         }
+
+        private void textboxGenus_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Genus = this.textboxGenus.Text;
+        }
+
+        private void textboxSpecies_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Species = this.textboxSpecies.Text;
+        }
+
+        private void textboxSpeciesAuthor_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.SpeciesAuthor = this.textboxSpeciesAuthor.Text;
+        }
+
+        private void radiobuttonInfra1Subspecies_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateInfra1Rank();
+        }
+
+        private void radiobuttonInfra1Var_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateInfra1Rank();
+        }
+
+        private void radiobuttonInfra1Form_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateInfra1Rank();
+        }
+
+        private void radiobuttonInfra2Var_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateInfra2Rank();
+        }
+
+        private void radiobuttonInfra2Form_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateInfra2Rank();
+        }
+
+        private void textboxInfra1Taxon_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Infra1Taxon = this.textboxInfra1Taxon.Text;
+        }
+
+        private void textboxInfra1Author_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Infra1Author = this.textboxInfra1Author.Text;
+        }
+
+        private void textboxInfra2Taxon_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Infra2Taxon = this.textboxInfra2Taxon.Text;
+        }
+
+        private void textboxInfra2Author_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Infra2Author = this.textboxInfra2Author.Text;
+        }
+
+        private void textboxMorphDescription_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.MorphDescription = this.textboxMorphDescription.Text;
+        }
+
+        private void comboboxFloweringStart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboboxFloweringEnd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textboxDistribution_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Distribution = this.textboxDistribution.Text;
+        }
+
+        private void textboxHabitat_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Habitat = this.textboxHabitat.Text;
+        }
+
+        private void textboxMinAlt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textboxMaxAlt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textboxNotes_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Notes = this.textboxNotes.Text;
+        }
+
+        private void textboxVouchers_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.Vouchers = this.textboxVouchers.Text;
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon = new Taxon();
+            Globals.ThisAddIn.currentBatch.AddTaxon(Globals.ThisAddIn.currentTaxon);
+            LoadCurrentTaxon();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentBatch.MoveNext();
+            LoadCurrentTaxon();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentBatch.MovePrevious();
+            LoadCurrentTaxon();
+        }
+
+        private void btnNew_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrevious_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNext_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
