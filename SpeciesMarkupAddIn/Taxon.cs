@@ -11,6 +11,35 @@ namespace SpeciesMarkupAddIn
     [Serializable()]
     public class Taxon : ISerializable
     {
+        public string FullName 
+        {
+            get 
+            {
+                string[] myStrings = new string[]{this.Genus, this.Species, this.SpeciesAuthor, this.Infra1Rank, this.Infra1Taxon, 
+                this.Infra1Author, this.Infra2Rank, this.Infra2Taxon,this.Infra2Author};
+                return string.Join(" ", myStrings.Where(str => !string.IsNullOrEmpty(str)));
+            }
+        }
+        public string TrackingNumber { get; set; }
+        public string Genus { get; set; }
+        public string Species { get; set; }
+        public string SpeciesAuthor { get; set; }
+        public string Infra1Rank { get; set; }
+        public string Infra1Taxon { get; set; }
+        public string Infra1Author { get; set; }
+        public string Infra2Rank { get; set; }
+        public string Infra2Taxon { get; set; }
+        public string Infra2Author { get; set; }
+        public string MorphDescription { get; set; }
+        public Int16 FloweringStart { get; set; }
+        public Int16 FloweringEnd { get; set; }
+        public string Distribution { get; set; }
+        public string Habitat { get; set; }
+        public int MinAlt { get; set; }
+        public int MaxAlt { get; set; }
+        public string Notes { get; set; }
+        public string Vouchers { get; set; }
+
         public Taxon()
         {
 
@@ -18,7 +47,6 @@ namespace SpeciesMarkupAddIn
 
         public Taxon(SerializationInfo info, StreamingContext ctxt)
         {
-            this.FullName = (string)info.GetValue("FullName", typeof(string));
             this.TrackingNumber = (string)info.GetValue("TrackingNumber", typeof(string));
             this.Genus = (string)info.GetValue("Genus", typeof(string));
             this.Species = (string)info.GetValue("Species", typeof(string));
@@ -42,7 +70,6 @@ namespace SpeciesMarkupAddIn
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
-            info.AddValue("FullName", this.FullName);
             info.AddValue("TrackingNumber", this.TrackingNumber);
             info.AddValue("Genus", this.Genus);
             info.AddValue("Species", this.Species);
@@ -63,27 +90,6 @@ namespace SpeciesMarkupAddIn
             info.AddValue("Notes", this.Notes);
             info.AddValue("Vouchers", this.Vouchers);
         }
-
-        public string FullName { get; set; }
-        public string TrackingNumber { get; set; }
-        public string Genus { get; set; }
-        public string Species { get; set; }
-        public string SpeciesAuthor { get; set; }
-        public string Infra1Rank { get; set; }
-        public string Infra1Taxon { get; set; }
-        public string Infra1Author { get; set; }
-        public string Infra2Rank { get; set; }
-        public string Infra2Taxon { get; set; }
-        public string Infra2Author { get; set; }
-        public string MorphDescription { get; set; }
-        public Int16 FloweringStart { get; set; }
-        public Int16 FloweringEnd { get; set; }
-        public string Distribution { get; set; }
-        public string Habitat { get; set; }
-        public int MinAlt { get; set; }
-        public int MaxAlt { get; set; }
-        public string Notes { get; set; }
-        public string Vouchers { get; set; }
     }
 
     [Serializable()]
@@ -124,6 +130,14 @@ namespace SpeciesMarkupAddIn
             }
         }
 
+        public int Index
+        {
+            get
+            {
+                return _index;
+            }
+        }
+
         public Taxon Current
         {
             get
@@ -136,6 +150,18 @@ namespace SpeciesMarkupAddIn
                 {
                     return taxa[_index];
                 }
+            }
+        }
+
+        public Taxon GetByIndex(int index)
+        {
+            if (index < 0 || index > taxa.Count || taxa.Count == 0)
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                return taxa[index];
             }
         }
 
@@ -163,6 +189,29 @@ namespace SpeciesMarkupAddIn
                 _index--;
                 return true;
             }
+        }
+
+        public bool DeleteCurrent()
+        {
+            if (taxa.Count >= 1)
+            {
+                taxa.RemoveAt(_index);
+                if (_index > 0)
+                {
+                    _index--;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void Reset()
+        {
+            taxa.Clear();
+            _index = -1;
         }
     }
 }

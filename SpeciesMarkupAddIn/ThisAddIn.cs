@@ -6,10 +6,9 @@ using System.Xml.Linq;
 using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
-using OfficeOpenXml;
 using System.IO;
-using System.Diagnostics;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace SpeciesMarkupAddIn
 {
@@ -81,7 +80,7 @@ namespace SpeciesMarkupAddIn
             LoadTaxonPanel();
         }
 
-        public void LoadTaxonPanel()
+        internal void LoadTaxonPanel()
         {
             if (taxonMarkupPanel != null)
             {
@@ -103,11 +102,28 @@ namespace SpeciesMarkupAddIn
             }
         }
 
-        public bool Serialize()
+        internal bool UpdateTrackingNumber()
         {
             try
             {
-                string filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CurrentTaxonBatch.bin");
+                this.currentTaxon.TrackingNumber = Path.GetFileNameWithoutExtension(this.Application.ActiveDocument.Name);
+                return true;
+            }
+            catch (COMException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        internal bool Serialize()
+        {
+            try
+            {
+                string filename = CollectionData.BatchFile;
                 serializer.SerializeObject(filename, currentBatch);
                 return true;
             }
@@ -127,11 +143,11 @@ namespace SpeciesMarkupAddIn
             }
         }
 
-        public bool Deserialize()
+        internal bool Deserialize()
         {
             try
             {
-                string filename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CurrentTaxonBatch.bin");
+                string filename = CollectionData.BatchFile;
                 currentBatch = serializer.DeSerializeObject(filename);
                 return true;
             }
@@ -154,68 +170,30 @@ namespace SpeciesMarkupAddIn
             {
                 throw;
             }
-            
         }
 
-
-        internal void ExportToExcel()
+        internal void ResetCurrentBatch(string confirmationMessage)
         {
-            using (ExcelPackage p = new ExcelPackage())
+            DialogResult result = DialogResult.No;
+            if (confirmationMessage == CollectionData.DeleteAdHoc)
             {
-                //set the workbook properties and add a default sheet in it
-                SetWorkbookProperties(p);
-                //Create a sheet
-                ExcelWorksheet ws = CreateSheet(p, "Sample Sheet");
-
-                //Merging cells and create a center heading for out table
-                ws.Cells[1, 1].Value = "Taxon Markup Export";
-
-                int rowIndex = 2;
-                CreateData(ws, ref rowIndex);
-
-                //Generate A File with Random name
-                Byte[] bin = p.GetAsByteArray();
-                string file = Guid.NewGuid().ToString() + ".xlsx";
-                File.WriteAllBytes(file, bin);
-
-                //These lines will open it in Excel
-                ProcessStartInfo pi = new ProcessStartInfo(file);
-                Process.Start(pi);
+                result = MessageBox.Show(confirmationMessage,"Clear batch",MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2);
             }
-        }
-
-        private static ExcelWorksheet CreateSheet(ExcelPackage p, string sheetName)
-        {
-            p.Workbook.Worksheets.Add(sheetName);
-            ExcelWorksheet ws = p.Workbook.Worksheets[1];
-            ws.Name = sheetName; //Setting Sheet's name
-            ws.Cells.Style.Font.Size = 11; //Default font size for whole sheet
-            ws.Cells.Style.Font.Name = "Calibri"; //Default Font name for whole sheet
-
-            return ws;
-        }
-
-        /// <summary>
-        /// Sets the workbook properties and adds a default sheet.
-        /// </summary>
-        /// <param name="p">The p.</param>
-        /// <returns></returns>
-        private static void SetWorkbookProperties(ExcelPackage p)
-        {
-            //Here setting some document properties
-            p.Workbook.Properties.Title = "Taxon Markup Export";
-        }
-
-        void CreateData(ExcelWorksheet ws, ref int rowIndex)
-        {
-            int colIndex = 1;
-            List<string> tbList = new List<string>() { "textboxGenus", "textboxSpecies", "textboxSpeciesAuthor" };
-
-            foreach (string tbCurrent in tbList)
+            if (confirmationMessage == CollectionData.DeleteAfterExport)
             {
-                var cell = ws.Cells[rowIndex, colIndex];
-                cell.Value = ((TextBox)myTaxonPanel.Controls[0].Controls[0].Controls[tbCurrent]).Text;
-                colIndex++;
+                result = MessageBox.Show(confirmationMessage, "Export complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            }
+
+            if (result == DialogResult.Yes)
+            {
+                if (File.Exists(CollectionData.BatchFile))
+                {
+                    File.Delete(CollectionData.BatchFile);
+                }
+                this.currentBatch.Reset();
+                currentTaxon = new Taxon();
+                currentBatch.AddTaxon(currentTaxon);
+                this.myTaxonPanel.LoadCurrentTaxon();
             }
         }
     }

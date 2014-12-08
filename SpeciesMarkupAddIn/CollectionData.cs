@@ -1,18 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SpeciesMarkupAddIn
 {
+    public class TaxonInternalReferences
+    {
+        private string _PropertyName;
+        private string _FieldName;
+        private string _Label;
+        private double _ColumnWidth;
+        private Color _FillColor;
+
+        public string PropertyName { get {return _PropertyName;}}
+        public string FieldName { get { return _FieldName; } }
+        public string Label { get { return _Label; } }
+        public double ColumnWidth { get { return _ColumnWidth; } }
+        public Color FillColor { get { return _FillColor; } }
+
+        public TaxonInternalReferences(string fieldName, string label, Color fillColor, double columnWidth = 8.43, string propertyName = null)
+        {
+            _PropertyName = propertyName;
+            _FieldName = fieldName;
+            _Label = label;
+            _ColumnWidth = columnWidth;
+            _FillColor = fillColor;
+        }
+    }
+
     public static class CollectionData
     {
         public const decimal ft_to_m = 0.3048m;
         public const decimal in_to_mm = 25.4m;
         public const decimal lin_to_mm = 2.11667m;
 
-        public static readonly Dictionary<int, string> Months = new Dictionary<int, string>
+        public const string DeleteAfterExport = "Export complete. Would you like to clear the current taxon markup batch?";
+        public const string DeleteAdHoc = "Are you sure you want to clear the current taxon markup batch? This can not be undone.";
+        public static string BatchFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CurrentTaxonBatch.bin");
+
+        internal static readonly Dictionary<int, string> Months = new Dictionary<int, string>
         {
             { 0, "Not specified" },
             { 1, "January" },
@@ -30,7 +60,7 @@ namespace SpeciesMarkupAddIn
         };
 
 
-        public static readonly Dictionary<string, int> MonthLookup = new Dictionary<string, int>
+        internal static readonly Dictionary<string, int> MonthLookup = new Dictionary<string, int>
         {
             { "1", 1 },
             { "01", 1 },
@@ -104,6 +134,48 @@ namespace SpeciesMarkupAddIn
             { "DC", 12 },
             { "Dec", 12 },
             { "December", 12 }
+        };
+
+        internal static readonly Dictionary<int, TaxonInternalReferences> columnIndex = new Dictionary<int, TaxonInternalReferences>
+        {
+            { 1, new TaxonInternalReferences("Full name","Full name",Color.Bisque,30,"FullName") },
+            { 2, new TaxonInternalReferences("Tracking number","Tracking number",Color.Bisque,8,"TrackingNumber") },
+            { 3, new TaxonInternalReferences("Spnumber","Spnumber",Color.Bisque) },
+            { 4, new TaxonInternalReferences("Gename","Genus",Color.LightGreen,15,"Genus") },
+            { 5, new TaxonInternalReferences("SP1","Species",Color.LightGreen,15,"Species") },
+            { 6, new TaxonInternalReferences("Author1","Author",Color.LightGreen,30,"SpeciesAuthor") },
+            { 7, new TaxonInternalReferences("Rank1","Rank",Color.LightGreen,5,"Infra1Rank") },
+            { 8, new TaxonInternalReferences("SP2","Infraspecific taxon",Color.LightGreen,15,"Infra1Taxon") },
+            { 9, new TaxonInternalReferences("Author2","Author",Color.LightGreen,30,"Infra1Author") },
+            { 10, new TaxonInternalReferences("Rank2","Rank",Color.LightGreen,5,"Infra2Rank") },
+            { 11, new TaxonInternalReferences("SP3","Infraspecific taxon",Color.LightGreen,15,"Infra2Taxon") },
+            { 12, new TaxonInternalReferences("Author3","Author",Color.LightGreen,30,"Infra2Author") },
+            { 13, new TaxonInternalReferences("Descrip","Morphological description",Color.LightGreen,50,"MorphDescription") },
+            { 14, new TaxonInternalReferences("FLRSTART","Flowering time start",Color.LightGreen,7,"FloweringStart") },
+            { 15, new TaxonInternalReferences("FLREND","Flowering time end",Color.LightGreen,7,"FloweringEnd") },
+            { 16, new TaxonInternalReferences("Distrib","Distribution",Color.LightGreen,50,"Distribution") },
+            { 17, new TaxonInternalReferences("Habitat","Habitat",Color.LightGreen,50,"Habitat") },
+            { 18, new TaxonInternalReferences("Minalt", "Minimum altitude",Color.LightGreen,7,"MinAlt") },
+            { 19, new TaxonInternalReferences("Maxalt", "Maximum altitude",Color.LightGreen,7,"MaxAlt") },
+            { 20, new TaxonInternalReferences("LITNOTE", "Literature note",Color.LightGreen,50,"Notes") },
+            { 21, new TaxonInternalReferences("SpecCit", "Voucher specimens",Color.LightGreen,50,"Vouchers") },
+            { 22, new TaxonInternalReferences("Admin", "Admin",Color.OrangeRed,13) },
+            { 23, new TaxonInternalReferences("MarkupDate", "Date of markup",Color.OrangeRed,13) },
+            { 24, new TaxonInternalReferences("PermissionPublisher", "Permission from publishing house",Color.OrangeRed,19) },
+            { 25, new TaxonInternalReferences("PermissionAuthor", "Permission from Author",Color.OrangeRed,15) },
+            { 26, new TaxonInternalReferences("PublicationCategory","Category",Color.MediumPurple,19) },
+            { 27, new TaxonInternalReferences("Title","Journal or book title",Color.MediumPurple,30) },
+            { 28, new TaxonInternalReferences("Printyear", "Publication year",Color.MediumPurple,8) },
+            { 29, new TaxonInternalReferences("Author(s)", "Author(s)",Color.MediumPurple,30) },
+            { 30, new TaxonInternalReferences("PublicationTitle", "Publication title",Color.MediumPurple,30) },
+            { 31, new TaxonInternalReferences("Editors","Editor(s)",Color.MediumPurple,30) },
+            { 32, new TaxonInternalReferences("Publisher","Publisher",Color.MediumPurple, 22) },
+            { 33, new TaxonInternalReferences("PublisherCity","Publisher city",Color.MediumPurple, 22) },
+            { 34, new TaxonInternalReferences("Volume","Volume",Color.MediumPurple,6) },
+            { 35, new TaxonInternalReferences("Part", "Part",Color.MediumPurple,6) },
+            { 36, new TaxonInternalReferences("Fascicle", "Fascicle",Color.MediumPurple,8) },
+            { 37, new TaxonInternalReferences("Pagestart", "Page start",Color.MediumPurple,9) },
+            { 38, new TaxonInternalReferences("Pageend", "Page end",Color.MediumPurple,9) }
         };
     }
 }
