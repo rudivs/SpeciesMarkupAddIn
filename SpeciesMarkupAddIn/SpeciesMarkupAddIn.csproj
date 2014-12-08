@@ -163,6 +163,7 @@
   -->
   <ItemGroup>
     <Compile Include="CollectionData.cs" />
+    <Compile Include="Export.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -231,6 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel-icon.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
