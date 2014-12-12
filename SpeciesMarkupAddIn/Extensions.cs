@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace SpeciesMarkupAddIn
 {
@@ -26,6 +27,11 @@ namespace SpeciesMarkupAddIn
         public static string Clean(this string source)
         {
             return new string(source.Where(c => !char.IsPunctuation(c)).ToArray());
+        }
+
+        public static string RemoveInvalidXmlChars(this string source)
+        {
+            return new string(source.Where(c=> XmlConvert.IsXmlChar(c)).ToArray());
         }
 
         public static bool IsNumber(this string source)

@@ -49,6 +49,7 @@ namespace SpeciesMarkupAddIn
                 taxonPanel.Controls["textboxGenus"].Text = previousTaxon.Genus;
                 taxonPanel.Controls["textboxSpecies"].Text = previousTaxon.Species;
                 taxonPanel.Controls["textboxSpeciesAuthor"].Text = previousTaxon.SpeciesAuthor;
+                Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
     }

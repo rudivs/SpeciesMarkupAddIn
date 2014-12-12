@@ -103,6 +103,9 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collectionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDistributionAdd = new System.Windows.Forms.Button();
+            this.btnMorphDescriptionAdd = new System.Windows.Forms.Button();
+            this.btnHabitatAdd = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -120,6 +123,9 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.btnHabitatAdd);
+            this.panel3.Controls.Add(this.btnMorphDescriptionAdd);
+            this.panel3.Controls.Add(this.btnDistributionAdd);
             this.panel3.Controls.Add(this.btnMaxAltCopy);
             this.panel3.Controls.Add(this.btnMinAltCopy);
             this.panel3.Controls.Add(this.label2);
@@ -868,6 +874,36 @@
             // 
             this.collectionDataBindingSource.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
             // 
+            // btnDistributionAdd
+            // 
+            this.btnDistributionAdd.Location = new System.Drawing.Point(319, 164);
+            this.btnDistributionAdd.Name = "btnDistributionAdd";
+            this.btnDistributionAdd.Size = new System.Drawing.Size(18, 20);
+            this.btnDistributionAdd.TabIndex = 59;
+            this.btnDistributionAdd.Text = "+";
+            this.btnDistributionAdd.UseVisualStyleBackColor = true;
+            this.btnDistributionAdd.Click += new System.EventHandler(this.btnDistributionAdd_Click);
+            // 
+            // btnMorphDescriptionAdd
+            // 
+            this.btnMorphDescriptionAdd.Location = new System.Drawing.Point(319, 29);
+            this.btnMorphDescriptionAdd.Name = "btnMorphDescriptionAdd";
+            this.btnMorphDescriptionAdd.Size = new System.Drawing.Size(18, 20);
+            this.btnMorphDescriptionAdd.TabIndex = 60;
+            this.btnMorphDescriptionAdd.Text = "+";
+            this.btnMorphDescriptionAdd.UseVisualStyleBackColor = true;
+            this.btnMorphDescriptionAdd.Click += new System.EventHandler(this.btnMorphDescriptionAdd_Click);
+            // 
+            // btnHabitatAdd
+            // 
+            this.btnHabitatAdd.Location = new System.Drawing.Point(319, 247);
+            this.btnHabitatAdd.Name = "btnHabitatAdd";
+            this.btnHabitatAdd.Size = new System.Drawing.Size(18, 20);
+            this.btnHabitatAdd.TabIndex = 61;
+            this.btnHabitatAdd.Text = "+";
+            this.btnHabitatAdd.UseVisualStyleBackColor = true;
+            this.btnHabitatAdd.Click += new System.EventHandler(this.btnHabitatAdd_Click);
+            // 
             // TaxonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -977,5 +1013,8 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnHabitatAdd;
+        private System.Windows.Forms.Button btnMorphDescriptionAdd;
+        private System.Windows.Forms.Button btnDistributionAdd;
     }
 }

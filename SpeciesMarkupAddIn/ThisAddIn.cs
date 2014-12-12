@@ -134,12 +134,12 @@ namespace SpeciesMarkupAddIn
                 serializer.SerializeObject(filename, currentBatch);
                 return true;
             }
-            catch (DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException)
             {
                 // MessageBox.Show("Serialization error (directory not found). " + ex,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
             }
-            catch (IOException ex)
+            catch (IOException)
             {
                 // MessageBox.Show("Serialization error (error accessing file). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -158,19 +158,24 @@ namespace SpeciesMarkupAddIn
                 currentBatch = serializer.DeSerializeObject(filename);
                 return true;
             }
-            catch (DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException)
             {
                 // MessageBox.Show("Deserialization error (directory not found). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 // MessageBox.Show("Deserialization error (file not found). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            catch (IOException ex)
+            catch (IOException)
             {
-                // MessageBox.Show("Deserialization error (error accessing file). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Deserialization error (error accessing file). " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Error loading batch file. This is most likely due to invalid characters in one or more fields." + Environment.NewLine + ex.ToString(), "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
             }
             catch (Exception)

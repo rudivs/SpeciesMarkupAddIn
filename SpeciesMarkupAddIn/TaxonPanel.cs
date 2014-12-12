@@ -293,7 +293,7 @@ namespace SpeciesMarkupAddIn
         {
             if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
             {
-                textboxTarget.Text = FilterText(Globals.ThisAddIn.currentText).Trim();
+                textboxTarget.Text = FilterText(Globals.ThisAddIn.currentText).Trim().RemoveInvalidXmlChars();
             }
         }
 
@@ -301,7 +301,7 @@ namespace SpeciesMarkupAddIn
         {
             if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
             {
-                textboxTarget.Text += " " + FilterText(Globals.ThisAddIn.currentText).Trim();
+                textboxTarget.Text += " " + FilterText(Globals.ThisAddIn.currentText).Trim().RemoveInvalidXmlChars();
             }
         }
 
@@ -551,27 +551,27 @@ namespace SpeciesMarkupAddIn
 
         private void textboxGenus_TextChanged(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.currentTaxon.Genus = this.textboxGenus.Text;
             if (textboxGenus.Focused)
             { 
-                Globals.ThisAddIn.currentTaxon.Genus = this.textboxGenus.Text;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
 
         private void textboxSpecies_TextChanged(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.currentTaxon.Species = this.textboxSpecies.Text;
             if (textboxSpecies.Focused)
             {
-                Globals.ThisAddIn.currentTaxon.Species = this.textboxSpecies.Text;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
 
         private void textboxSpeciesAuthor_TextChanged(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.currentTaxon.SpeciesAuthor = this.textboxSpeciesAuthor.Text;
             if (textboxSpeciesAuthor.Focused)
             {
-                Globals.ThisAddIn.currentTaxon.SpeciesAuthor = this.textboxSpeciesAuthor.Text;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
@@ -603,36 +603,36 @@ namespace SpeciesMarkupAddIn
 
         private void textboxInfra1Taxon_TextChanged(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.currentTaxon.Infra1Taxon = this.textboxInfra1Taxon.Text;
             if (textboxInfra1Taxon.Focused)
             {
-                Globals.ThisAddIn.currentTaxon.Infra1Taxon = this.textboxInfra1Taxon.Text;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
 
         private void textboxInfra1Author_TextChanged(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.currentTaxon.Infra1Author = this.textboxInfra1Author.Text;
             if (textboxInfra1Author.Focused)
             {
-                Globals.ThisAddIn.currentTaxon.Infra1Author = this.textboxInfra1Author.Text;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
 
         private void textboxInfra2Taxon_TextChanged(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.currentTaxon.Infra2Taxon = this.textboxInfra2Taxon.Text;
             if (textboxInfra2Taxon.Focused)
             {
-                Globals.ThisAddIn.currentTaxon.Infra2Taxon = this.textboxInfra2Taxon.Text;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
 
         private void textboxInfra2Author_TextChanged(object sender, EventArgs e)
         {
+            Globals.ThisAddIn.currentTaxon.Infra2Author = this.textboxInfra2Author.Text;
             if (textboxInfra2Author.Focused)
             {
-                Globals.ThisAddIn.currentTaxon.Infra2Author = this.textboxInfra2Author.Text;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
@@ -702,6 +702,21 @@ namespace SpeciesMarkupAddIn
         private void comboboxFloweringEnd_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Globals.ThisAddIn.currentTaxon.FloweringEnd = (short)this.comboboxFloweringEnd.SelectedIndex;
+        }
+
+        private void btnMorphDescriptionAdd_Click(object sender, EventArgs e)
+        {
+            AddSelection(this.textboxMorphDescription);
+        }
+
+        private void btnDistributionAdd_Click(object sender, EventArgs e)
+        {
+            AddSelection(this.textboxDistribution);
+        }
+
+        private void btnHabitatAdd_Click(object sender, EventArgs e)
+        {
+            AddSelection(this.textboxHabitat);
         }
 
 
