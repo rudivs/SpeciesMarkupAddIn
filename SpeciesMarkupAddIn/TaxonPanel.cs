@@ -281,9 +281,9 @@ namespace SpeciesMarkupAddIn
             return returnString + " mm";
         }
 
-        private int GetMonthNumber(string lookup)
+        private short GetMonthNumber(string lookup)
         {
-            int outMonth = 0;
+            short outMonth = 0;
             lookup = lookup.Trim().TrimEnd('?', '!', '.', ',');
             CollectionData.MonthLookup.TryGetValue(lookup, out outMonth);
             return outMonth;
@@ -335,7 +335,7 @@ namespace SpeciesMarkupAddIn
         {
             if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
             {
-                int returnMonth = GetMonthNumber(Globals.ThisAddIn.currentText);
+                short returnMonth = GetMonthNumber(Globals.ThisAddIn.currentText);
                 if (returnMonth > 0)
                 {
                     comboboxTarget.SelectedValue = GetMonthNumber(Globals.ThisAddIn.currentText);
@@ -656,7 +656,7 @@ namespace SpeciesMarkupAddIn
         {
             Globals.ThisAddIn.Serialize();
             Globals.ThisAddIn.currentTaxon = new Taxon();
-            Globals.ThisAddIn.currentBatch.AddTaxon(Globals.ThisAddIn.currentTaxon);
+            Globals.ThisAddIn.currentBatch.Add(Globals.ThisAddIn.currentTaxon);
             LoadCurrentTaxon();
         }
 

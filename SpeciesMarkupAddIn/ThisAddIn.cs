@@ -38,7 +38,7 @@ namespace SpeciesMarkupAddIn
             else
             {
                 currentTaxon = new Taxon();
-                currentBatch.AddTaxon(currentTaxon);
+                currentBatch.Add(currentTaxon);
             }
             
         }
@@ -192,7 +192,7 @@ namespace SpeciesMarkupAddIn
                 }
                 this.currentBatch.Reset();
                 currentTaxon = new Taxon();
-                currentBatch.AddTaxon(currentTaxon);
+                currentBatch.Add(currentTaxon);
                 this.myTaxonPanel.LoadCurrentTaxon();
             }
         }

@@ -40,9 +40,10 @@ namespace SpeciesMarkupAddIn
 
         public const string DeleteAfterExport = "Export complete. Would you like to clear the current taxon markup batch?";
         public const string DeleteAdHoc = "Are you sure you want to clear the current taxon markup batch? This can not be undone.";
-        public static string BatchFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CurrentTaxonBatch.bin");
 
-        internal static readonly Dictionary<int, string> Months = new Dictionary<int, string>
+        public static string BatchFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CurrentTaxonBatch.xml");
+
+        internal static readonly Dictionary<short, string> Months = new Dictionary<short, string>
         {
             { 0, "Not specified" },
             { 1, "January" },
@@ -60,7 +61,7 @@ namespace SpeciesMarkupAddIn
         };
 
 
-        internal static readonly Dictionary<string, int> MonthLookup = new Dictionary<string, int>
+        internal static readonly Dictionary<string, short> MonthLookup = new Dictionary<string, short>
         {
             { "1", 1 },
             { "01", 1 },
