@@ -26,6 +26,8 @@ namespace SpeciesMarkupAddIn
         {
             this.Application.WindowSelectionChange += new Word.ApplicationEvents4_WindowSelectionChangeEventHandler(Application_WindowSelectionChange);
             this.Application.DocumentChange += new Word.ApplicationEvents4_DocumentChangeEventHandler(Application_DocumentChange);
+            this.Application.DocumentBeforeClose += new Word.ApplicationEvents4_DocumentBeforeCloseEventHandler(Application_DocumentBeforeClose);
+
             serializer = new Serializer();
             if (!Deserialize())
             {
@@ -43,9 +45,14 @@ namespace SpeciesMarkupAddIn
             
         }
 
-        private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
+        void Application_DocumentBeforeClose(Word.Document Doc, ref bool Cancel)
         {
             Serialize();
+        }
+
+        private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
+        {
+            
         }
 
         #region VSTO generated code

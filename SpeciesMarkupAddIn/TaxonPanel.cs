@@ -360,26 +360,31 @@ namespace SpeciesMarkupAddIn
         private void btnGenusCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxGenus);
+            Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnSpeciesCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxSpecies);
+            Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnSpeciesAuthorCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxSpeciesAuthor);
+            Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnInfraTaxon1Copy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxInfra1Taxon);
+            Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnInfra1AuthorCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxInfra1Author);
+            Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -435,11 +440,13 @@ namespace SpeciesMarkupAddIn
         private void btnInfra2TaxonCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxInfra2Taxon);
+            Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnInfra2AuthorCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxInfra2Author);
+            Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void radiobuttonInfra2None_CheckedChanged(object sender, EventArgs e)
@@ -478,11 +485,13 @@ namespace SpeciesMarkupAddIn
         private void btnFloweringStartCopy_Click(object sender, EventArgs e)
         {
             CopyMonth(this.comboboxFloweringStart);
+            Globals.ThisAddIn.currentTaxon.FloweringStart = (short)this.comboboxFloweringStart.SelectedIndex;
         }
 
         private void btnFloweringEndCopy_Click(object sender, EventArgs e)
         {
             CopyMonth(this.comboboxFloweringEnd);
+            Globals.ThisAddIn.currentTaxon.FloweringEnd = (short)this.comboboxFloweringEnd.SelectedIndex;
         }
 
         private void btnNotesCopy_Click(object sender, EventArgs e)
@@ -542,20 +551,29 @@ namespace SpeciesMarkupAddIn
 
         private void textboxGenus_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.Genus = this.textboxGenus.Text;
-            Globals.ThisAddIn.UpdateTrackingNumber();
+            if (textboxGenus.Focused)
+            { 
+                Globals.ThisAddIn.currentTaxon.Genus = this.textboxGenus.Text;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
         }
 
         private void textboxSpecies_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.Species = this.textboxSpecies.Text;
-            Globals.ThisAddIn.UpdateTrackingNumber();
+            if (textboxSpecies.Focused)
+            {
+                Globals.ThisAddIn.currentTaxon.Species = this.textboxSpecies.Text;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
         }
 
         private void textboxSpeciesAuthor_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.SpeciesAuthor = this.textboxSpeciesAuthor.Text;
-            Globals.ThisAddIn.UpdateTrackingNumber();
+            if (textboxSpeciesAuthor.Focused)
+            {
+                Globals.ThisAddIn.currentTaxon.SpeciesAuthor = this.textboxSpeciesAuthor.Text;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
         }
 
         private void radiobuttonInfra1Subspecies_CheckedChanged(object sender, EventArgs e)
@@ -585,41 +603,43 @@ namespace SpeciesMarkupAddIn
 
         private void textboxInfra1Taxon_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.Infra1Taxon = this.textboxInfra1Taxon.Text;
-            Globals.ThisAddIn.UpdateTrackingNumber();
+            if (textboxInfra1Taxon.Focused)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra1Taxon = this.textboxInfra1Taxon.Text;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
         }
 
         private void textboxInfra1Author_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.Infra1Author = this.textboxInfra1Author.Text;
-            Globals.ThisAddIn.UpdateTrackingNumber();
+            if (textboxInfra1Author.Focused)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra1Author = this.textboxInfra1Author.Text;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
         }
 
         private void textboxInfra2Taxon_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.Infra2Taxon = this.textboxInfra2Taxon.Text;
-            Globals.ThisAddIn.UpdateTrackingNumber();
+            if (textboxInfra2Taxon.Focused)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra2Taxon = this.textboxInfra2Taxon.Text;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
         }
 
         private void textboxInfra2Author_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.Infra2Author = this.textboxInfra2Author.Text;
-            Globals.ThisAddIn.UpdateTrackingNumber();
+            if (textboxInfra2Author.Focused)
+            {
+                Globals.ThisAddIn.currentTaxon.Infra2Author = this.textboxInfra2Author.Text;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
         }
 
         private void textboxMorphDescription_TextChanged(object sender, EventArgs e)
         {
             Globals.ThisAddIn.currentTaxon.MorphDescription = this.textboxMorphDescription.Text;
-        }
-
-        private void comboboxFloweringStart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Globals.ThisAddIn.currentTaxon.FloweringStart = (short)this.comboboxFloweringStart.SelectedIndex;
-        }
-
-        private void comboboxFloweringEnd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Globals.ThisAddIn.currentTaxon.FloweringEnd = (short)this.comboboxFloweringEnd.SelectedIndex;
         }
 
         private void textboxDistribution_TextChanged(object sender, EventArgs e)
@@ -672,6 +692,16 @@ namespace SpeciesMarkupAddIn
             Globals.ThisAddIn.Serialize();
             Globals.ThisAddIn.currentBatch.MovePrevious();
             LoadCurrentTaxon();
+        }
+
+        private void comboboxFloweringStart_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.FloweringStart = (short)this.comboboxFloweringStart.SelectedIndex;
+        }
+
+        private void comboboxFloweringEnd_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.FloweringEnd = (short)this.comboboxFloweringEnd.SelectedIndex;
         }
 
 
