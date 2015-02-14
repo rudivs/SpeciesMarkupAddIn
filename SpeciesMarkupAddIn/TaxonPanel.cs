@@ -290,15 +290,24 @@ namespace SpeciesMarkupAddIn
             return outMonth;
         }
 
-        private void CopySelection(TextBox textboxTarget)
+        private void CopySelection(TextBox textboxTarget, bool capitalise = true)
         {
-            if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
+            string copyText = Globals.ThisAddIn.currentText;
+            if (!String.IsNullOrWhiteSpace(copyText))
             {
-                textboxTarget.Text = FilterText(Globals.ThisAddIn.currentText).Trim().RemoveInvalidXmlChars();
+                if (capitalise)
+                {
+                    copyText = char.ToUpper(copyText[0]) + copyText.Substring(1);
+                }
+                textboxTarget.Text = FilterText(copyText).Trim().RemoveInvalidXmlChars();
+                if (!textboxTarget.Text.EndsWith("."))
+                {
+                    textboxTarget.Text += ".";
+                }
             }
         }
 
-        private void AddSelection(TextBox textboxTarget, string separator = "", bool capitalise = false)
+        private void AddSelection(TextBox textboxTarget, string separator = "", bool capitalise = true, bool addPeriod = true)
         {
             string copyText = Globals.ThisAddIn.currentText;
             if (!String.IsNullOrWhiteSpace(copyText))
@@ -308,6 +317,10 @@ namespace SpeciesMarkupAddIn
                     copyText = char.ToUpper(copyText[0]) + copyText.Substring(1);
                 }
                 textboxTarget.Text += separator + " " + FilterText(copyText).Trim().RemoveInvalidXmlChars();
+                if (addPeriod & !textboxTarget.Text.EndsWith("."))
+                {
+                    textboxTarget.Text += ".";
+                }
             }
         }
 
@@ -734,11 +747,11 @@ namespace SpeciesMarkupAddIn
         {
             if (!string.IsNullOrWhiteSpace(this.textboxCommonNames.Text))
             {
-                AddSelection(this.textboxCommonNames, ";", true);
+                AddSelection(this.textboxCommonNames, ";", true, false);
             }
             else
             {
-                AddSelection(this.textboxCommonNames,"",true);
+                AddSelection(this.textboxCommonNames,"",true, false);
             }
         }
 
