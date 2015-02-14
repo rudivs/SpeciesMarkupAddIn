@@ -63,6 +63,7 @@ namespace SpeciesMarkupAddIn
             this.textboxInfra2Taxon.Text = Globals.ThisAddIn.currentTaxon.Infra2Taxon;
             this.textboxInfra2Author.Text = Globals.ThisAddIn.currentTaxon.Infra2Author;
             this.textboxMorphDescription.Text = Globals.ThisAddIn.currentTaxon.MorphDescription;
+            this.textboxCommonNames.Text = Globals.ThisAddIn.currentTaxon.CommonNames;
             this.comboboxFloweringStart.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringStart;
             this.comboboxFloweringEnd.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringEnd;
             this.textboxDistribution.Text = Globals.ThisAddIn.currentTaxon.Distribution;
@@ -297,11 +298,16 @@ namespace SpeciesMarkupAddIn
             }
         }
 
-        private void AddSelection(TextBox textboxTarget)
+        private void AddSelection(TextBox textboxTarget, string separator = "", bool capitalise = false)
         {
-            if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
+            string copyText = Globals.ThisAddIn.currentText;
+            if (!String.IsNullOrWhiteSpace(copyText))
             {
-                textboxTarget.Text += " " + FilterText(Globals.ThisAddIn.currentText).Trim().RemoveInvalidXmlChars();
+                if (capitalise)
+                {
+                    copyText = char.ToUpper(copyText[0]) + copyText.Substring(1);
+                }
+                textboxTarget.Text += separator + " " + FilterText(copyText).Trim().RemoveInvalidXmlChars();
             }
         }
 
@@ -717,6 +723,28 @@ namespace SpeciesMarkupAddIn
         private void btnHabitatAdd_Click(object sender, EventArgs e)
         {
             AddSelection(this.textboxHabitat);
+        }
+
+        private void comboboxFloweringEnd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCommonNames_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(this.textboxCommonNames.Text))
+            {
+                AddSelection(this.textboxCommonNames, ";", true);
+            }
+            else
+            {
+                AddSelection(this.textboxCommonNames,"",true);
+            }
+        }
+
+        private void textboxCommonNames_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.CommonNames = this.textboxCommonNames.Text;
         }
 
 

@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.tooltipMorphologicalDescription = new System.Windows.Forms.ToolTip(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnHabitatAdd = new System.Windows.Forms.Button();
+            this.btnMorphDescriptionAdd = new System.Windows.Forms.Button();
+            this.btnDistributionAdd = new System.Windows.Forms.Button();
             this.btnMaxAltCopy = new System.Windows.Forms.Button();
             this.btnMinAltCopy = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -103,9 +106,9 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collectionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnDistributionAdd = new System.Windows.Forms.Button();
-            this.btnMorphDescriptionAdd = new System.Windows.Forms.Button();
-            this.btnHabitatAdd = new System.Windows.Forms.Button();
+            this.textboxCommonNames = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCommonNames = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -123,6 +126,9 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.btnCommonNames);
+            this.panel3.Controls.Add(this.textboxCommonNames);
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btnHabitatAdd);
             this.panel3.Controls.Add(this.btnMorphDescriptionAdd);
             this.panel3.Controls.Add(this.btnDistributionAdd);
@@ -157,13 +163,43 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Location = new System.Drawing.Point(3, 300);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(340, 521);
+            this.panel3.Size = new System.Drawing.Size(340, 572);
             this.panel3.TabIndex = 19;
             this.tooltipMorphologicalDescription.SetToolTip(this.panel3, "Minimum altitude at which taxon is recorded");
             // 
+            // btnHabitatAdd
+            // 
+            this.btnHabitatAdd.Location = new System.Drawing.Point(319, 298);
+            this.btnHabitatAdd.Name = "btnHabitatAdd";
+            this.btnHabitatAdd.Size = new System.Drawing.Size(18, 20);
+            this.btnHabitatAdd.TabIndex = 61;
+            this.btnHabitatAdd.Text = "+";
+            this.btnHabitatAdd.UseVisualStyleBackColor = true;
+            this.btnHabitatAdd.Click += new System.EventHandler(this.btnHabitatAdd_Click);
+            // 
+            // btnMorphDescriptionAdd
+            // 
+            this.btnMorphDescriptionAdd.Location = new System.Drawing.Point(319, 80);
+            this.btnMorphDescriptionAdd.Name = "btnMorphDescriptionAdd";
+            this.btnMorphDescriptionAdd.Size = new System.Drawing.Size(18, 20);
+            this.btnMorphDescriptionAdd.TabIndex = 60;
+            this.btnMorphDescriptionAdd.Text = "+";
+            this.btnMorphDescriptionAdd.UseVisualStyleBackColor = true;
+            this.btnMorphDescriptionAdd.Click += new System.EventHandler(this.btnMorphDescriptionAdd_Click);
+            // 
+            // btnDistributionAdd
+            // 
+            this.btnDistributionAdd.Location = new System.Drawing.Point(319, 215);
+            this.btnDistributionAdd.Name = "btnDistributionAdd";
+            this.btnDistributionAdd.Size = new System.Drawing.Size(18, 20);
+            this.btnDistributionAdd.TabIndex = 59;
+            this.btnDistributionAdd.Text = "+";
+            this.btnDistributionAdd.UseVisualStyleBackColor = true;
+            this.btnDistributionAdd.Click += new System.EventHandler(this.btnDistributionAdd_Click);
+            // 
             // btnMaxAltCopy
             // 
-            this.btnMaxAltCopy.Location = new System.Drawing.Point(319, 331);
+            this.btnMaxAltCopy.Location = new System.Drawing.Point(319, 382);
             this.btnMaxAltCopy.Name = "btnMaxAltCopy";
             this.btnMaxAltCopy.Size = new System.Drawing.Size(18, 20);
             this.btnMaxAltCopy.TabIndex = 58;
@@ -173,7 +209,7 @@
             // 
             // btnMinAltCopy
             // 
-            this.btnMinAltCopy.Location = new System.Drawing.Point(319, 305);
+            this.btnMinAltCopy.Location = new System.Drawing.Point(319, 356);
             this.btnMinAltCopy.Name = "btnMinAltCopy";
             this.btnMinAltCopy.Size = new System.Drawing.Size(18, 20);
             this.btnMinAltCopy.TabIndex = 57;
@@ -184,7 +220,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-1, 334);
+            this.label2.Location = new System.Drawing.Point(-1, 385);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 56;
@@ -194,7 +230,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-1, 308);
+            this.label1.Location = new System.Drawing.Point(-1, 359);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 55;
@@ -203,7 +239,7 @@
             // 
             // textboxMaxAlt
             // 
-            this.textboxMaxAlt.Location = new System.Drawing.Point(86, 331);
+            this.textboxMaxAlt.Location = new System.Drawing.Point(86, 382);
             this.textboxMaxAlt.Name = "textboxMaxAlt";
             this.textboxMaxAlt.Size = new System.Drawing.Size(100, 20);
             this.textboxMaxAlt.TabIndex = 54;
@@ -211,7 +247,7 @@
             // 
             // textboxMinAlt
             // 
-            this.textboxMinAlt.Location = new System.Drawing.Point(86, 305);
+            this.textboxMinAlt.Location = new System.Drawing.Point(86, 356);
             this.textboxMinAlt.Name = "textboxMinAlt";
             this.textboxMinAlt.Size = new System.Drawing.Size(100, 20);
             this.textboxMinAlt.TabIndex = 53;
@@ -220,16 +256,17 @@
             // comboboxFloweringEnd
             // 
             this.comboboxFloweringEnd.FormattingEnabled = true;
-            this.comboboxFloweringEnd.Location = new System.Drawing.Point(86, 112);
+            this.comboboxFloweringEnd.Location = new System.Drawing.Point(86, 163);
             this.comboboxFloweringEnd.Name = "comboboxFloweringEnd";
             this.comboboxFloweringEnd.Size = new System.Drawing.Size(227, 21);
             this.comboboxFloweringEnd.TabIndex = 52;
+            this.comboboxFloweringEnd.SelectedIndexChanged += new System.EventHandler(this.comboboxFloweringEnd_SelectedIndexChanged);
             this.comboboxFloweringEnd.SelectionChangeCommitted += new System.EventHandler(this.comboboxFloweringEnd_SelectionChangeCommitted);
             // 
             // comboboxFloweringStart
             // 
             this.comboboxFloweringStart.FormattingEnabled = true;
-            this.comboboxFloweringStart.Location = new System.Drawing.Point(86, 86);
+            this.comboboxFloweringStart.Location = new System.Drawing.Point(86, 137);
             this.comboboxFloweringStart.Name = "comboboxFloweringStart";
             this.comboboxFloweringStart.Size = new System.Drawing.Size(227, 21);
             this.comboboxFloweringStart.TabIndex = 51;
@@ -237,7 +274,7 @@
             // 
             // btnVouchersAdd
             // 
-            this.btnVouchersAdd.Location = new System.Drawing.Point(319, 465);
+            this.btnVouchersAdd.Location = new System.Drawing.Point(319, 516);
             this.btnVouchersAdd.Name = "btnVouchersAdd";
             this.btnVouchersAdd.Size = new System.Drawing.Size(18, 20);
             this.btnVouchersAdd.TabIndex = 47;
@@ -247,7 +284,7 @@
             // 
             // btnVouchersCopy
             // 
-            this.btnVouchersCopy.Location = new System.Drawing.Point(319, 439);
+            this.btnVouchersCopy.Location = new System.Drawing.Point(319, 490);
             this.btnVouchersCopy.Name = "btnVouchersCopy";
             this.btnVouchersCopy.Size = new System.Drawing.Size(18, 20);
             this.btnVouchersCopy.TabIndex = 46;
@@ -257,7 +294,7 @@
             // 
             // textboxVouchers
             // 
-            this.textboxVouchers.Location = new System.Drawing.Point(86, 441);
+            this.textboxVouchers.Location = new System.Drawing.Point(86, 492);
             this.textboxVouchers.Multiline = true;
             this.textboxVouchers.Name = "textboxVouchers";
             this.textboxVouchers.Size = new System.Drawing.Size(227, 77);
@@ -267,7 +304,7 @@
             // 
             // label19
             // 
-            this.label19.Location = new System.Drawing.Point(-1, 444);
+            this.label19.Location = new System.Drawing.Point(-1, 495);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 13);
             this.label19.TabIndex = 45;
@@ -276,7 +313,7 @@
             // 
             // btnNotesAdd
             // 
-            this.btnNotesAdd.Location = new System.Drawing.Point(319, 382);
+            this.btnNotesAdd.Location = new System.Drawing.Point(319, 433);
             this.btnNotesAdd.Name = "btnNotesAdd";
             this.btnNotesAdd.Size = new System.Drawing.Size(18, 20);
             this.btnNotesAdd.TabIndex = 43;
@@ -286,7 +323,7 @@
             // 
             // btnNotesCopy
             // 
-            this.btnNotesCopy.Location = new System.Drawing.Point(319, 356);
+            this.btnNotesCopy.Location = new System.Drawing.Point(319, 407);
             this.btnNotesCopy.Name = "btnNotesCopy";
             this.btnNotesCopy.Size = new System.Drawing.Size(18, 20);
             this.btnNotesCopy.TabIndex = 42;
@@ -296,7 +333,7 @@
             // 
             // textboxNotes
             // 
-            this.textboxNotes.Location = new System.Drawing.Point(86, 357);
+            this.textboxNotes.Location = new System.Drawing.Point(86, 408);
             this.textboxNotes.Multiline = true;
             this.textboxNotes.Name = "textboxNotes";
             this.textboxNotes.Size = new System.Drawing.Size(227, 77);
@@ -306,7 +343,7 @@
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(-1, 361);
+            this.label18.Location = new System.Drawing.Point(-1, 412);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(75, 13);
             this.label18.TabIndex = 41;
@@ -315,7 +352,7 @@
             // 
             // btnFloweringEndCopy
             // 
-            this.btnFloweringEndCopy.Location = new System.Drawing.Point(319, 110);
+            this.btnFloweringEndCopy.Location = new System.Drawing.Point(319, 161);
             this.btnFloweringEndCopy.Name = "btnFloweringEndCopy";
             this.btnFloweringEndCopy.Size = new System.Drawing.Size(18, 20);
             this.btnFloweringEndCopy.TabIndex = 39;
@@ -325,7 +362,7 @@
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(-1, 115);
+            this.label17.Location = new System.Drawing.Point(-1, 166);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(81, 13);
             this.label17.TabIndex = 38;
@@ -334,7 +371,7 @@
             // 
             // btnFloweringStartCopy
             // 
-            this.btnFloweringStartCopy.Location = new System.Drawing.Point(319, 84);
+            this.btnFloweringStartCopy.Location = new System.Drawing.Point(319, 135);
             this.btnFloweringStartCopy.Name = "btnFloweringStartCopy";
             this.btnFloweringStartCopy.Size = new System.Drawing.Size(18, 20);
             this.btnFloweringStartCopy.TabIndex = 36;
@@ -344,7 +381,7 @@
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(-1, 89);
+            this.label16.Location = new System.Drawing.Point(-1, 140);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 13);
             this.label16.TabIndex = 35;
@@ -353,7 +390,7 @@
             // 
             // btnHabitatCopy
             // 
-            this.btnHabitatCopy.Location = new System.Drawing.Point(319, 221);
+            this.btnHabitatCopy.Location = new System.Drawing.Point(319, 272);
             this.btnHabitatCopy.Name = "btnHabitatCopy";
             this.btnHabitatCopy.Size = new System.Drawing.Size(18, 20);
             this.btnHabitatCopy.TabIndex = 33;
@@ -363,7 +400,7 @@
             // 
             // textboxHabitat
             // 
-            this.textboxHabitat.Location = new System.Drawing.Point(86, 222);
+            this.textboxHabitat.Location = new System.Drawing.Point(86, 273);
             this.textboxHabitat.Multiline = true;
             this.textboxHabitat.Name = "textboxHabitat";
             this.textboxHabitat.Size = new System.Drawing.Size(227, 77);
@@ -373,7 +410,7 @@
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(-1, 226);
+            this.label15.Location = new System.Drawing.Point(-1, 277);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(75, 13);
             this.label15.TabIndex = 32;
@@ -382,7 +419,7 @@
             // 
             // btnDistributionCopy
             // 
-            this.btnDistributionCopy.Location = new System.Drawing.Point(319, 138);
+            this.btnDistributionCopy.Location = new System.Drawing.Point(319, 189);
             this.btnDistributionCopy.Name = "btnDistributionCopy";
             this.btnDistributionCopy.Size = new System.Drawing.Size(18, 20);
             this.btnDistributionCopy.TabIndex = 30;
@@ -392,7 +429,7 @@
             // 
             // textboxDistribution
             // 
-            this.textboxDistribution.Location = new System.Drawing.Point(86, 139);
+            this.textboxDistribution.Location = new System.Drawing.Point(86, 190);
             this.textboxDistribution.Multiline = true;
             this.textboxDistribution.Name = "textboxDistribution";
             this.textboxDistribution.Size = new System.Drawing.Size(227, 77);
@@ -402,7 +439,7 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(-1, 143);
+            this.label14.Location = new System.Drawing.Point(-1, 194);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 29;
@@ -411,7 +448,7 @@
             // 
             // btnMorphDescriptionCopy
             // 
-            this.btnMorphDescriptionCopy.Location = new System.Drawing.Point(319, 3);
+            this.btnMorphDescriptionCopy.Location = new System.Drawing.Point(319, 54);
             this.btnMorphDescriptionCopy.Name = "btnMorphDescriptionCopy";
             this.btnMorphDescriptionCopy.Size = new System.Drawing.Size(18, 20);
             this.btnMorphDescriptionCopy.TabIndex = 27;
@@ -421,7 +458,7 @@
             // 
             // textboxMorphDescription
             // 
-            this.textboxMorphDescription.Location = new System.Drawing.Point(86, 3);
+            this.textboxMorphDescription.Location = new System.Drawing.Point(86, 54);
             this.textboxMorphDescription.Multiline = true;
             this.textboxMorphDescription.Name = "textboxMorphDescription";
             this.textboxMorphDescription.Size = new System.Drawing.Size(227, 77);
@@ -431,11 +468,11 @@
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(-1, 7);
+            this.label13.Location = new System.Drawing.Point(-1, 58);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.Size = new System.Drawing.Size(75, 32);
             this.label13.TabIndex = 26;
-            this.label13.Text = "Morph. Descr.";
+            this.label13.Text = "Morphological Description";
             this.tooltipMorphologicalDescription.SetToolTip(this.label13, "Morphological Description");
             // 
             // panelInfraspecific1
@@ -821,7 +858,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 830);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 883);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // panel4
@@ -874,35 +911,33 @@
             // 
             this.collectionDataBindingSource.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
             // 
-            // btnDistributionAdd
+            // textboxCommonNames
             // 
-            this.btnDistributionAdd.Location = new System.Drawing.Point(319, 164);
-            this.btnDistributionAdd.Name = "btnDistributionAdd";
-            this.btnDistributionAdd.Size = new System.Drawing.Size(18, 20);
-            this.btnDistributionAdd.TabIndex = 59;
-            this.btnDistributionAdd.Text = "+";
-            this.btnDistributionAdd.UseVisualStyleBackColor = true;
-            this.btnDistributionAdd.Click += new System.EventHandler(this.btnDistributionAdd_Click);
+            this.textboxCommonNames.Location = new System.Drawing.Point(86, 3);
+            this.textboxCommonNames.Multiline = true;
+            this.textboxCommonNames.Name = "textboxCommonNames";
+            this.textboxCommonNames.Size = new System.Drawing.Size(227, 45);
+            this.textboxCommonNames.TabIndex = 62;
+            this.textboxCommonNames.TextChanged += new System.EventHandler(this.textboxCommonNames_TextChanged);
             // 
-            // btnMorphDescriptionAdd
+            // label3
             // 
-            this.btnMorphDescriptionAdd.Location = new System.Drawing.Point(319, 29);
-            this.btnMorphDescriptionAdd.Name = "btnMorphDescriptionAdd";
-            this.btnMorphDescriptionAdd.Size = new System.Drawing.Size(18, 20);
-            this.btnMorphDescriptionAdd.TabIndex = 60;
-            this.btnMorphDescriptionAdd.Text = "+";
-            this.btnMorphDescriptionAdd.UseVisualStyleBackColor = true;
-            this.btnMorphDescriptionAdd.Click += new System.EventHandler(this.btnMorphDescriptionAdd_Click);
+            this.label3.Location = new System.Drawing.Point(-1, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 28);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "Common Names";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label3, "Common Names");
             // 
-            // btnHabitatAdd
+            // btnCommonNames
             // 
-            this.btnHabitatAdd.Location = new System.Drawing.Point(319, 247);
-            this.btnHabitatAdd.Name = "btnHabitatAdd";
-            this.btnHabitatAdd.Size = new System.Drawing.Size(18, 20);
-            this.btnHabitatAdd.TabIndex = 61;
-            this.btnHabitatAdd.Text = "+";
-            this.btnHabitatAdd.UseVisualStyleBackColor = true;
-            this.btnHabitatAdd.Click += new System.EventHandler(this.btnHabitatAdd_Click);
+            this.btnCommonNames.Location = new System.Drawing.Point(319, 3);
+            this.btnCommonNames.Name = "btnCommonNames";
+            this.btnCommonNames.Size = new System.Drawing.Size(18, 20);
+            this.btnCommonNames.TabIndex = 64;
+            this.btnCommonNames.Text = "+";
+            this.btnCommonNames.UseVisualStyleBackColor = true;
+            this.btnCommonNames.Click += new System.EventHandler(this.btnCommonNames_Click);
             // 
             // TaxonPanel
             // 
@@ -912,7 +947,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TaxonPanel";
-            this.Size = new System.Drawing.Size(363, 877);
+            this.Size = new System.Drawing.Size(363, 939);
             this.Load += new System.EventHandler(this.TaxonPanel_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1016,5 +1051,8 @@
         private System.Windows.Forms.Button btnHabitatAdd;
         private System.Windows.Forms.Button btnMorphDescriptionAdd;
         private System.Windows.Forms.Button btnDistributionAdd;
+        private System.Windows.Forms.Button btnCommonNames;
+        private System.Windows.Forms.TextBox textboxCommonNames;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -32,6 +32,7 @@ namespace SpeciesMarkupAddIn
         public string Infra2Rank { get; set; }
         public string Infra2Taxon { get; set; }
         public string Infra2Author { get; set; }
+        public string CommonNames { get; set; }
         public string MorphDescription { get; set; }
         public short FloweringStart { get; set; }
         public short FloweringEnd { get; set; }
