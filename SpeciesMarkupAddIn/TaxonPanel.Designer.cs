@@ -634,9 +634,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(-1, 72);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 13);
+            this.label12.Size = new System.Drawing.Size(75, 13);
             this.label12.TabIndex = 29;
-            this.label12.Text = "Infra. Rank 2";
+            this.label12.Text = "Infra. Rank 2  ";
             this.tooltipMorphologicalDescription.SetToolTip(this.label12, "Infraspecific Rank 2");
             // 
             // groupBox2
@@ -709,9 +709,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(-1, 99);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 21;
-            this.label7.Text = "Infra. Rank 1";
+            this.label7.Text = "Infra. Rank 1  ";
             this.tooltipMorphologicalDescription.SetToolTip(this.label7, "Infraspecific Rank 1");
             // 
             // label6
@@ -980,6 +980,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TaxonPanel";
