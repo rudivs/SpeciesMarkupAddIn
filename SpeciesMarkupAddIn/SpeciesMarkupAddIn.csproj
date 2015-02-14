@@ -36,15 +36,15 @@
     <PublishUrl>C:\Users\rudi_000\Dropbox\Dev\Species Text Markup\Publish\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>0.8.0.1</ApplicationVersion>
+    <ApplicationVersion>0.9.0.0</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>SpeciesMarkupAddIn</ProductName>
-    <PublisherName />
+    <ProductName>Taxon Markup AddIn</ProductName>
+    <PublisherName>Rudi von Staden</PublisherName>
     <SupportUrl />
-    <FriendlyName>SpeciesMarkupAddIn</FriendlyName>
+    <FriendlyName>Taxon Markup AddIn</FriendlyName>
     <OfficeApplicationDescription />
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
