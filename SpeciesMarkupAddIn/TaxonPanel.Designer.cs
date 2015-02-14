@@ -109,6 +109,9 @@
             this.textboxCommonNames = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCommonNames = new System.Windows.Forms.Button();
+            this.btnChromosomeNumberCopy = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textboxChromosomeNumber = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -126,6 +129,9 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.btnChromosomeNumberCopy);
+            this.panel3.Controls.Add(this.label20);
+            this.panel3.Controls.Add(this.textboxChromosomeNumber);
             this.panel3.Controls.Add(this.btnCommonNames);
             this.panel3.Controls.Add(this.textboxCommonNames);
             this.panel3.Controls.Add(this.label3);
@@ -163,13 +169,13 @@
             this.panel3.Controls.Add(this.label13);
             this.panel3.Location = new System.Drawing.Point(3, 300);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(340, 572);
+            this.panel3.Size = new System.Drawing.Size(340, 598);
             this.panel3.TabIndex = 19;
             this.tooltipMorphologicalDescription.SetToolTip(this.panel3, "Minimum altitude at which taxon is recorded");
             // 
             // btnHabitatAdd
             // 
-            this.btnHabitatAdd.Location = new System.Drawing.Point(319, 298);
+            this.btnHabitatAdd.Location = new System.Drawing.Point(319, 324);
             this.btnHabitatAdd.Name = "btnHabitatAdd";
             this.btnHabitatAdd.Size = new System.Drawing.Size(18, 20);
             this.btnHabitatAdd.TabIndex = 61;
@@ -189,7 +195,7 @@
             // 
             // btnDistributionAdd
             // 
-            this.btnDistributionAdd.Location = new System.Drawing.Point(319, 215);
+            this.btnDistributionAdd.Location = new System.Drawing.Point(319, 241);
             this.btnDistributionAdd.Name = "btnDistributionAdd";
             this.btnDistributionAdd.Size = new System.Drawing.Size(18, 20);
             this.btnDistributionAdd.TabIndex = 59;
@@ -199,7 +205,7 @@
             // 
             // btnMaxAltCopy
             // 
-            this.btnMaxAltCopy.Location = new System.Drawing.Point(319, 382);
+            this.btnMaxAltCopy.Location = new System.Drawing.Point(319, 408);
             this.btnMaxAltCopy.Name = "btnMaxAltCopy";
             this.btnMaxAltCopy.Size = new System.Drawing.Size(18, 20);
             this.btnMaxAltCopy.TabIndex = 58;
@@ -209,7 +215,7 @@
             // 
             // btnMinAltCopy
             // 
-            this.btnMinAltCopy.Location = new System.Drawing.Point(319, 356);
+            this.btnMinAltCopy.Location = new System.Drawing.Point(319, 382);
             this.btnMinAltCopy.Name = "btnMinAltCopy";
             this.btnMinAltCopy.Size = new System.Drawing.Size(18, 20);
             this.btnMinAltCopy.TabIndex = 57;
@@ -220,7 +226,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-1, 385);
+            this.label2.Location = new System.Drawing.Point(-1, 411);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 56;
@@ -230,7 +236,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-1, 359);
+            this.label1.Location = new System.Drawing.Point(-1, 385);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 55;
@@ -239,7 +245,7 @@
             // 
             // textboxMaxAlt
             // 
-            this.textboxMaxAlt.Location = new System.Drawing.Point(86, 382);
+            this.textboxMaxAlt.Location = new System.Drawing.Point(86, 408);
             this.textboxMaxAlt.Name = "textboxMaxAlt";
             this.textboxMaxAlt.Size = new System.Drawing.Size(100, 20);
             this.textboxMaxAlt.TabIndex = 54;
@@ -247,7 +253,7 @@
             // 
             // textboxMinAlt
             // 
-            this.textboxMinAlt.Location = new System.Drawing.Point(86, 356);
+            this.textboxMinAlt.Location = new System.Drawing.Point(86, 382);
             this.textboxMinAlt.Name = "textboxMinAlt";
             this.textboxMinAlt.Size = new System.Drawing.Size(100, 20);
             this.textboxMinAlt.TabIndex = 53;
@@ -274,7 +280,7 @@
             // 
             // btnVouchersAdd
             // 
-            this.btnVouchersAdd.Location = new System.Drawing.Point(319, 516);
+            this.btnVouchersAdd.Location = new System.Drawing.Point(319, 542);
             this.btnVouchersAdd.Name = "btnVouchersAdd";
             this.btnVouchersAdd.Size = new System.Drawing.Size(18, 20);
             this.btnVouchersAdd.TabIndex = 47;
@@ -284,7 +290,7 @@
             // 
             // btnVouchersCopy
             // 
-            this.btnVouchersCopy.Location = new System.Drawing.Point(319, 490);
+            this.btnVouchersCopy.Location = new System.Drawing.Point(319, 516);
             this.btnVouchersCopy.Name = "btnVouchersCopy";
             this.btnVouchersCopy.Size = new System.Drawing.Size(18, 20);
             this.btnVouchersCopy.TabIndex = 46;
@@ -294,7 +300,7 @@
             // 
             // textboxVouchers
             // 
-            this.textboxVouchers.Location = new System.Drawing.Point(86, 492);
+            this.textboxVouchers.Location = new System.Drawing.Point(86, 518);
             this.textboxVouchers.Multiline = true;
             this.textboxVouchers.Name = "textboxVouchers";
             this.textboxVouchers.Size = new System.Drawing.Size(227, 77);
@@ -304,7 +310,7 @@
             // 
             // label19
             // 
-            this.label19.Location = new System.Drawing.Point(-1, 495);
+            this.label19.Location = new System.Drawing.Point(-1, 521);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(75, 13);
             this.label19.TabIndex = 45;
@@ -313,7 +319,7 @@
             // 
             // btnNotesAdd
             // 
-            this.btnNotesAdd.Location = new System.Drawing.Point(319, 433);
+            this.btnNotesAdd.Location = new System.Drawing.Point(319, 459);
             this.btnNotesAdd.Name = "btnNotesAdd";
             this.btnNotesAdd.Size = new System.Drawing.Size(18, 20);
             this.btnNotesAdd.TabIndex = 43;
@@ -323,7 +329,7 @@
             // 
             // btnNotesCopy
             // 
-            this.btnNotesCopy.Location = new System.Drawing.Point(319, 407);
+            this.btnNotesCopy.Location = new System.Drawing.Point(319, 433);
             this.btnNotesCopy.Name = "btnNotesCopy";
             this.btnNotesCopy.Size = new System.Drawing.Size(18, 20);
             this.btnNotesCopy.TabIndex = 42;
@@ -333,7 +339,7 @@
             // 
             // textboxNotes
             // 
-            this.textboxNotes.Location = new System.Drawing.Point(86, 408);
+            this.textboxNotes.Location = new System.Drawing.Point(86, 434);
             this.textboxNotes.Multiline = true;
             this.textboxNotes.Name = "textboxNotes";
             this.textboxNotes.Size = new System.Drawing.Size(227, 77);
@@ -343,7 +349,7 @@
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(-1, 412);
+            this.label18.Location = new System.Drawing.Point(-1, 438);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(75, 27);
             this.label18.TabIndex = 41;
@@ -389,7 +395,7 @@
             // 
             // btnHabitatCopy
             // 
-            this.btnHabitatCopy.Location = new System.Drawing.Point(319, 272);
+            this.btnHabitatCopy.Location = new System.Drawing.Point(319, 298);
             this.btnHabitatCopy.Name = "btnHabitatCopy";
             this.btnHabitatCopy.Size = new System.Drawing.Size(18, 20);
             this.btnHabitatCopy.TabIndex = 33;
@@ -399,7 +405,7 @@
             // 
             // textboxHabitat
             // 
-            this.textboxHabitat.Location = new System.Drawing.Point(86, 273);
+            this.textboxHabitat.Location = new System.Drawing.Point(86, 299);
             this.textboxHabitat.Multiline = true;
             this.textboxHabitat.Name = "textboxHabitat";
             this.textboxHabitat.Size = new System.Drawing.Size(227, 77);
@@ -409,7 +415,7 @@
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(-1, 277);
+            this.label15.Location = new System.Drawing.Point(-1, 303);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(75, 13);
             this.label15.TabIndex = 32;
@@ -417,7 +423,7 @@
             // 
             // btnDistributionCopy
             // 
-            this.btnDistributionCopy.Location = new System.Drawing.Point(319, 189);
+            this.btnDistributionCopy.Location = new System.Drawing.Point(319, 215);
             this.btnDistributionCopy.Name = "btnDistributionCopy";
             this.btnDistributionCopy.Size = new System.Drawing.Size(18, 20);
             this.btnDistributionCopy.TabIndex = 30;
@@ -427,7 +433,7 @@
             // 
             // textboxDistribution
             // 
-            this.textboxDistribution.Location = new System.Drawing.Point(86, 190);
+            this.textboxDistribution.Location = new System.Drawing.Point(86, 216);
             this.textboxDistribution.Multiline = true;
             this.textboxDistribution.Name = "textboxDistribution";
             this.textboxDistribution.Size = new System.Drawing.Size(227, 77);
@@ -437,11 +443,12 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(-1, 194);
+            this.label14.Location = new System.Drawing.Point(-1, 220);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 29;
             this.label14.Text = "Distribution";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // btnMorphDescriptionCopy
             // 
@@ -860,7 +867,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 883);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 906);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // panel4
@@ -921,6 +928,7 @@
             this.textboxCommonNames.Size = new System.Drawing.Size(227, 45);
             this.textboxCommonNames.TabIndex = 62;
             this.textboxCommonNames.TextChanged += new System.EventHandler(this.textboxCommonNames_TextChanged);
+            this.textboxCommonNames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxCommonNames_MouseDoubleClick);
             // 
             // label3
             // 
@@ -940,6 +948,33 @@
             this.btnCommonNames.UseVisualStyleBackColor = true;
             this.btnCommonNames.Click += new System.EventHandler(this.btnCommonNames_Click);
             // 
+            // btnChromosomeNumberCopy
+            // 
+            this.btnChromosomeNumberCopy.Location = new System.Drawing.Point(319, 190);
+            this.btnChromosomeNumberCopy.Name = "btnChromosomeNumberCopy";
+            this.btnChromosomeNumberCopy.Size = new System.Drawing.Size(18, 20);
+            this.btnChromosomeNumberCopy.TabIndex = 67;
+            this.btnChromosomeNumberCopy.Text = "<";
+            this.btnChromosomeNumberCopy.UseVisualStyleBackColor = true;
+            this.btnChromosomeNumberCopy.Click += new System.EventHandler(this.btnChromosomeNumberCopy_Click);
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(0, 194);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(80, 13);
+            this.label20.TabIndex = 66;
+            this.label20.Text = "Chromos. No.";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label20, "Chromosome Number");
+            // 
+            // textboxChromosomeNumber
+            // 
+            this.textboxChromosomeNumber.Location = new System.Drawing.Point(86, 190);
+            this.textboxChromosomeNumber.Name = "textboxChromosomeNumber";
+            this.textboxChromosomeNumber.Size = new System.Drawing.Size(227, 20);
+            this.textboxChromosomeNumber.TabIndex = 65;
+            this.textboxChromosomeNumber.TextChanged += new System.EventHandler(this.textboxChromosomeNumber_TextChanged);
+            // 
             // TaxonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -948,7 +983,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TaxonPanel";
-            this.Size = new System.Drawing.Size(363, 939);
+            this.Size = new System.Drawing.Size(363, 961);
             this.Load += new System.EventHandler(this.TaxonPanel_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1055,5 +1090,8 @@
         private System.Windows.Forms.Button btnCommonNames;
         private System.Windows.Forms.TextBox textboxCommonNames;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnChromosomeNumberCopy;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textboxChromosomeNumber;
     }
 }

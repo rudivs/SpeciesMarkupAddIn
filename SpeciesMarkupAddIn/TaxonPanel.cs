@@ -66,6 +66,7 @@ namespace SpeciesMarkupAddIn
             this.textboxCommonNames.Text = Globals.ThisAddIn.currentTaxon.CommonNames;
             this.comboboxFloweringStart.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringStart;
             this.comboboxFloweringEnd.SelectedIndex = Globals.ThisAddIn.currentTaxon.FloweringEnd;
+            this.textboxChromosomeNumber.Text = Globals.ThisAddIn.currentTaxon.ChromosomeNumber;
             this.textboxDistribution.Text = Globals.ThisAddIn.currentTaxon.Distribution;
             this.textboxHabitat.Text = Globals.ThisAddIn.currentTaxon.Habitat;
             this.textboxMinAlt.Text = Globals.ThisAddIn.currentTaxon.MinAlt.ToString();
@@ -766,6 +767,26 @@ namespace SpeciesMarkupAddIn
         private void textboxCommonNames_TextChanged(object sender, EventArgs e)
         {
             Globals.ThisAddIn.currentTaxon.CommonNames = this.textboxCommonNames.Text;
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textboxCommonNames_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditText(this.textboxCommonNames);
+        }
+
+        private void textboxChromosomeNumber_TextChanged(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.currentTaxon.ChromosomeNumber = this.textboxChromosomeNumber.Text;
+        }
+
+        private void btnChromosomeNumberCopy_Click(object sender, EventArgs e)
+        {
+            CopySelection(this.textboxChromosomeNumber,false);
         }
 
 

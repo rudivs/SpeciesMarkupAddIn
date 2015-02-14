@@ -36,6 +36,7 @@ namespace SpeciesMarkupAddIn
         public string MorphDescription { get; set; }
         public short FloweringStart { get; set; }
         public short FloweringEnd { get; set; }
+        public string ChromosomeNumber { get; set; }
         public string Distribution { get; set; }
         public string Habitat { get; set; }
         public int MinAlt { get; set; }
