@@ -310,13 +310,18 @@ namespace SpeciesMarkupAddIn
         private void AddSelection(TextBox textboxTarget, string separator = "", bool capitalise = true, bool addPeriod = true)
         {
             string copyText = Globals.ThisAddIn.currentText;
+            string spaceChar = " ";
+            if (String.IsNullOrWhiteSpace(textboxTarget.Text))
+            {
+                spaceChar = "";
+            }
             if (!String.IsNullOrWhiteSpace(copyText))
             {
                 if (capitalise)
                 {
                     copyText = char.ToUpper(copyText[0]) + copyText.Substring(1);
                 }
-                textboxTarget.Text += separator + " " + FilterText(copyText).Trim().RemoveInvalidXmlChars();
+                textboxTarget.Text += separator + spaceChar + FilterText(copyText).Trim().RemoveInvalidXmlChars();
                 if (addPeriod & !textboxTarget.Text.EndsWith("."))
                 {
                     textboxTarget.Text += ".";
