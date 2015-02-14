@@ -128,9 +128,6 @@ namespace SpeciesMarkupAddIn
 
             // add spaces between digits and multiplication signs (e.g. 3x5 -> 3 x 5)
             filteredText = Regex.Replace(filteredText, @"(\d) ?[xX\*\u2022\u00D7] ?(\d)", "$1 x $2");
-
-            // remove invisible characters (optional hyphens, etc.)
-            filteredText = Regex.Replace(filteredText, @"[^\w\s.,!@#$%^&*()-=+~`]", "");
             
             return filteredText;
         }
