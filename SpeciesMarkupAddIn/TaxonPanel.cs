@@ -298,7 +298,7 @@ namespace SpeciesMarkupAddIn
                     copyText = char.ToUpper(copyText[0]) + copyText.Substring(1);
                 }
                 textboxTarget.Text = FilterText(copyText).Trim().RemoveInvalidXmlChars();
-                if (!textboxTarget.Text.EndsWith("."))
+                if (capitalise & !textboxTarget.Text.EndsWith("."))
                 {
                     textboxTarget.Text += ".";
                 }
@@ -387,31 +387,31 @@ namespace SpeciesMarkupAddIn
 
         private void btnGenusCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(this.textboxGenus);
+            CopySelection(this.textboxGenus,false);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnSpeciesCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(this.textboxSpecies);
+            CopySelection(this.textboxSpecies, false);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnSpeciesAuthorCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(this.textboxSpeciesAuthor);
+            CopySelection(this.textboxSpeciesAuthor,false);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnInfraTaxon1Copy_Click(object sender, EventArgs e)
         {
-            CopySelection(this.textboxInfra1Taxon);
+            CopySelection(this.textboxInfra1Taxon,false);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnInfra1AuthorCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(this.textboxInfra1Author);
+            CopySelection(this.textboxInfra1Author,false);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
@@ -467,13 +467,13 @@ namespace SpeciesMarkupAddIn
 
         private void btnInfra2TaxonCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(this.textboxInfra2Taxon);
+            CopySelection(this.textboxInfra2Taxon,false);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
         private void btnInfra2AuthorCopy_Click(object sender, EventArgs e)
         {
-            CopySelection(this.textboxInfra2Author);
+            CopySelection(this.textboxInfra2Author,false);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
