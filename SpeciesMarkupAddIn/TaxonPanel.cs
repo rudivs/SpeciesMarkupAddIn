@@ -326,11 +326,15 @@ namespace SpeciesMarkupAddIn
 
         private void CopyNumber(TextBox textboxTarget)
         {
+            NumberStyles style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+            CultureInfo provider = new CultureInfo("en-US");
+
             if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentText))
             {
                 bool is_ft = false;
                 string inputString = Globals.ThisAddIn.currentText.Trim();
-                string cleanString = inputString.Clean();
+                //string cleanString = inputString.Clean();
+                string cleanString = Regex.Replace(inputString, @"\s+", "");
                 if (cleanString.Last(2) == "ft")
                 {
                     is_ft = true;
@@ -341,7 +345,9 @@ namespace SpeciesMarkupAddIn
                     is_ft = false;
                     cleanString = cleanString.ExceptLast(1);
                 }
-                int numberValue = Int32.Parse(cleanString.Trim());
+                
+                decimal decimalValue = Decimal.Parse(cleanString.Trim(), style, provider);
+                int numberValue = (Int32)Math.Round(decimalValue,0,MidpointRounding.AwayFromZero);
                 if (is_ft)
                 {
                     numberValue = (Int32)Math.Round((numberValue * 0.3048),0,MidpointRounding.AwayFromZero);
