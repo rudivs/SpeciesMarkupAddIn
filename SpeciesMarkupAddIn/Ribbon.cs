@@ -52,5 +52,17 @@ namespace SpeciesMarkupAddIn
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
         }
+
+        private void btnCopyPreviousGenus_Click(object sender, RibbonControlEventArgs e)
+        {
+            int index = Globals.ThisAddIn.currentBatch.Index;
+            if (index > 0)
+            {
+                Taxon previousTaxon = Globals.ThisAddIn.currentBatch.GetByIndex(index - 1);
+                Control taxonPanel = Globals.ThisAddIn.myTaxonPanel.Controls[1].Controls[0];
+                taxonPanel.Controls["textboxGenus"].Text = previousTaxon.Genus;
+                Globals.ThisAddIn.UpdateTrackingNumber();
+            }
+        }
     }
 }

@@ -37,14 +37,17 @@
             this.tabTaxonMarkup = this.Factory.CreateRibbonTab();
             this.grpDisplay = this.Factory.CreateRibbonGroup();
             this.checkboxDisplayTaxonPanel = this.Factory.CreateRibbonCheckBox();
+            this.grpData = this.Factory.CreateRibbonGroup();
             this.grpExport = this.Factory.CreateRibbonGroup();
-            this.grpProcess = this.Factory.CreateRibbonGroup();
             this.btnDeleteCurrent = this.Factory.CreateRibbonButton();
             this.btnClearBatch = this.Factory.CreateRibbonButton();
-            this.btnExportExcel = this.Factory.CreateRibbonButton();
             this.btnCopyPrevious = this.Factory.CreateRibbonButton();
+            this.btnExportExcel = this.Factory.CreateRibbonButton();
+            this.btnCopyPreviousGenus = this.Factory.CreateRibbonButton();
+            this.grpProcess = this.Factory.CreateRibbonGroup();
             this.tabTaxonMarkup.SuspendLayout();
             this.grpDisplay.SuspendLayout();
+            this.grpData.SuspendLayout();
             this.grpExport.SuspendLayout();
             this.grpProcess.SuspendLayout();
             // 
@@ -52,6 +55,7 @@
             // 
             this.tabTaxonMarkup.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tabTaxonMarkup.Groups.Add(this.grpDisplay);
+            this.tabTaxonMarkup.Groups.Add(this.grpData);
             this.tabTaxonMarkup.Groups.Add(this.grpProcess);
             this.tabTaxonMarkup.Groups.Add(this.grpExport);
             this.tabTaxonMarkup.Label = "Taxon Markup";
@@ -69,19 +73,18 @@
             this.checkboxDisplayTaxonPanel.Name = "checkboxDisplayTaxonPanel";
             this.checkboxDisplayTaxonPanel.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.checkboxDisplayTaxonPanel_Click);
             // 
+            // grpData
+            // 
+            this.grpData.Items.Add(this.btnDeleteCurrent);
+            this.grpData.Items.Add(this.btnClearBatch);
+            this.grpData.Label = "Data Management";
+            this.grpData.Name = "grpData";
+            // 
             // grpExport
             // 
             this.grpExport.Items.Add(this.btnExportExcel);
             this.grpExport.Label = "Export";
             this.grpExport.Name = "grpExport";
-            // 
-            // grpProcess
-            // 
-            this.grpProcess.Items.Add(this.btnDeleteCurrent);
-            this.grpProcess.Items.Add(this.btnClearBatch);
-            this.grpProcess.Items.Add(this.btnCopyPrevious);
-            this.grpProcess.Label = "Process";
-            this.grpProcess.Name = "grpProcess";
             // 
             // btnDeleteCurrent
             // 
@@ -95,6 +98,12 @@
             this.btnClearBatch.Name = "btnClearBatch";
             this.btnClearBatch.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnClearBatch_Click);
             // 
+            // btnCopyPrevious
+            // 
+            this.btnCopyPrevious.Label = "Copy Previous Species Name";
+            this.btnCopyPrevious.Name = "btnCopyPrevious";
+            this.btnCopyPrevious.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCopyPrevious_Click);
+            // 
             // btnExportExcel
             // 
             this.btnExportExcel.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -104,11 +113,18 @@
             this.btnExportExcel.ShowImage = true;
             this.btnExportExcel.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnExportExcel_Click);
             // 
-            // btnCopyPrevious
+            // btnCopyPreviousGenus
             // 
-            this.btnCopyPrevious.Label = "Copy Previous Species Name";
-            this.btnCopyPrevious.Name = "btnCopyPrevious";
-            this.btnCopyPrevious.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCopyPrevious_Click);
+            this.btnCopyPreviousGenus.Label = "Copy Previous Genus Name";
+            this.btnCopyPreviousGenus.Name = "btnCopyPreviousGenus";
+            this.btnCopyPreviousGenus.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCopyPreviousGenus_Click);
+            // 
+            // grpProcess
+            // 
+            this.grpProcess.Items.Add(this.btnCopyPrevious);
+            this.grpProcess.Items.Add(this.btnCopyPreviousGenus);
+            this.grpProcess.Label = "Process";
+            this.grpProcess.Name = "grpProcess";
             // 
             // Ribbon
             // 
@@ -120,6 +136,8 @@
             this.tabTaxonMarkup.PerformLayout();
             this.grpDisplay.ResumeLayout(false);
             this.grpDisplay.PerformLayout();
+            this.grpData.ResumeLayout(false);
+            this.grpData.PerformLayout();
             this.grpExport.ResumeLayout(false);
             this.grpExport.PerformLayout();
             this.grpProcess.ResumeLayout(false);
@@ -134,10 +152,12 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox checkboxDisplayTaxonPanel;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpExport;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnExportExcel;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpProcess;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpData;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnDeleteCurrent;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnClearBatch;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCopyPrevious;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpProcess;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCopyPreviousGenus;
     }
 
     partial class ThisRibbonCollection
