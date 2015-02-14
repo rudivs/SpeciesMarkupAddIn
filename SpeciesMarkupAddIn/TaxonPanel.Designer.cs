@@ -345,10 +345,9 @@
             // 
             this.label18.Location = new System.Drawing.Point(-1, 412);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 13);
+            this.label18.Size = new System.Drawing.Size(75, 27);
             this.label18.TabIndex = 41;
-            this.label18.Text = "Notes";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label18, "Additional notes");
+            this.label18.Text = "Diagnostic Notes";
             // 
             // btnFloweringEndCopy
             // 
@@ -415,7 +414,6 @@
             this.label15.Size = new System.Drawing.Size(75, 13);
             this.label15.TabIndex = 32;
             this.label15.Text = "Habitat";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label15, "Habitat");
             // 
             // btnDistributionCopy
             // 
@@ -444,7 +442,6 @@
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 29;
             this.label14.Text = "Distribution";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label14, "Distribution");
             // 
             // btnMorphDescriptionCopy
             // 
@@ -473,7 +470,6 @@
             this.label13.Size = new System.Drawing.Size(75, 32);
             this.label13.TabIndex = 26;
             this.label13.Text = "Morphological Description";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label13, "Morphological Description");
             // 
             // panelInfraspecific1
             // 
@@ -520,6 +516,7 @@
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 23;
             this.label9.Text = "Infra. Author";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label9, "Infraspecific Author");
             // 
             // textboxInfra1Author
             // 
@@ -546,6 +543,7 @@
             this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 20;
             this.label8.Text = "Infra. Taxon";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label8, "Infraspecific Taxon");
             // 
             // textboxInfra1Taxon
             // 
@@ -587,6 +585,7 @@
             this.label10.Size = new System.Drawing.Size(75, 13);
             this.label10.TabIndex = 23;
             this.label10.Text = "Infra. Author";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label10, "Infraspecific Author");
             // 
             // textboxInfra2Author
             // 
@@ -613,6 +612,7 @@
             this.label11.Size = new System.Drawing.Size(75, 13);
             this.label11.TabIndex = 20;
             this.label11.Text = "Infra. Taxon";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label11, "Infraspecific Taxon");
             // 
             // textboxInfra2Taxon
             // 
@@ -627,24 +627,25 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(-1, 72);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 13);
+            this.label12.Size = new System.Drawing.Size(69, 13);
             this.label12.TabIndex = 29;
-            this.label12.Text = "Infraspecific Rank 2";
+            this.label12.Text = "Infra. Rank 2";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label12, "Infraspecific Rank 2");
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radiobuttonInfra2Form);
             this.groupBox2.Controls.Add(this.radiobuttonInfra2Var);
             this.groupBox2.Controls.Add(this.radiobuttonInfra2None);
-            this.groupBox2.Location = new System.Drawing.Point(107, 55);
+            this.groupBox2.Location = new System.Drawing.Point(86, 55);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(151, 40);
+            this.groupBox2.Size = new System.Drawing.Size(188, 40);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             // 
             // radiobuttonInfra2Form
             // 
-            this.radiobuttonInfra2Form.Location = new System.Drawing.Point(100, 15);
+            this.radiobuttonInfra2Form.Location = new System.Drawing.Point(115, 15);
             this.radiobuttonInfra2Form.Name = "radiobuttonInfra2Form";
             this.radiobuttonInfra2Form.Size = new System.Drawing.Size(48, 17);
             this.radiobuttonInfra2Form.TabIndex = 18;
@@ -657,9 +658,9 @@
             this.radiobuttonInfra2Var.AutoSize = true;
             this.radiobuttonInfra2Var.Location = new System.Drawing.Point(56, 15);
             this.radiobuttonInfra2Var.Name = "radiobuttonInfra2Var";
-            this.radiobuttonInfra2Var.Size = new System.Drawing.Size(40, 17);
+            this.radiobuttonInfra2Var.Size = new System.Drawing.Size(56, 17);
             this.radiobuttonInfra2Var.TabIndex = 16;
-            this.radiobuttonInfra2Var.Text = "var";
+            this.radiobuttonInfra2Var.Text = "variety";
             this.radiobuttonInfra2Var.UseVisualStyleBackColor = true;
             this.radiobuttonInfra2Var.CheckedChanged += new System.EventHandler(this.radiobuttonInfra2Var_CheckedChanged);
             // 
@@ -701,9 +702,10 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(-1, 99);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 13);
+            this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 21;
-            this.label7.Text = "Infraspecific Rank 1";
+            this.label7.Text = "Infra. Rank 1";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label7, "Infraspecific Rank 1");
             // 
             // label6
             // 
@@ -738,15 +740,15 @@
             this.groupBox1.Controls.Add(this.radiobuttonInfra1Subspecies);
             this.groupBox1.Controls.Add(this.radiobuttonInfra1Var);
             this.groupBox1.Controls.Add(this.radiobuttonInfra1None);
-            this.groupBox1.Location = new System.Drawing.Point(107, 81);
+            this.groupBox1.Location = new System.Drawing.Point(87, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 40);
+            this.groupBox1.Size = new System.Drawing.Size(248, 40);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
             // radiobuttonInfra1Form
             // 
-            this.radiobuttonInfra1Form.Location = new System.Drawing.Point(175, 15);
+            this.radiobuttonInfra1Form.Location = new System.Drawing.Point(188, 15);
             this.radiobuttonInfra1Form.Name = "radiobuttonInfra1Form";
             this.radiobuttonInfra1Form.Size = new System.Drawing.Size(48, 17);
             this.radiobuttonInfra1Form.TabIndex = 18;
@@ -770,9 +772,9 @@
             this.radiobuttonInfra1Var.AutoSize = true;
             this.radiobuttonInfra1Var.Location = new System.Drawing.Point(131, 15);
             this.radiobuttonInfra1Var.Name = "radiobuttonInfra1Var";
-            this.radiobuttonInfra1Var.Size = new System.Drawing.Size(40, 17);
+            this.radiobuttonInfra1Var.Size = new System.Drawing.Size(56, 17);
             this.radiobuttonInfra1Var.TabIndex = 16;
-            this.radiobuttonInfra1Var.Text = "var";
+            this.radiobuttonInfra1Var.Text = "variety";
             this.radiobuttonInfra1Var.UseVisualStyleBackColor = true;
             this.radiobuttonInfra1Var.CheckedChanged += new System.EventHandler(this.radiobuttonInfra1Var_CheckedChanged);
             // 
@@ -927,7 +929,6 @@
             this.label3.Size = new System.Drawing.Size(75, 28);
             this.label3.TabIndex = 63;
             this.label3.Text = "Common Names";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label3, "Common Names");
             // 
             // btnCommonNames
             // 
