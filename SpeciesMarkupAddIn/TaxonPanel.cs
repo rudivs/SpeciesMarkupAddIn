@@ -27,7 +27,16 @@ namespace SpeciesMarkupAddIn
 
         public void LoadCurrentTaxon()
         {
-            Globals.ThisAddIn.currentTaxon = Globals.ThisAddIn.currentBatch.Current;
+            if (Globals.ThisAddIn.currentBatch.Count > 0)
+            {
+                Globals.ThisAddIn.currentTaxon = Globals.ThisAddIn.currentBatch.Current;
+            }
+            else
+            {
+                Globals.ThisAddIn.currentTaxon = new Taxon();
+                Globals.ThisAddIn.currentBatch.Add(Globals.ThisAddIn.currentTaxon);
+            }
+
             this.textboxGenus.Text = Globals.ThisAddIn.currentTaxon.Genus;
             this.textboxSpecies.Text = Globals.ThisAddIn.currentTaxon.Species;
             this.textboxSpeciesAuthor.Text = Globals.ThisAddIn.currentTaxon.SpeciesAuthor;
