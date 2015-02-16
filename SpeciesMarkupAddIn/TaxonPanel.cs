@@ -138,6 +138,9 @@ namespace SpeciesMarkupAddIn
 
             // add spaces between digits and multiplication signs (e.g. 3x5 -> 3 x 5)
             filteredText = Regex.Replace(filteredText, @"(\d) ?[xX\*\u2022\u00D7] ?(\d)", "$1 x $2");
+
+            // format chromosome numbers properly
+            filteredText = Regex.Replace(filteredText, @"\b(\d+) ?n ?= ?(\d+)\b", "$1n = $2");
             
             return filteredText;
         }
@@ -796,6 +799,17 @@ namespace SpeciesMarkupAddIn
         private void btnChromosomeNumberCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxChromosomeNumber,false);
+
+            string pattern = @"\b\d+n = \d+\b";
+            Match match = Regex.Match(this.textboxChromosomeNumber.Text, pattern);
+            if (match.Success)
+            {
+                this.textboxChromosomeNumber.Text = match.Value;
+            }
+            else
+            {
+                this.textboxChromosomeNumber.Text = "";
+            }
         }
 
 
