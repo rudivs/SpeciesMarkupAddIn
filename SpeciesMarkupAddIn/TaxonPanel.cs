@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using log4net;
 
 namespace SpeciesMarkupAddIn
 {
     public partial class TaxonPanel : UserControl
     {
+        private static readonly log4net.ILog log = 
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public TaxonPanel()
         {
             InitializeComponent();
@@ -360,14 +364,21 @@ namespace SpeciesMarkupAddIn
                     is_ft = false;
                     cleanString = cleanString.ExceptLast(1);
                 }
-                
-                decimal decimalValue = Decimal.Parse(cleanString.Trim(), style, provider);
-                int numberValue = (Int32)Math.Round(decimalValue,0,MidpointRounding.AwayFromZero);
-                if (is_ft)
+                try
                 {
-                    numberValue = (Int32)Math.Round((numberValue * 0.3048),0,MidpointRounding.AwayFromZero);
+                    decimal decimalValue = Decimal.Parse(cleanString.Trim(), style, provider);
+                    int numberValue = (Int32)Math.Round(decimalValue, 0, MidpointRounding.AwayFromZero);
+                    if (is_ft)
+                    {
+                        numberValue = (Int32)Math.Round((numberValue * 0.3048), 0, MidpointRounding.AwayFromZero);
+                    }
+                    textboxTarget.Text = numberValue.ToString();
                 }
-                textboxTarget.Text = numberValue.ToString();
+                catch (FormatException)
+                {
+                    log.Warn("Selected text cannot be converted to number.");
+                }
+                
             }
         }
 

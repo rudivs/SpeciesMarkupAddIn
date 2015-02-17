@@ -9,6 +9,7 @@ using Microsoft.Office.Tools.Word;
 using System.IO;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using log4net;
 
 namespace SpeciesMarkupAddIn
 {
@@ -27,6 +28,8 @@ namespace SpeciesMarkupAddIn
             this.Application.WindowSelectionChange += new Word.ApplicationEvents4_WindowSelectionChangeEventHandler(Application_WindowSelectionChange);
             this.Application.DocumentChange += new Word.ApplicationEvents4_DocumentChangeEventHandler(Application_DocumentChange);
             this.Application.DocumentBeforeClose += new Word.ApplicationEvents4_DocumentBeforeCloseEventHandler(Application_DocumentBeforeClose);
+            
+            log4net.Config.XmlConfigurator.Configure();
 
             serializer = new Serializer();
             if (!Deserialize())
