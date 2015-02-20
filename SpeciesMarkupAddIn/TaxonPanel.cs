@@ -93,19 +93,21 @@ namespace SpeciesMarkupAddIn
             string filteredText = inputText;
             string numberPattern = @"(?:^|\s)([1-9](?:\d*|(?:\d{0,2})(?:,\d{3})*)(?:\.\d*[1-9])?|0?\.\d*[1-9]|0)";
             string numberPattern2 = @"([1-9](?:\d*|(?:\d{0,2})(?:,\d{3})*)(?:\.\d*[1-9])?|0?\.\d*[1-9]|0)";
+
+            // replace nonbreaking spaces with regular spaces
+            filteredText = Regex.Replace(filteredText, @"\p{Zs}", " ");
+            
             // remove unnecessary lines
-            Regex regex = new Regex(@"[\r]{3,}");
-            filteredText = regex.Replace(filteredText, "\r\r");
+            filteredText = Regex.Replace(filteredText, @"(\r\n?|\n){3,}", "\r\n\r\n");
 
             // make newline characters work properly
-            filteredText = Regex.Replace(filteredText, @"\r", "\r\n");
+            filteredText = Regex.Replace(filteredText, @"(\r\n?|\n)", "\r\n");
 
             // replace tab with space
             filteredText = Regex.Replace(filteredText, @"\t", " ");
 
             // replace runs of spaces with a single space
-            regex = new Regex(@"[ ]{2,}", RegexOptions.None);
-            filteredText = regex.Replace(filteredText, @" ");
+            filteredText = Regex.Replace(filteredText, @"(\p{Zs}){2,}", " ");
 
             // fix comma space
             filteredText = filteredText.Replace(" , ",", ");
@@ -114,6 +116,10 @@ namespace SpeciesMarkupAddIn
             filteredText = filteredText.Replace("–", "-");
             filteredText = filteredText.Replace("—", "-");
 
+            // remove spaces between numbers - handles cases when spaces used as thousands separator
+            //filteredText = Regex.Replace(filteredText, @"(\d+) (\d+)", "$1$2");
+            filteredText = Regex.Replace(filteredText, @"(?<=\d)\p{Zs}(?=\d)", "");
+
             // add spaces between digits and metre-based measurements
             filteredText = Regex.Replace(filteredText, @"(\d)m", "$1 m");
 
@@ -121,6 +127,7 @@ namespace SpeciesMarkupAddIn
             filteredText = Regex.Replace(filteredText, @"(\d)cm", "$1 cm");
             filteredText = Regex.Replace(filteredText, @"(\d)ft", "$1 ft");
             filteredText = Regex.Replace(filteredText, @"(\d)ln", "$1 ln");
+            filteredText = Regex.Replace(filteredText, @"(\d)in", "$1 in");
 
             // replace comma with period as decimal separator (but only for 1 or 2 digits after comma, and no spaces)
             filteredText = Regex.Replace(filteredText, @"([0-9])+\,([0-9]{1,2})(?![0-9])", "$1.$2");
@@ -144,7 +151,7 @@ namespace SpeciesMarkupAddIn
             filteredText = Regex.Replace(filteredText, @"(\d) ?[xX\*\u2022\u00D7] ?(\d)", "$1 x $2");
 
             // format chromosome numbers properly
-            filteredText = Regex.Replace(filteredText, @"\b(\d+) ?n ?= ?(\d+)\b", "$1n = $2");
+            filteredText = Regex.Replace(filteredText, @"\b(\d+)\p{Zs}?n\p{Zs}?=\p{Zs}?(\d+)\b", "$1n = $2");
             
             return filteredText;
         }
