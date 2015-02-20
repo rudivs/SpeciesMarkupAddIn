@@ -31,6 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tooltipMorphologicalDescription = new System.Windows.Forms.ToolTip(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnChromosomeNumberCopy = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textboxChromosomeNumber = new System.Windows.Forms.TextBox();
+            this.btnCommonNames = new System.Windows.Forms.Button();
+            this.textboxCommonNames = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnHabitatAdd = new System.Windows.Forms.Button();
             this.btnMorphDescriptionAdd = new System.Windows.Forms.Button();
             this.btnDistributionAdd = new System.Windows.Forms.Button();
@@ -63,28 +69,28 @@
             this.btnMorphDescriptionCopy = new System.Windows.Forms.Button();
             this.textboxMorphDescription = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panelInfraspecific1 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnInfra1AuthorCopy = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.textboxInfra1Author = new System.Windows.Forms.TextBox();
             this.btnInfra1TaxonCopy = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.textboxInfra1Taxon = new System.Windows.Forms.TextBox();
             this.panelInfraspecific2 = new System.Windows.Forms.Panel();
             this.btnInfra2AuthorCopy = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.textboxInfra2Author = new System.Windows.Forms.TextBox();
             this.btnInfra2TaxonCopy = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.textboxInfra2Taxon = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radiobuttonInfra2Form = new System.Windows.Forms.RadioButton();
             this.radiobuttonInfra2Var = new System.Windows.Forms.RadioButton();
             this.radiobuttonInfra2None = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -106,12 +112,6 @@
             this.btnPrevious = new System.Windows.Forms.Button();
             this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collectionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textboxCommonNames = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnCommonNames = new System.Windows.Forms.Button();
-            this.btnChromosomeNumberCopy = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textboxChromosomeNumber = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panelInfraspecific1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -173,6 +173,61 @@
             this.panel3.TabIndex = 19;
             this.tooltipMorphologicalDescription.SetToolTip(this.panel3, "Minimum altitude at which taxon is recorded");
             // 
+            // btnChromosomeNumberCopy
+            // 
+            this.btnChromosomeNumberCopy.Location = new System.Drawing.Point(319, 190);
+            this.btnChromosomeNumberCopy.Name = "btnChromosomeNumberCopy";
+            this.btnChromosomeNumberCopy.Size = new System.Drawing.Size(18, 20);
+            this.btnChromosomeNumberCopy.TabIndex = 67;
+            this.btnChromosomeNumberCopy.Text = "<";
+            this.btnChromosomeNumberCopy.UseVisualStyleBackColor = true;
+            this.btnChromosomeNumberCopy.Click += new System.EventHandler(this.btnChromosomeNumberCopy_Click);
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(0, 194);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(80, 13);
+            this.label20.TabIndex = 66;
+            this.label20.Text = "Chromos. No.";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label20, "Chromosome Number");
+            // 
+            // textboxChromosomeNumber
+            // 
+            this.textboxChromosomeNumber.Location = new System.Drawing.Point(86, 190);
+            this.textboxChromosomeNumber.Name = "textboxChromosomeNumber";
+            this.textboxChromosomeNumber.Size = new System.Drawing.Size(227, 20);
+            this.textboxChromosomeNumber.TabIndex = 65;
+            this.textboxChromosomeNumber.TextChanged += new System.EventHandler(this.textboxChromosomeNumber_TextChanged);
+            // 
+            // btnCommonNames
+            // 
+            this.btnCommonNames.Location = new System.Drawing.Point(319, 3);
+            this.btnCommonNames.Name = "btnCommonNames";
+            this.btnCommonNames.Size = new System.Drawing.Size(18, 20);
+            this.btnCommonNames.TabIndex = 64;
+            this.btnCommonNames.Text = "+";
+            this.btnCommonNames.UseVisualStyleBackColor = true;
+            this.btnCommonNames.Click += new System.EventHandler(this.btnCommonNames_Click);
+            // 
+            // textboxCommonNames
+            // 
+            this.textboxCommonNames.Location = new System.Drawing.Point(86, 3);
+            this.textboxCommonNames.Multiline = true;
+            this.textboxCommonNames.Name = "textboxCommonNames";
+            this.textboxCommonNames.Size = new System.Drawing.Size(227, 45);
+            this.textboxCommonNames.TabIndex = 62;
+            this.textboxCommonNames.TextChanged += new System.EventHandler(this.textboxCommonNames_TextChanged);
+            this.textboxCommonNames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxCommonNames_MouseDoubleClick);
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(-1, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 28);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "Common Names";
+            // 
             // btnHabitatAdd
             // 
             this.btnHabitatAdd.Location = new System.Drawing.Point(319, 324);
@@ -228,9 +283,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(-1, 411);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 56;
-            this.label2.Text = "Max. Altitude";
+            this.label2.Text = "Max. Altitude (m)";
             this.tooltipMorphologicalDescription.SetToolTip(this.label2, "Maximum altitude at which taxon is recorded, in meters");
             // 
             // label1
@@ -238,9 +293,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(-1, 385);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 55;
-            this.label1.Text = "Min. Altitude";
+            this.label1.Text = "Min. Altitude (m)";
             this.tooltipMorphologicalDescription.SetToolTip(this.label1, "Minimum altitude at which taxon is recorded, in meters");
             // 
             // textboxMaxAlt
@@ -478,6 +533,62 @@
             this.label13.TabIndex = 26;
             this.label13.Text = "Morphological Description";
             // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(1, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Infra. Author";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label9, "Infraspecific Author");
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(1, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Infra. Taxon";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label8, "Infraspecific Taxon");
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(3, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Infra. Author";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label10, "Infraspecific Author");
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(3, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Infra. Taxon";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label11, "Infraspecific Taxon");
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(-1, 72);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 13);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Infra. Rank 2  ";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label12, "Infraspecific Rank 2");
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(-1, 99);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Infra. Rank 1  ";
+            this.tooltipMorphologicalDescription.SetToolTip(this.label7, "Infraspecific Rank 1");
+            // 
             // panelInfraspecific1
             // 
             this.panelInfraspecific1.AutoSize = true;
@@ -516,15 +627,6 @@
             this.btnInfra1AuthorCopy.UseVisualStyleBackColor = true;
             this.btnInfra1AuthorCopy.Click += new System.EventHandler(this.btnInfra1AuthorCopy_Click);
             // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(1, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Infra. Author";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label9, "Infraspecific Author");
-            // 
             // textboxInfra1Author
             // 
             this.textboxInfra1Author.Location = new System.Drawing.Point(82, 28);
@@ -542,15 +644,6 @@
             this.btnInfra1TaxonCopy.Text = "<";
             this.btnInfra1TaxonCopy.UseVisualStyleBackColor = true;
             this.btnInfra1TaxonCopy.Click += new System.EventHandler(this.btnInfraTaxon1Copy_Click);
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(1, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Infra. Taxon";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label8, "Infraspecific Taxon");
             // 
             // textboxInfra1Taxon
             // 
@@ -585,15 +678,6 @@
             this.btnInfra2AuthorCopy.UseVisualStyleBackColor = true;
             this.btnInfra2AuthorCopy.Click += new System.EventHandler(this.btnInfra2AuthorCopy_Click);
             // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(3, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 13);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Infra. Author";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label10, "Infraspecific Author");
-            // 
             // textboxInfra2Author
             // 
             this.textboxInfra2Author.Location = new System.Drawing.Point(84, 29);
@@ -612,15 +696,6 @@
             this.btnInfra2TaxonCopy.UseVisualStyleBackColor = true;
             this.btnInfra2TaxonCopy.Click += new System.EventHandler(this.btnInfra2TaxonCopy_Click);
             // 
-            // label11
-            // 
-            this.label11.Location = new System.Drawing.Point(3, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 13);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Infra. Taxon";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label11, "Infraspecific Taxon");
-            // 
             // textboxInfra2Taxon
             // 
             this.textboxInfra2Taxon.Location = new System.Drawing.Point(84, 3);
@@ -628,16 +703,6 @@
             this.textboxInfra2Taxon.Size = new System.Drawing.Size(227, 20);
             this.textboxInfra2Taxon.TabIndex = 19;
             this.textboxInfra2Taxon.TextChanged += new System.EventHandler(this.textboxInfra2Taxon_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(-1, 72);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 13);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Infra. Rank 2  ";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label12, "Infraspecific Rank 2");
             // 
             // groupBox2
             // 
@@ -662,7 +727,6 @@
             // 
             // radiobuttonInfra2Var
             // 
-            this.radiobuttonInfra2Var.AutoSize = true;
             this.radiobuttonInfra2Var.Location = new System.Drawing.Point(56, 15);
             this.radiobuttonInfra2Var.Name = "radiobuttonInfra2Var";
             this.radiobuttonInfra2Var.Size = new System.Drawing.Size(56, 17);
@@ -673,7 +737,6 @@
             // 
             // radiobuttonInfra2None
             // 
-            this.radiobuttonInfra2None.AutoSize = true;
             this.radiobuttonInfra2None.Checked = true;
             this.radiobuttonInfra2None.Location = new System.Drawing.Point(6, 15);
             this.radiobuttonInfra2None.Name = "radiobuttonInfra2None";
@@ -703,16 +766,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(340, 124);
             this.panel2.TabIndex = 20;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(-1, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Infra. Rank 1  ";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label7, "Infraspecific Rank 1");
             // 
             // label6
             // 
@@ -755,7 +808,7 @@
             // 
             // radiobuttonInfra1Form
             // 
-            this.radiobuttonInfra1Form.Location = new System.Drawing.Point(188, 15);
+            this.radiobuttonInfra1Form.Location = new System.Drawing.Point(196, 15);
             this.radiobuttonInfra1Form.Name = "radiobuttonInfra1Form";
             this.radiobuttonInfra1Form.Size = new System.Drawing.Size(48, 17);
             this.radiobuttonInfra1Form.TabIndex = 18;
@@ -765,8 +818,7 @@
             // 
             // radiobuttonInfra1Subspecies
             // 
-            this.radiobuttonInfra1Subspecies.AutoSize = true;
-            this.radiobuttonInfra1Subspecies.Location = new System.Drawing.Point(52, 15);
+            this.radiobuttonInfra1Subspecies.Location = new System.Drawing.Point(56, 15);
             this.radiobuttonInfra1Subspecies.Name = "radiobuttonInfra1Subspecies";
             this.radiobuttonInfra1Subspecies.Size = new System.Drawing.Size(78, 17);
             this.radiobuttonInfra1Subspecies.TabIndex = 17;
@@ -776,8 +828,7 @@
             // 
             // radiobuttonInfra1Var
             // 
-            this.radiobuttonInfra1Var.AutoSize = true;
-            this.radiobuttonInfra1Var.Location = new System.Drawing.Point(131, 15);
+            this.radiobuttonInfra1Var.Location = new System.Drawing.Point(137, 15);
             this.radiobuttonInfra1Var.Name = "radiobuttonInfra1Var";
             this.radiobuttonInfra1Var.Size = new System.Drawing.Size(56, 17);
             this.radiobuttonInfra1Var.TabIndex = 16;
@@ -787,7 +838,6 @@
             // 
             // radiobuttonInfra1None
             // 
-            this.radiobuttonInfra1None.AutoSize = true;
             this.radiobuttonInfra1None.Checked = true;
             this.radiobuttonInfra1None.Location = new System.Drawing.Point(6, 15);
             this.radiobuttonInfra1None.Name = "radiobuttonInfra1None";
@@ -920,61 +970,6 @@
             // 
             this.collectionDataBindingSource.DataSource = typeof(SpeciesMarkupAddIn.CollectionData);
             // 
-            // textboxCommonNames
-            // 
-            this.textboxCommonNames.Location = new System.Drawing.Point(86, 3);
-            this.textboxCommonNames.Multiline = true;
-            this.textboxCommonNames.Name = "textboxCommonNames";
-            this.textboxCommonNames.Size = new System.Drawing.Size(227, 45);
-            this.textboxCommonNames.TabIndex = 62;
-            this.textboxCommonNames.TextChanged += new System.EventHandler(this.textboxCommonNames_TextChanged);
-            this.textboxCommonNames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxCommonNames_MouseDoubleClick);
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(-1, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 28);
-            this.label3.TabIndex = 63;
-            this.label3.Text = "Common Names";
-            // 
-            // btnCommonNames
-            // 
-            this.btnCommonNames.Location = new System.Drawing.Point(319, 3);
-            this.btnCommonNames.Name = "btnCommonNames";
-            this.btnCommonNames.Size = new System.Drawing.Size(18, 20);
-            this.btnCommonNames.TabIndex = 64;
-            this.btnCommonNames.Text = "+";
-            this.btnCommonNames.UseVisualStyleBackColor = true;
-            this.btnCommonNames.Click += new System.EventHandler(this.btnCommonNames_Click);
-            // 
-            // btnChromosomeNumberCopy
-            // 
-            this.btnChromosomeNumberCopy.Location = new System.Drawing.Point(319, 190);
-            this.btnChromosomeNumberCopy.Name = "btnChromosomeNumberCopy";
-            this.btnChromosomeNumberCopy.Size = new System.Drawing.Size(18, 20);
-            this.btnChromosomeNumberCopy.TabIndex = 67;
-            this.btnChromosomeNumberCopy.Text = "<";
-            this.btnChromosomeNumberCopy.UseVisualStyleBackColor = true;
-            this.btnChromosomeNumberCopy.Click += new System.EventHandler(this.btnChromosomeNumberCopy_Click);
-            // 
-            // label20
-            // 
-            this.label20.Location = new System.Drawing.Point(0, 194);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(80, 13);
-            this.label20.TabIndex = 66;
-            this.label20.Text = "Chromos. No.";
-            this.tooltipMorphologicalDescription.SetToolTip(this.label20, "Chromosome Number");
-            // 
-            // textboxChromosomeNumber
-            // 
-            this.textboxChromosomeNumber.Location = new System.Drawing.Point(86, 190);
-            this.textboxChromosomeNumber.Name = "textboxChromosomeNumber";
-            this.textboxChromosomeNumber.Size = new System.Drawing.Size(227, 20);
-            this.textboxChromosomeNumber.TabIndex = 65;
-            this.textboxChromosomeNumber.TextChanged += new System.EventHandler(this.textboxChromosomeNumber_TextChanged);
-            // 
             // TaxonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -995,11 +990,9 @@
             this.panelInfraspecific2.ResumeLayout(false);
             this.panelInfraspecific2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel4.ResumeLayout(false);
