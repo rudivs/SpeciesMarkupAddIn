@@ -311,6 +311,12 @@ namespace SpeciesMarkupAddIn
             return outMonth;
         }
 
+        private void AuthorFilter(TextBox textboxTarget)
+        {
+            // replace 'et' with '&' in author names
+            textboxTarget.Text = Regex.Replace(textboxTarget.Text, @"\bet\b", "&");
+        }
+
         private void CopySelection(TextBox textboxTarget, bool capitalise = true)
         {
             string copyText = Globals.ThisAddIn.currentText;
@@ -434,6 +440,7 @@ namespace SpeciesMarkupAddIn
         private void btnSpeciesAuthorCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxSpeciesAuthor,false);
+            AuthorFilter(this.textboxSpeciesAuthor);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
@@ -446,6 +453,7 @@ namespace SpeciesMarkupAddIn
         private void btnInfra1AuthorCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxInfra1Author,false);
+            AuthorFilter(this.textboxInfra1Author);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
@@ -508,6 +516,7 @@ namespace SpeciesMarkupAddIn
         private void btnInfra2AuthorCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxInfra2Author,false);
+            AuthorFilter(this.textboxInfra2Author);
             Globals.ThisAddIn.UpdateTrackingNumber();
         }
 
