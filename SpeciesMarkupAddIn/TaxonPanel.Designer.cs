@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tooltipMorphologicalDescription = new System.Windows.Forms.ToolTip(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.btnChromosomeNumberCopy = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.textboxChromosomeNumber = new System.Windows.Forms.TextBox();
@@ -129,6 +131,8 @@
             // 
             this.panel3.AutoSize = true;
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel3.Controls.Add(this.label22);
+            this.panel3.Controls.Add(this.label21);
             this.panel3.Controls.Add(this.btnChromosomeNumberCopy);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.textboxChromosomeNumber);
@@ -172,6 +176,24 @@
             this.panel3.Size = new System.Drawing.Size(340, 598);
             this.panel3.TabIndex = 19;
             this.tooltipMorphologicalDescription.SetToolTip(this.panel3, "Minimum altitude at which taxon is recorded");
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(189, 411);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(15, 13);
+            this.label22.TabIndex = 69;
+            this.label22.Text = "m";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(189, 385);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(15, 13);
+            this.label21.TabIndex = 68;
+            this.label21.Text = "m";
             // 
             // btnChromosomeNumberCopy
             // 
@@ -283,9 +305,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(-1, 411);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 56;
-            this.label2.Text = "Max. Altitude (m)";
+            this.label2.Text = "Max. Altitude";
             this.tooltipMorphologicalDescription.SetToolTip(this.label2, "Maximum altitude at which taxon is recorded, in meters");
             // 
             // label1
@@ -293,9 +315,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(-1, 385);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 55;
-            this.label1.Text = "Min. Altitude (m)";
+            this.label1.Text = "Min. Altitude";
             this.tooltipMorphologicalDescription.SetToolTip(this.label1, "Minimum altitude at which taxon is recorded, in meters");
             // 
             // textboxMaxAlt
@@ -614,6 +636,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 54);
             this.panel1.TabIndex = 30;
+            this.panel1.Enter += new System.EventHandler(this.TaxonPanel_MouseEnter);
             // 
             // btnInfra1AuthorCopy
             // 
@@ -976,6 +999,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Name = "TaxonPanel";
             this.Size = new System.Drawing.Size(363, 961);
             this.MouseEnter += new System.EventHandler(this.TaxonPanel_MouseEnter);
@@ -1085,5 +1109,7 @@
         private System.Windows.Forms.Button btnChromosomeNumberCopy;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textboxChromosomeNumber;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }

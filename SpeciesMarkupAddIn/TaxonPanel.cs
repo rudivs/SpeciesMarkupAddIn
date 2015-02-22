@@ -18,6 +18,8 @@ namespace SpeciesMarkupAddIn
         private static readonly log4net.ILog log = 
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        private int vScrollPosition = 0;
+
         public TaxonPanel()
         {
             InitializeComponent();
@@ -46,6 +48,7 @@ namespace SpeciesMarkupAddIn
                 else
                     this.VerticalScroll.Value = this.VerticalScroll.Maximum;
             }
+            vScrollPosition = this.VerticalScroll.Value;
         }
 
         public void LoadCurrentTaxon()
@@ -850,7 +853,9 @@ namespace SpeciesMarkupAddIn
 
         private void TaxonPanel_MouseEnter(object sender, EventArgs e)
         {
+            TaxonPanel panel = Globals.ThisAddIn.myTaxonPanel;
             this.Focus();
+            this.VerticalScroll.Value = vScrollPosition;
         }
 
 

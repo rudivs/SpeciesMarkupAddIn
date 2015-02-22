@@ -100,7 +100,7 @@ namespace SpeciesMarkupAddIn
             myTaxonPanel = new TaxonPanel();
             taxonMarkupPanel = this.CustomTaskPanes.Add(myTaxonPanel, "Taxon Markup Panel");
             taxonMarkupPanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
-            taxonMarkupPanel.Width = 370;
+            taxonMarkupPanel.Width = 390;
             this.myTaxonPanel.LoadCurrentTaxon();
         }
 
