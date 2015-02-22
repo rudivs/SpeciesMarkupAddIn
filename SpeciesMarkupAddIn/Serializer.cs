@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using System.Xml;
 
 namespace SpeciesMarkupAddIn
 {
@@ -20,10 +21,14 @@ namespace SpeciesMarkupAddIn
 
         public void SerializeObject(string filename, TaxonList objectToSerialize)
         {
-            Stream stream = File.Open(filename, FileMode.Create);
+            XmlWriterSettings ws = new XmlWriterSettings();
+            ws.NewLineHandling = NewLineHandling.Entitize;
+
             XmlSerializer serializer = new XmlSerializer(typeof(TaxonList));
-            serializer.Serialize(stream, objectToSerialize);
-            stream.Close();
+            using (XmlWriter wr = XmlWriter.Create(filename, ws))
+            {
+                serializer.Serialize(wr, objectToSerialize);
+            }
         }
 
         public TaxonList DeSerializeObject(string filename)
