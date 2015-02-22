@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using log4net;
 
 namespace SpeciesMarkupAddIn
 {
     class Export
     {
+        private static readonly log4net.ILog log =
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public static object GetPropValue(object src, string propName)
         {
             return src.GetType().GetProperty(propName).GetValue(src, null);
@@ -76,14 +80,17 @@ namespace SpeciesMarkupAddIn
                 {
                     Byte[] bin = p.GetAsByteArray();
                     File.WriteAllBytes(filename, bin);
+                    log.Info("Excel export successful: " + filename);
                 }
                 catch (IOException ex)
                 {
+                    log.Error("IOException writing Excel export file", ex);
                     MessageBox.Show("Error writing Excel export file: " + ex.ToString(), "Export error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    log.Error("Unhandled exception writing Excel export file", ex);
                     throw;
                 }
                 Globals.ThisAddIn.ResetCurrentBatch(CollectionData.DeleteAfterExport);
