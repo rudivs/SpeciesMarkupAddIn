@@ -107,7 +107,7 @@
             // btnExportExcel
             // 
             this.btnExportExcel.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.btnExportExcel.Image = global::SpeciesMarkupAddIn.Properties.Resources.excel_icon;
+            this.btnExportExcel.Image = global::SpeciesMarkupAddIn.Properties.Resources.Excel;
             this.btnExportExcel.Label = "Excel";
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.ShowImage = true;
