@@ -321,7 +321,6 @@
             this.comboboxFloweringEnd.Name = "comboboxFloweringEnd";
             this.comboboxFloweringEnd.Size = new System.Drawing.Size(227, 21);
             this.comboboxFloweringEnd.TabIndex = 52;
-            this.comboboxFloweringEnd.SelectedIndexChanged += new System.EventHandler(this.comboboxFloweringEnd_SelectedIndexChanged);
             this.comboboxFloweringEnd.SelectionChangeCommitted += new System.EventHandler(this.comboboxFloweringEnd_SelectionChangeCommitted);
             // 
             // comboboxFloweringStart
@@ -503,7 +502,6 @@
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 29;
             this.label14.Text = "Distribution";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // btnMorphDescriptionCopy
             // 
@@ -980,7 +978,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TaxonPanel";
             this.Size = new System.Drawing.Size(363, 961);
-            this.Load += new System.EventHandler(this.TaxonPanel_Load);
+            this.MouseEnter += new System.EventHandler(this.TaxonPanel_MouseEnter);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelInfraspecific1.ResumeLayout(false);

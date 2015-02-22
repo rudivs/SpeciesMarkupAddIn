@@ -27,6 +27,25 @@ namespace SpeciesMarkupAddIn
             this.comboboxFloweringEnd.DataSource = new BindingSource(CollectionData.Months, null);
             this.comboboxFloweringEnd.ValueMember = "Key";
             this.comboboxFloweringEnd.DisplayMember = "Value";
+            this.MouseWheel += new MouseEventHandler(TaxonPanel_MouseWheel);
+        }
+
+        private void TaxonPanel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                if (this.VerticalScroll.Value - 1 >= this.VerticalScroll.Minimum)
+                    this.VerticalScroll.Value -= 1;
+                else
+                    this.VerticalScroll.Value = this.VerticalScroll.Minimum;
+            }
+            else if (e.Delta < 0)
+            {
+                if (this.VerticalScroll.Value + 1 <= this.VerticalScroll.Minimum)
+                    this.VerticalScroll.Value += 1;
+                else
+                    this.VerticalScroll.Value = this.VerticalScroll.Maximum;
+            }
         }
 
         public void LoadCurrentTaxon()
@@ -533,11 +552,6 @@ namespace SpeciesMarkupAddIn
             }
         }
 
-        private void TaxonPanel_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnMorphDescriptionCopy_Click(object sender, EventArgs e)
         {
             CopySelection(this.textboxMorphDescription);
@@ -790,11 +804,6 @@ namespace SpeciesMarkupAddIn
             AddSelection(this.textboxHabitat);
         }
 
-        private void comboboxFloweringEnd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCommonNames_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(this.textboxCommonNames.Text))
@@ -812,10 +821,6 @@ namespace SpeciesMarkupAddIn
             Globals.ThisAddIn.currentTaxon.CommonNames = this.textboxCommonNames.Text;
         }
 
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void textboxCommonNames_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -841,6 +846,11 @@ namespace SpeciesMarkupAddIn
             {
                 this.textboxChromosomeNumber.Text = "";
             }
+        }
+
+        private void TaxonPanel_MouseEnter(object sender, EventArgs e)
+        {
+            this.Focus();
         }
 
 
