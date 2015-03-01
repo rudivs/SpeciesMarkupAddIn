@@ -349,10 +349,6 @@ namespace SpeciesMarkupAddIn
                     copyText = char.ToUpper(copyText[0]) + copyText.Substring(1);
                 }
                 textboxTarget.Text = FilterText(copyText).Trim().RemoveInvalidXmlChars();
-                if (capitalise & !Regex.Match(textboxTarget.Text, @"\p{P}$").Success)
-                {
-                    textboxTarget.Text += ".";
-                }
             }
         }
 
