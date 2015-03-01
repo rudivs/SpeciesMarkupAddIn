@@ -817,6 +817,7 @@ namespace SpeciesMarkupAddIn
             {
                 AddSelection(this.textboxCommonNames,"",false, false);
             }
+            this.textboxCommonNames.Text = this.textboxCommonNames.Text.ToLower();
         }
 
         private void textboxCommonNames_TextChanged(object sender, EventArgs e)
