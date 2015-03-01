@@ -127,9 +127,13 @@ namespace SpeciesMarkupAddIn
                     string prop = CollectionData.columnIndex[j].PropertyName;
                     if (!string.IsNullOrEmpty(prop))
                     {
-                        var cell = ws.Cells[rowIndex + i, j];
-                        cell.Value = GetPropValue(t, CollectionData.columnIndex[j].PropertyName);
-                        cell.Style.WrapText = true;
+                        object propertyVal = GetPropValue(t, CollectionData.columnIndex[j].PropertyName);
+                        if (!(CollectionData.columnIndex[j].NullableZero && (Convert.ToInt32(propertyVal) == 0)))
+                        {
+                            var cell = ws.Cells[rowIndex + i, j];
+                            cell.Value = propertyVal;
+                            cell.Style.WrapText = true;
+                        }
                     }
                 }
                 ws.Row(rowIndex + i).Height = 50;

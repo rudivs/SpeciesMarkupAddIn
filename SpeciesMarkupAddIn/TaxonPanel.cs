@@ -738,12 +738,12 @@ namespace SpeciesMarkupAddIn
 
         private void textboxMinAlt_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.MinAlt = int.Parse(this.textboxMinAlt.Text);
+            Globals.ThisAddIn.currentTaxon.MinAlt = this.textboxMinAlt.Text.TryParseNullableInt();
         }
 
         private void textboxMaxAlt_TextChanged(object sender, EventArgs e)
         {
-            Globals.ThisAddIn.currentTaxon.MaxAlt = int.Parse(this.textboxMaxAlt.Text);
+            Globals.ThisAddIn.currentTaxon.MaxAlt = this.textboxMaxAlt.Text.TryParseNullableInt();
         }
 
         private void textboxNotes_TextChanged(object sender, EventArgs e)

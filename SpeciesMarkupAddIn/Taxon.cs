@@ -39,8 +39,8 @@ namespace SpeciesMarkupAddIn
         public string ChromosomeNumber { get; set; }
         public string Distribution { get; set; }
         public string Habitat { get; set; }
-        public int MinAlt { get; set; }
-        public int MaxAlt { get; set; }
+        public int? MinAlt { get; set; }
+        public int? MaxAlt { get; set; }
         public string Notes { get; set; }
         public string Vouchers { get; set; }
 

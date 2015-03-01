@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -47,6 +48,10 @@ namespace SpeciesMarkupAddIn
             }
         }
 
-
+        public static int? TryParseNullableInt(this string input)
+        {
+            int i;
+            return int.TryParse(input, out i) ? (int?)i : (int?)null;
+        }
     }
 }

@@ -15,20 +15,23 @@ namespace SpeciesMarkupAddIn
         private string _Label;
         private double _ColumnWidth;
         private Color _FillColor;
+        private bool _NullableZero;
 
         public string PropertyName { get {return _PropertyName;}}
         public string FieldName { get { return _FieldName; } }
         public string Label { get { return _Label; } }
         public double ColumnWidth { get { return _ColumnWidth; } }
         public Color FillColor { get { return _FillColor; } }
+        public bool NullableZero { get { return _NullableZero; } }
 
-        public TaxonInternalReferences(string fieldName, string label, Color fillColor, double columnWidth = 8.43, string propertyName = null)
+        public TaxonInternalReferences(string fieldName, string label, Color fillColor, double columnWidth = 8.43, string propertyName = null, bool nullableZero = false)
         {
             _PropertyName = propertyName;
             _FieldName = fieldName;
             _Label = label;
             _ColumnWidth = columnWidth;
             _FillColor = fillColor;
+            _NullableZero = nullableZero;
         }
     }
 
@@ -153,8 +156,8 @@ namespace SpeciesMarkupAddIn
             { 12, new TaxonInternalReferences("Author3","Author",Color.LightGreen,30,"Infra2Author") },
             { 13, new TaxonInternalReferences("CommonNames","Common names",Color.LightGreen,40,"CommonNames") },
             { 14, new TaxonInternalReferences("Descrip","Morphological description",Color.LightGreen,50,"MorphDescription") },
-            { 15, new TaxonInternalReferences("FLRSTART","Flowering time start",Color.LightGreen,7,"FloweringStart") },
-            { 16, new TaxonInternalReferences("FLREND","Flowering time end",Color.LightGreen,7,"FloweringEnd") },
+            { 15, new TaxonInternalReferences("FLRSTART","Flowering time start",Color.LightGreen,7,"FloweringStart",true) },
+            { 16, new TaxonInternalReferences("FLREND","Flowering time end",Color.LightGreen,7,"FloweringEnd",true) },
             { 17, new TaxonInternalReferences("ChromosomeNumber","Chromosome number",Color.LightGreen,7,"ChromosomeNumber") },
             { 18, new TaxonInternalReferences("Distrib","Distribution",Color.LightGreen,50,"Distribution") },
             { 19, new TaxonInternalReferences("Habitat","Habitat",Color.LightGreen,50,"Habitat") },
