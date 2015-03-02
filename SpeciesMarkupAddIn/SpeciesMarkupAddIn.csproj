@@ -190,6 +190,9 @@
   -->
   <ItemGroup>
     <Compile Include="CollectionData.cs" />
+    <Compile Include="CustomControls\MouseTransparentTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Export.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

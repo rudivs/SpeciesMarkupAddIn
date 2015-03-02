@@ -18,8 +18,6 @@ namespace SpeciesMarkupAddIn
         private static readonly log4net.ILog log = 
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private int vScrollPosition = 0;
-
         public TaxonPanel()
         {
             InitializeComponent();
@@ -29,26 +27,6 @@ namespace SpeciesMarkupAddIn
             this.comboboxFloweringEnd.DataSource = new BindingSource(CollectionData.Months, null);
             this.comboboxFloweringEnd.ValueMember = "Key";
             this.comboboxFloweringEnd.DisplayMember = "Value";
-            this.MouseWheel += new MouseEventHandler(TaxonPanel_MouseWheel);
-        }
-
-        private void TaxonPanel_MouseWheel(object sender, MouseEventArgs e)
-        {
-            if (e.Delta > 0)
-            {
-                if (this.VerticalScroll.Value - 1 >= this.VerticalScroll.Minimum)
-                    this.VerticalScroll.Value -= 1;
-                else
-                    this.VerticalScroll.Value = this.VerticalScroll.Minimum;
-            }
-            else if (e.Delta < 0)
-            {
-                if (this.VerticalScroll.Value + 1 <= this.VerticalScroll.Minimum)
-                    this.VerticalScroll.Value += 1;
-                else
-                    this.VerticalScroll.Value = this.VerticalScroll.Maximum;
-            }
-            vScrollPosition = this.VerticalScroll.Value;
         }
 
         public void LoadCurrentTaxon()
@@ -847,14 +825,5 @@ namespace SpeciesMarkupAddIn
                 this.textboxChromosomeNumber.Text = "";
             }
         }
-
-        private void TaxonPanel_MouseEnter(object sender, EventArgs e)
-        {
-            TaxonPanel panel = Globals.ThisAddIn.myTaxonPanel;
-            this.Focus();
-            this.VerticalScroll.Value = vScrollPosition;
-        }
-
-
     }
 }
