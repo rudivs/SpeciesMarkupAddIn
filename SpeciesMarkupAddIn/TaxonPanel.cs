@@ -124,10 +124,10 @@ namespace SpeciesMarkupAddIn
             filteredText = Regex.Replace(filteredText, @"(\d)m", "$1 m");
 
             // add spaces between digits and cm, ft, ln measurements
-            filteredText = Regex.Replace(filteredText, @"(\d)cm", "$1 cm");
-            filteredText = Regex.Replace(filteredText, @"(\d)ft", "$1 ft");
-            filteredText = Regex.Replace(filteredText, @"(\d)ln", "$1 ln");
-            filteredText = Regex.Replace(filteredText, @"(\d)in", "$1 in");
+            filteredText = Regex.Replace(filteredText, @"(\d)cm\b", "$1 cm");
+            filteredText = Regex.Replace(filteredText, @"(\d)ft\b", "$1 ft");
+            filteredText = Regex.Replace(filteredText, @"(\d)lin\b", "$1 lin");
+            filteredText = Regex.Replace(filteredText, @"(\d)in\b", "$1 in");
 
             // replace comma with period as decimal separator (but only for 1 or 2 digits after comma, and no spaces)
             filteredText = Regex.Replace(filteredText, @"([0-9])+\,([0-9]{1,2})(?![0-9])", "$1.$2");
@@ -136,15 +136,15 @@ namespace SpeciesMarkupAddIn
             filteredText = Regex.Replace(filteredText, @"(\d) ?- ?(\d)", "$1-$2");
 
             // convert ft to meters
-            string pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" ft\.?";
+            string pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" ft\.?(?= )";
             filteredText = Regex.Replace(filteredText, pattern, ft_to_m);
 
             // convert inches to centimeters
-            pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" in\.?";
+            pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" in\.?(?= )";
             filteredText = Regex.Replace(filteredText, pattern, in_to_cm);
 
             // convert lin to mm
-            pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" lin\.?";
+            pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" lin\.?(?= )";
             filteredText = Regex.Replace(filteredText, pattern, lin_to_mm);
 
             // add spaces between digits and multiplication signs (e.g. 3x5 -> 3 x 5)
@@ -411,7 +411,9 @@ namespace SpeciesMarkupAddIn
         {
             using (var form = new TextEditForm())
             {
-                form.Controls[0].Controls["textboxEditText"].Text = textboxTarget.Text;
+                var textbox = form.Controls[0].Controls["textboxEditText"];
+                textbox.Font = new Font(textbox.Font.FontFamily, Properties.Settings.Default.EditFontSize);
+                textbox.Text = textboxTarget.Text;
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {

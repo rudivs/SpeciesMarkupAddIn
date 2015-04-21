@@ -11,7 +11,7 @@ namespace SpeciesMarkupAddIn
     {
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
-
+            cbEditorFontSize.Text = Properties.Settings.Default.EditFontSize.ToString();
         }
 
         private void checkboxDisplayTaxonPanel_Click(object sender, RibbonControlEventArgs e)
@@ -63,6 +63,12 @@ namespace SpeciesMarkupAddIn
                 taxonPanel.Controls["textboxGenus"].Text = previousTaxon.Genus;
                 Globals.ThisAddIn.UpdateTrackingNumber();
             }
+        }
+
+        private void cbEditorFontSize_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            Properties.Settings.Default.EditFontSize = ushort.Parse(cbEditorFontSize.Text);
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -34,22 +34,39 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl2 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl3 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl4 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl5 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl6 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl7 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl8 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl9 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl10 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl11 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl12 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl13 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl14 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl15 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl16 = this.Factory.CreateRibbonDropDownItem();
             this.tabTaxonMarkup = this.Factory.CreateRibbonTab();
             this.grpDisplay = this.Factory.CreateRibbonGroup();
             this.checkboxDisplayTaxonPanel = this.Factory.CreateRibbonCheckBox();
             this.grpData = this.Factory.CreateRibbonGroup();
+            this.grpProcess = this.Factory.CreateRibbonGroup();
             this.grpExport = this.Factory.CreateRibbonGroup();
+            this.cbEditorFontSize = this.Factory.CreateRibbonComboBox();
             this.btnDeleteCurrent = this.Factory.CreateRibbonButton();
             this.btnClearBatch = this.Factory.CreateRibbonButton();
             this.btnCopyPrevious = this.Factory.CreateRibbonButton();
-            this.btnExportExcel = this.Factory.CreateRibbonButton();
             this.btnCopyPreviousGenus = this.Factory.CreateRibbonButton();
-            this.grpProcess = this.Factory.CreateRibbonGroup();
+            this.btnExportExcel = this.Factory.CreateRibbonButton();
             this.tabTaxonMarkup.SuspendLayout();
             this.grpDisplay.SuspendLayout();
             this.grpData.SuspendLayout();
-            this.grpExport.SuspendLayout();
             this.grpProcess.SuspendLayout();
+            this.grpExport.SuspendLayout();
             // 
             // tabTaxonMarkup
             // 
@@ -64,6 +81,7 @@
             // grpDisplay
             // 
             this.grpDisplay.Items.Add(this.checkboxDisplayTaxonPanel);
+            this.grpDisplay.Items.Add(this.cbEditorFontSize);
             this.grpDisplay.Label = "Display";
             this.grpDisplay.Name = "grpDisplay";
             // 
@@ -80,11 +98,57 @@
             this.grpData.Label = "Data Management";
             this.grpData.Name = "grpData";
             // 
+            // grpProcess
+            // 
+            this.grpProcess.Items.Add(this.btnCopyPrevious);
+            this.grpProcess.Items.Add(this.btnCopyPreviousGenus);
+            this.grpProcess.Label = "Process";
+            this.grpProcess.Name = "grpProcess";
+            // 
             // grpExport
             // 
             this.grpExport.Items.Add(this.btnExportExcel);
             this.grpExport.Label = "Export";
             this.grpExport.Name = "grpExport";
+            // 
+            // cbEditorFontSize
+            // 
+            ribbonDropDownItemImpl1.Label = "8";
+            ribbonDropDownItemImpl2.Label = "9";
+            ribbonDropDownItemImpl3.Label = "10";
+            ribbonDropDownItemImpl4.Label = "11";
+            ribbonDropDownItemImpl5.Label = "12";
+            ribbonDropDownItemImpl6.Label = "14";
+            ribbonDropDownItemImpl7.Label = "16";
+            ribbonDropDownItemImpl8.Label = "18";
+            ribbonDropDownItemImpl9.Label = "20";
+            ribbonDropDownItemImpl10.Label = "22";
+            ribbonDropDownItemImpl11.Label = "24";
+            ribbonDropDownItemImpl12.Label = "26";
+            ribbonDropDownItemImpl13.Label = "30";
+            ribbonDropDownItemImpl14.Label = "34";
+            ribbonDropDownItemImpl15.Label = "38";
+            ribbonDropDownItemImpl16.Label = "42";
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl1);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl2);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl3);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl4);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl5);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl6);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl7);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl8);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl9);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl10);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl11);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl12);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl13);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl14);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl15);
+            this.cbEditorFontSize.Items.Add(ribbonDropDownItemImpl16);
+            this.cbEditorFontSize.Label = "Editor Font Size";
+            this.cbEditorFontSize.Name = "cbEditorFontSize";
+            this.cbEditorFontSize.SizeString = "xx";
+            this.cbEditorFontSize.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cbEditorFontSize_TextChanged);
             // 
             // btnDeleteCurrent
             // 
@@ -104,6 +168,12 @@
             this.btnCopyPrevious.Name = "btnCopyPrevious";
             this.btnCopyPrevious.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCopyPrevious_Click);
             // 
+            // btnCopyPreviousGenus
+            // 
+            this.btnCopyPreviousGenus.Label = "Copy Previous Genus Name";
+            this.btnCopyPreviousGenus.Name = "btnCopyPreviousGenus";
+            this.btnCopyPreviousGenus.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCopyPreviousGenus_Click);
+            // 
             // btnExportExcel
             // 
             this.btnExportExcel.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -112,19 +182,6 @@
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.ShowImage = true;
             this.btnExportExcel.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnExportExcel_Click);
-            // 
-            // btnCopyPreviousGenus
-            // 
-            this.btnCopyPreviousGenus.Label = "Copy Previous Genus Name";
-            this.btnCopyPreviousGenus.Name = "btnCopyPreviousGenus";
-            this.btnCopyPreviousGenus.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCopyPreviousGenus_Click);
-            // 
-            // grpProcess
-            // 
-            this.grpProcess.Items.Add(this.btnCopyPrevious);
-            this.grpProcess.Items.Add(this.btnCopyPreviousGenus);
-            this.grpProcess.Label = "Process";
-            this.grpProcess.Name = "grpProcess";
             // 
             // Ribbon
             // 
@@ -138,10 +195,10 @@
             this.grpDisplay.PerformLayout();
             this.grpData.ResumeLayout(false);
             this.grpData.PerformLayout();
-            this.grpExport.ResumeLayout(false);
-            this.grpExport.PerformLayout();
             this.grpProcess.ResumeLayout(false);
             this.grpProcess.PerformLayout();
+            this.grpExport.ResumeLayout(false);
+            this.grpExport.PerformLayout();
 
         }
 
@@ -158,6 +215,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCopyPrevious;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpProcess;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCopyPreviousGenus;
+        internal Microsoft.Office.Tools.Ribbon.RibbonComboBox cbEditorFontSize;
     }
 
     partial class ThisRibbonCollection
