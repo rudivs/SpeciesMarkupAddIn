@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SpeciesMarkupAddIn
 {
@@ -69,6 +70,31 @@ namespace SpeciesMarkupAddIn
         {
             Properties.Settings.Default.EditFontSize = ushort.Parse(cbEditorFontSize.Text);
             Properties.Settings.Default.Save();
+        }
+
+        private void btnBatchCount_Click(object sender, RibbonControlEventArgs e)
+        {
+            using (var form = new TaxonListForm())
+            {
+                var listbox = form.Controls["tlpBasePanel"].Controls["lbTaxonList"];
+                listbox.Font = new Font(listbox.Font.FontFamily, Properties.Settings.Default.EditFontSize);
+                form.ShowDialog();
+            }
+        }
+
+        public void UpdateCount()
+        {
+            int iCount = Globals.ThisAddIn.currentBatch.Count;
+            if (iCount < 0)
+            {
+                iCount = 0;
+            }
+            else if (iCount > 99)
+            {
+                iCount = 100;
+            }
+            string sCount = iCount.ToString();
+            this.btnBatchCount.Image = (System.Drawing.Image)SpeciesMarkupAddIn.Properties.Resources.ResourceManager.GetObject("_" + sCount);
         }
     }
 }

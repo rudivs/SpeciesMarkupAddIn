@@ -146,6 +146,19 @@ namespace SpeciesMarkupAddIn
             }
         }
 
+        public bool MoveIndex(int index)
+        {
+            if (index < 0 || index > taxa.Count || taxa.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                _index = index;
+                return true;
+            }
+        }
+
         public bool DeleteCurrent()
         {
             if (taxa.Count >= 1)

@@ -45,7 +45,8 @@ namespace SpeciesMarkupAddIn
                 currentTaxon = new Taxon();
                 currentBatch.Add(currentTaxon);
             }
-            
+
+            Globals.Ribbons.Ribbon.UpdateCount();
         }
 
         void Application_DocumentBeforeClose(Word.Document Doc, ref bool Cancel)

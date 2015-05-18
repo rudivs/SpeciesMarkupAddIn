@@ -86,6 +86,7 @@ namespace SpeciesMarkupAddIn
             this.textboxMaxAlt.Text = Globals.ThisAddIn.currentTaxon.MaxAlt.ToString();
             this.textboxNotes.Text = Globals.ThisAddIn.currentTaxon.Notes;
             this.textboxVouchers.Text = Globals.ThisAddIn.currentTaxon.Vouchers;
+            Globals.Ribbons.Ribbon.UpdateCount();
         }
 
         private string FilterText(string inputText)
@@ -739,9 +740,13 @@ namespace SpeciesMarkupAddIn
         private void btnNew_Click(object sender, EventArgs e)
         {
             Globals.ThisAddIn.Serialize();
-            Globals.ThisAddIn.currentTaxon = new Taxon();
-            Globals.ThisAddIn.currentBatch.Add(Globals.ThisAddIn.currentTaxon);
-            LoadCurrentTaxon();
+            if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentTaxon.FullName))
+            {
+                Globals.ThisAddIn.currentTaxon = new Taxon();
+                Globals.ThisAddIn.currentBatch.Add(Globals.ThisAddIn.currentTaxon);
+                LoadCurrentTaxon();
+            }
+            Globals.Ribbons.Ribbon.UpdateCount();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
