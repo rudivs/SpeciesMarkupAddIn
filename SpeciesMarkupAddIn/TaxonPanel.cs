@@ -141,7 +141,7 @@ namespace SpeciesMarkupAddIn
             filteredText = Regex.Replace(filteredText, pattern, ft_to_m);
 
             // convert inches to centimeters
-            pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" in\.?(?= )";
+            pattern = numberPattern + @"(?:-)?" + numberPattern2 + @"?" + @" in.(?= )";
             filteredText = Regex.Replace(filteredText, pattern, in_to_cm);
 
             // convert lin to mm
@@ -199,7 +199,7 @@ namespace SpeciesMarkupAddIn
                     groupcount++;
                 }
             }
-            return returnString + " m";
+            return String.Format("{0} m [as \"{1}\"]",returnString,match.ToString().Trim());
         }
 
         public static string in_to_cm(Match match)
@@ -258,11 +258,11 @@ namespace SpeciesMarkupAddIn
             }
             if (is_mm)
             {
-                return returnString + " mm";
+                return String.Format("{0} mm [as \"{1}\"]",returnString,match.ToString().Trim());
             }
             else
             {
-                return returnString + " cm";
+                return String.Format("{0} cm [as \"{1}\"]",returnString,match.ToString().Trim());
             }
         }
 
@@ -301,7 +301,7 @@ namespace SpeciesMarkupAddIn
                     groupcount++;
                 }
             }
-            return returnString + " mm";
+            return String.Format("{0} mm [as \"{1}\"]",returnString,match.ToString().Trim());
         }
 
         private short GetMonthNumber(string lookup)
@@ -749,6 +749,20 @@ namespace SpeciesMarkupAddIn
             Globals.Ribbons.Ribbon.UpdateCount();
         }
 
+        private void btnNewCopyGenus_Click(object sender, EventArgs e)
+        {
+            Globals.ThisAddIn.Serialize();
+            if (!String.IsNullOrWhiteSpace(Globals.ThisAddIn.currentTaxon.FullName))
+            {
+                String currentGenus = Globals.ThisAddIn.currentTaxon.Genus;
+                Globals.ThisAddIn.currentTaxon = new Taxon();
+                Globals.ThisAddIn.currentTaxon.Genus = currentGenus;
+                Globals.ThisAddIn.currentBatch.Add(Globals.ThisAddIn.currentTaxon);
+                LoadCurrentTaxon();
+            }
+            Globals.Ribbons.Ribbon.UpdateCount();
+        }
+
         private void btnNext_Click(object sender, EventArgs e)
         {
             Globals.ThisAddIn.Serialize();
@@ -832,5 +846,7 @@ namespace SpeciesMarkupAddIn
                 this.textboxChromosomeNumber.Text = "";
             }
         }
+
+
     }
 }

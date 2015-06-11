@@ -37,6 +37,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.textboxChromosomeNumber = new System.Windows.Forms.TextBox();
             this.btnCommonNames = new System.Windows.Forms.Button();
+            this.textboxCommonNames = new SpeciesMarkupAddIn.MouseTransparentTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnHabitatAdd = new System.Windows.Forms.Button();
             this.btnMorphDescriptionAdd = new System.Windows.Forms.Button();
@@ -51,19 +52,24 @@
             this.comboboxFloweringStart = new System.Windows.Forms.ComboBox();
             this.btnVouchersAdd = new System.Windows.Forms.Button();
             this.btnVouchersCopy = new System.Windows.Forms.Button();
+            this.textboxVouchers = new SpeciesMarkupAddIn.MouseTransparentTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.btnNotesAdd = new System.Windows.Forms.Button();
             this.btnNotesCopy = new System.Windows.Forms.Button();
+            this.textboxNotes = new SpeciesMarkupAddIn.MouseTransparentTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnFloweringEndCopy = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.btnFloweringStartCopy = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.btnHabitatCopy = new System.Windows.Forms.Button();
+            this.textboxHabitat = new SpeciesMarkupAddIn.MouseTransparentTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnDistributionCopy = new System.Windows.Forms.Button();
+            this.textboxDistribution = new SpeciesMarkupAddIn.MouseTransparentTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnMorphDescriptionCopy = new System.Windows.Forms.Button();
+            this.textboxMorphDescription = new SpeciesMarkupAddIn.MouseTransparentTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -103,15 +109,10 @@
             this.textboxGenus = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnNewCopyGenus = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
-            this.textboxCommonNames = new SpeciesMarkupAddIn.MouseTransparentTextBox();
-            this.textboxVouchers = new SpeciesMarkupAddIn.MouseTransparentTextBox();
-            this.textboxNotes = new SpeciesMarkupAddIn.MouseTransparentTextBox();
-            this.textboxHabitat = new SpeciesMarkupAddIn.MouseTransparentTextBox();
-            this.textboxDistribution = new SpeciesMarkupAddIn.MouseTransparentTextBox();
-            this.textboxMorphDescription = new SpeciesMarkupAddIn.MouseTransparentTextBox();
             this.collectionDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.collectionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3.SuspendLayout();
@@ -231,6 +232,16 @@
             this.btnCommonNames.Text = "+";
             this.btnCommonNames.UseVisualStyleBackColor = true;
             this.btnCommonNames.Click += new System.EventHandler(this.btnCommonNames_Click);
+            // 
+            // textboxCommonNames
+            // 
+            this.textboxCommonNames.Location = new System.Drawing.Point(86, 3);
+            this.textboxCommonNames.Multiline = true;
+            this.textboxCommonNames.Name = "textboxCommonNames";
+            this.textboxCommonNames.Size = new System.Drawing.Size(227, 45);
+            this.textboxCommonNames.TabIndex = 62;
+            this.textboxCommonNames.TextChanged += new System.EventHandler(this.textboxCommonNames_TextChanged);
+            this.textboxCommonNames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxCommonNames_MouseDoubleClick);
             // 
             // label3
             // 
@@ -364,6 +375,16 @@
             this.btnVouchersCopy.UseVisualStyleBackColor = true;
             this.btnVouchersCopy.Click += new System.EventHandler(this.btnVouchersCopy_Click);
             // 
+            // textboxVouchers
+            // 
+            this.textboxVouchers.Location = new System.Drawing.Point(86, 518);
+            this.textboxVouchers.Multiline = true;
+            this.textboxVouchers.Name = "textboxVouchers";
+            this.textboxVouchers.Size = new System.Drawing.Size(227, 77);
+            this.textboxVouchers.TabIndex = 44;
+            this.textboxVouchers.TextChanged += new System.EventHandler(this.textboxVouchers_TextChanged);
+            this.textboxVouchers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxVouchers_MouseDoubleClick);
+            // 
             // label19
             // 
             this.label19.Location = new System.Drawing.Point(-1, 521);
@@ -392,6 +413,16 @@
             this.btnNotesCopy.Text = "<";
             this.btnNotesCopy.UseVisualStyleBackColor = true;
             this.btnNotesCopy.Click += new System.EventHandler(this.btnNotesCopy_Click);
+            // 
+            // textboxNotes
+            // 
+            this.textboxNotes.Location = new System.Drawing.Point(86, 434);
+            this.textboxNotes.Multiline = true;
+            this.textboxNotes.Name = "textboxNotes";
+            this.textboxNotes.Size = new System.Drawing.Size(227, 77);
+            this.textboxNotes.TabIndex = 40;
+            this.textboxNotes.TextChanged += new System.EventHandler(this.textboxNotes_TextChanged);
+            this.textboxNotes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxNotes_MouseDoubleClick);
             // 
             // label18
             // 
@@ -449,6 +480,16 @@
             this.btnHabitatCopy.UseVisualStyleBackColor = true;
             this.btnHabitatCopy.Click += new System.EventHandler(this.btnHabitatCopy_Click);
             // 
+            // textboxHabitat
+            // 
+            this.textboxHabitat.Location = new System.Drawing.Point(86, 299);
+            this.textboxHabitat.Multiline = true;
+            this.textboxHabitat.Name = "textboxHabitat";
+            this.textboxHabitat.Size = new System.Drawing.Size(227, 77);
+            this.textboxHabitat.TabIndex = 31;
+            this.textboxHabitat.TextChanged += new System.EventHandler(this.textboxHabitat_TextChanged);
+            this.textboxHabitat.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxHabitat_MouseDoubleClick);
+            // 
             // label15
             // 
             this.label15.Location = new System.Drawing.Point(-1, 303);
@@ -467,6 +508,16 @@
             this.btnDistributionCopy.UseVisualStyleBackColor = true;
             this.btnDistributionCopy.Click += new System.EventHandler(this.btnDistributionCopy_Click);
             // 
+            // textboxDistribution
+            // 
+            this.textboxDistribution.Location = new System.Drawing.Point(86, 216);
+            this.textboxDistribution.Multiline = true;
+            this.textboxDistribution.Name = "textboxDistribution";
+            this.textboxDistribution.Size = new System.Drawing.Size(227, 77);
+            this.textboxDistribution.TabIndex = 28;
+            this.textboxDistribution.TextChanged += new System.EventHandler(this.textboxDistribution_TextChanged);
+            this.textboxDistribution.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxDistribution_MouseDoubleClick);
+            // 
             // label14
             // 
             this.label14.Location = new System.Drawing.Point(-1, 220);
@@ -484,6 +535,16 @@
             this.btnMorphDescriptionCopy.Text = "<";
             this.btnMorphDescriptionCopy.UseVisualStyleBackColor = true;
             this.btnMorphDescriptionCopy.Click += new System.EventHandler(this.btnMorphDescriptionCopy_Click);
+            // 
+            // textboxMorphDescription
+            // 
+            this.textboxMorphDescription.Location = new System.Drawing.Point(86, 54);
+            this.textboxMorphDescription.Multiline = true;
+            this.textboxMorphDescription.Name = "textboxMorphDescription";
+            this.textboxMorphDescription.Size = new System.Drawing.Size(227, 77);
+            this.textboxMorphDescription.TabIndex = 25;
+            this.textboxMorphDescription.TextChanged += new System.EventHandler(this.textboxMorphDescription_TextChanged);
+            this.textboxMorphDescription.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxMorphDescription_MouseDoubleClick);
             // 
             // label13
             // 
@@ -882,6 +943,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnNewCopyGenus);
             this.panel4.Controls.Add(this.btnNew);
             this.panel4.Controls.Add(this.btnNext);
             this.panel4.Controls.Add(this.btnPrevious);
@@ -891,96 +953,46 @@
             this.panel4.Size = new System.Drawing.Size(363, 41);
             this.panel4.TabIndex = 22;
             // 
+            // btnNewCopyGenus
+            // 
+            this.btnNewCopyGenus.Location = new System.Drawing.Point(187, 9);
+            this.btnNewCopyGenus.Name = "btnNewCopyGenus";
+            this.btnNewCopyGenus.Size = new System.Drawing.Size(110, 23);
+            this.btnNewCopyGenus.TabIndex = 65;
+            this.btnNewCopyGenus.Text = "New (Copy Genus)";
+            this.btnNewCopyGenus.UseVisualStyleBackColor = true;
+            this.btnNewCopyGenus.Click += new System.EventHandler(this.btnNewCopyGenus_Click);
+            // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(135, 9);
+            this.btnNew.Location = new System.Drawing.Point(60, 9);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.Size = new System.Drawing.Size(110, 23);
             this.btnNew.TabIndex = 64;
-            this.btnNew.Text = "New";
+            this.btnNew.Text = "New (Empty)";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNext.Location = new System.Drawing.Point(265, 9);
+            this.btnNext.Location = new System.Drawing.Point(314, 9);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.Size = new System.Drawing.Size(40, 23);
             this.btnNext.TabIndex = 63;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(5, 9);
+            this.btnPrevious.Location = new System.Drawing.Point(3, 9);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.Size = new System.Drawing.Size(40, 23);
             this.btnPrevious.TabIndex = 62;
-            this.btnPrevious.Text = "Previous";
+            this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // textboxCommonNames
-            // 
-            this.textboxCommonNames.Location = new System.Drawing.Point(86, 3);
-            this.textboxCommonNames.Multiline = true;
-            this.textboxCommonNames.Name = "textboxCommonNames";
-            this.textboxCommonNames.Size = new System.Drawing.Size(227, 45);
-            this.textboxCommonNames.TabIndex = 62;
-            this.textboxCommonNames.TextChanged += new System.EventHandler(this.textboxCommonNames_TextChanged);
-            this.textboxCommonNames.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxCommonNames_MouseDoubleClick);
-            // 
-            // textboxVouchers
-            // 
-            this.textboxVouchers.Location = new System.Drawing.Point(86, 518);
-            this.textboxVouchers.Multiline = true;
-            this.textboxVouchers.Name = "textboxVouchers";
-            this.textboxVouchers.Size = new System.Drawing.Size(227, 77);
-            this.textboxVouchers.TabIndex = 44;
-            this.textboxVouchers.TextChanged += new System.EventHandler(this.textboxVouchers_TextChanged);
-            this.textboxVouchers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxVouchers_MouseDoubleClick);
-            // 
-            // textboxNotes
-            // 
-            this.textboxNotes.Location = new System.Drawing.Point(86, 434);
-            this.textboxNotes.Multiline = true;
-            this.textboxNotes.Name = "textboxNotes";
-            this.textboxNotes.Size = new System.Drawing.Size(227, 77);
-            this.textboxNotes.TabIndex = 40;
-            this.textboxNotes.TextChanged += new System.EventHandler(this.textboxNotes_TextChanged);
-            this.textboxNotes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxNotes_MouseDoubleClick);
-            // 
-            // textboxHabitat
-            // 
-            this.textboxHabitat.Location = new System.Drawing.Point(86, 299);
-            this.textboxHabitat.Multiline = true;
-            this.textboxHabitat.Name = "textboxHabitat";
-            this.textboxHabitat.Size = new System.Drawing.Size(227, 77);
-            this.textboxHabitat.TabIndex = 31;
-            this.textboxHabitat.TextChanged += new System.EventHandler(this.textboxHabitat_TextChanged);
-            this.textboxHabitat.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxHabitat_MouseDoubleClick);
-            // 
-            // textboxDistribution
-            // 
-            this.textboxDistribution.Location = new System.Drawing.Point(86, 216);
-            this.textboxDistribution.Multiline = true;
-            this.textboxDistribution.Name = "textboxDistribution";
-            this.textboxDistribution.Size = new System.Drawing.Size(227, 77);
-            this.textboxDistribution.TabIndex = 28;
-            this.textboxDistribution.TextChanged += new System.EventHandler(this.textboxDistribution_TextChanged);
-            this.textboxDistribution.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxDistribution_MouseDoubleClick);
-            // 
-            // textboxMorphDescription
-            // 
-            this.textboxMorphDescription.Location = new System.Drawing.Point(86, 54);
-            this.textboxMorphDescription.Multiline = true;
-            this.textboxMorphDescription.Name = "textboxMorphDescription";
-            this.textboxMorphDescription.Size = new System.Drawing.Size(227, 77);
-            this.textboxMorphDescription.TabIndex = 25;
-            this.textboxMorphDescription.TextChanged += new System.EventHandler(this.textboxMorphDescription_TextChanged);
-            this.textboxMorphDescription.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.textboxMorphDescription_MouseDoubleClick);
             // 
             // collectionDataBindingSource1
             // 
@@ -1108,5 +1120,6 @@
         private System.Windows.Forms.TextBox textboxChromosomeNumber;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnNewCopyGenus;
     }
 }
