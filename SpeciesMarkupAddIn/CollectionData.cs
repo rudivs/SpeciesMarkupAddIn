@@ -165,23 +165,7 @@ namespace SpeciesMarkupAddIn
             { 21, new TaxonInternalReferences("Maxalt", "Maximum altitude",Color.LightGreen,7,"MaxAlt") },
             { 22, new TaxonInternalReferences("LITNOTE", "Literature note",Color.LightGreen,50,"Notes") },
             { 23, new TaxonInternalReferences("SpecCit", "Voucher specimens",Color.LightGreen,50,"Vouchers") },
-            { 24, new TaxonInternalReferences("Admin", "Admin",Color.OrangeRed,13) },
-            { 25, new TaxonInternalReferences("MarkupDate", "Date of markup",Color.OrangeRed,13) },
-            { 26, new TaxonInternalReferences("PermissionPublisher", "Permission from publishing house",Color.OrangeRed,19) },
-            { 27, new TaxonInternalReferences("PermissionAuthor", "Permission from Author",Color.OrangeRed,15) },
-            { 28, new TaxonInternalReferences("PublicationCategory","Category",Color.MediumPurple,19) },
-            { 29, new TaxonInternalReferences("Title","Journal or book title",Color.MediumPurple,30) },
-            { 30, new TaxonInternalReferences("Printyear", "Publication year",Color.MediumPurple,8) },
-            { 31, new TaxonInternalReferences("Author(s)", "Author(s)",Color.MediumPurple,30) },
-            { 32, new TaxonInternalReferences("PublicationTitle", "Publication title",Color.MediumPurple,30) },
-            { 33, new TaxonInternalReferences("Editors","Editor(s)",Color.MediumPurple,30) },
-            { 34, new TaxonInternalReferences("Publisher","Publisher",Color.MediumPurple, 22) },
-            { 35, new TaxonInternalReferences("PublisherCity","Publisher city",Color.MediumPurple, 22) },
-            { 36, new TaxonInternalReferences("Volume","Volume",Color.MediumPurple,6) },
-            { 37, new TaxonInternalReferences("Part", "Part",Color.MediumPurple,6) },
-            { 38, new TaxonInternalReferences("Fascicle", "Fascicle",Color.MediumPurple,8) },
-            { 39, new TaxonInternalReferences("Pagestart", "Page start",Color.MediumPurple,9) },
-            { 40, new TaxonInternalReferences("Pageend", "Page end",Color.MediumPurple,9) }
+            { 24, new TaxonInternalReferences("Refcode", "Reference code",Color.OrangeRed,13) }
         };
     }
 }
