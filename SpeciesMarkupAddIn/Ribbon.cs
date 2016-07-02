@@ -106,7 +106,7 @@ namespace SpeciesMarkupAddIn
 
             count = count < 0 ? 0 : count;
             string sCount = count > 999 ? "999+" : count.ToString();
-            Font testFont = new Font("Sans", 25); //23
+            Font testFont = new Font("Sans", 25); 
             Font countFont = GetAdjustedFont(g, sCount, testFont, 31, 25, 10, true);
 
             g.DrawString(sCount, countFont, Brushes.White, rectf, format);

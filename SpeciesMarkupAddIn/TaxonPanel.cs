@@ -876,6 +876,7 @@ namespace SpeciesMarkupAddIn
             {
                 LanguageForm.Text = @"Language";
                 ComboBox LanguageOptions = new ComboBox();
+                LanguageOptions.Font = new Font(LanguageOptions.Font.FontFamily, Properties.Settings.Default.EditFontSize);
                 LanguageOptions.Location = new Point(5, 5);
                 List<string> languages = new List<string>
                 {
@@ -917,12 +918,15 @@ namespace SpeciesMarkupAddIn
             {
                 LanguageForm.Text = @"Language";
                 Label Instruction = new Label();
+                Instruction.Font = new Font(Instruction.Font.FontFamily, 10);
                 Instruction.Text = "Please type in the language:";
-                Instruction.Location = new Point(5, 1);
+                Instruction.Location = new Point(5, 5);
                 Instruction.Size = new Size(200, Instruction.Size.Height);
 
 
                 TextBox LanguageText = new TextBox();
+                LanguageText.Font = new Font(LanguageText.Font.FontFamily, Properties.Settings.Default.EditFontSize);
+                LanguageText.Width = Math.Max(LanguageText.Width, 200);
                 LanguageText.Location = new Point(5, LanguageText.Location.Y + LanguageText.Height + 5);
 
                 Button Select = new Button();
@@ -939,7 +943,7 @@ namespace SpeciesMarkupAddIn
                 LanguageForm.FormBorderStyle = FormBorderStyle.FixedDialog;
                 LanguageForm.AutoSize = true;
                 LanguageForm.Height = Select.Location.Y + Select.Height + 5;
-                LanguageForm.Width = LanguageText.Location.X + LanguageText.Width + 90;
+                LanguageForm.Width = new int[]{ LanguageText.Location.X + LanguageText.Width+90, Instruction.Location.X + Instruction.Width+90}.Max();
                 LanguageForm.ShowDialog();
                 language = LanguageText.Text;
             }
