@@ -5,6 +5,8 @@ using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 
 namespace SpeciesMarkupAddIn
 {
@@ -85,16 +87,63 @@ namespace SpeciesMarkupAddIn
         public void UpdateCount()
         {
             int iCount = Globals.ThisAddIn.currentBatch.Count;
-            if (iCount < 0)
+            btnBatchCount.Image = CreateTaxonCountButton(iCount);
+        }
+
+        private Image CreateTaxonCountButton(int count)
+        {
+            Bitmap button = (Bitmap)SpeciesMarkupAddIn.Properties.Resources.ResourceManager.GetObject("tc");
+            RectangleF rectf = new RectangleF(0, 1, button.Width, button.Height);
+            Graphics g = Graphics.FromImage(button);
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            StringFormat format = new StringFormat()
             {
-                iCount = 0;
-            }
-            else if (iCount > 99)
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            count = count < 0 ? 0 : count;
+            string sCount = count > 999 ? "999+" : count.ToString();
+            Font testFont = new Font("Sans", 25); //23
+            Font countFont = GetAdjustedFont(g, sCount, testFont, 31, 25, 10, true);
+
+            g.DrawString(sCount, countFont, Brushes.White, rectf, format);
+
+            g.Flush();
+            return button;
+
+        }
+
+        public Font GetAdjustedFont(Graphics GraphicRef, string GraphicString, Font OriginalFont, int ContainerWidth, int MaxFontSize, int MinFontSize, bool SmallestOnFail)
+        {
+            Font testFont = null;
+            // We utilize MeasureString which we get via a control instance           
+            for (int AdjustedSize = MaxFontSize; AdjustedSize >= MinFontSize; AdjustedSize--)
             {
-                iCount = 100;
+                testFont = new Font(OriginalFont.Name, AdjustedSize, OriginalFont.Style);
+
+                // Test the string with the new size
+                SizeF AdjustedSizeNew = GraphicRef.MeasureString(GraphicString, testFont);
+
+                if (ContainerWidth > Convert.ToInt32(AdjustedSizeNew.Width))
+                {
+                    // Good font, return it
+                    return testFont;
+                }
             }
-            string sCount = iCount.ToString();
-            this.btnBatchCount.Image = (System.Drawing.Image)SpeciesMarkupAddIn.Properties.Resources.ResourceManager.GetObject("_" + sCount);
+
+            // If you get here there was no fontsize that worked
+            // return MinimumSize or Original?
+            if (SmallestOnFail)
+            {
+                return testFont;
+            }
+            else
+            {
+                return OriginalFont;
+            }
         }
     }
 }

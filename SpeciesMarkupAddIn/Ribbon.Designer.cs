@@ -188,7 +188,7 @@
             // btnBatchCount
             // 
             this.btnBatchCount.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.btnBatchCount.Image = global::SpeciesMarkupAddIn.Properties.Resources._99;
+            this.btnBatchCount.Image = global::SpeciesMarkupAddIn.Properties.Resources.tc;
             this.btnBatchCount.Label = "Taxon List";
             this.btnBatchCount.Name = "btnBatchCount";
             this.btnBatchCount.ShowImage = true;

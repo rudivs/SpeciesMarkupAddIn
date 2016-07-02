@@ -596,6 +596,12 @@
   <ItemGroup>
     <None Include="Resources\100.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tc.png" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
