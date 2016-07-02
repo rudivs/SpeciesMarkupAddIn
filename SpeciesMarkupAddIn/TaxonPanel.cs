@@ -331,7 +331,8 @@ namespace SpeciesMarkupAddIn
             }
         }
 
-        private void AddSelection(TextBox textboxTarget, string separator = "", bool capitalise = true, bool addPeriod = false)
+        private void AddSelection(TextBox textboxTarget, string separator = "", bool capitalise = true, 
+            bool addPeriod = false, bool toLower = false, string comment = null)
         {
             string copyText = Globals.ThisAddIn.currentText;
             string spaceChar = " ";
@@ -342,6 +343,10 @@ namespace SpeciesMarkupAddIn
             }
             if (!String.IsNullOrWhiteSpace(copyText))
             {
+                if (toLower)
+                {
+                    copyText = copyText.ToLower();
+                }
                 if (capitalise)
                 {
                     if (sentenceEndings.Any(c => textboxTarget.Text.EndsWith(c)))
@@ -349,7 +354,11 @@ namespace SpeciesMarkupAddIn
                         copyText = char.ToUpper(copyText[0]) + copyText.Substring(1);
                     }
                 }
-                textboxTarget.Text += separator + spaceChar + FilterText(copyText).Trim().RemoveInvalidXmlChars();
+                
+                string commentText = String.IsNullOrWhiteSpace(comment) ? "" : 
+                    String.Format(" ({0})", comment.Trim().RemoveInvalidXmlChars());
+                textboxTarget.Text += separator + spaceChar + FilterText(copyText).Trim().RemoveInvalidXmlChars() 
+                    + commentText;
                 if (addPeriod & !sentenceEndings.Any(c => textboxTarget.Text.EndsWith(c)))
                 {
                     textboxTarget.Text += ".";
@@ -804,15 +813,25 @@ namespace SpeciesMarkupAddIn
 
         private void btnCommonNames_Click(object sender, EventArgs e)
         {
+            string language = GetLanguageSelect();
+            if (language == null)
+            {
+                return;
+            }
+
+            if (language == "Other")
+            {
+                language = GetLanguageText();
+            }
+
             if (!string.IsNullOrWhiteSpace(this.textboxCommonNames.Text))
             {
-                AddSelection(this.textboxCommonNames, ";", false, false);
+                AddSelection(this.textboxCommonNames, ";", false, false, true, language);
             }
             else
             {
-                AddSelection(this.textboxCommonNames,"",false, false);
+                AddSelection(this.textboxCommonNames, "",false, false, true, language);
             }
-            this.textboxCommonNames.Text = this.textboxCommonNames.Text.ToLower();
         }
 
         private void textboxCommonNames_TextChanged(object sender, EventArgs e)
@@ -847,6 +866,84 @@ namespace SpeciesMarkupAddIn
             }
         }
 
+        /// <summary>
+        /// Generate a form with select box that prompts the user for common name language.
+        /// </summary>
+        private string GetLanguageSelect()
+        {
+            string language = null;
+            using (Form LanguageForm = new Form())
+            {
+                LanguageForm.Text = @"Language";
+                ComboBox LanguageOptions = new ComboBox();
+                LanguageOptions.Location = new Point(5, 5);
+                List<string> languages = new List<string>
+                {
+                    "English", "Afrikaans", "IsiZulu","IsiXhosa", "Sepedi", "Sesotho", "Setswana", "Xitsonga",
+                    "Tshivenda", "IsiNdebele", "SiSwati", "Other"
+                };
+                for (int loop = 0; loop < languages.Count; loop++)
+                    LanguageOptions.Items.Add(languages[loop]);
+                int def = languages.IndexOf("English");
+                if (def >= 0) LanguageOptions.SelectedIndex = def;
 
+                Button Select = new Button();
+                Select.Click += new EventHandler(delegate (Object o, EventArgs a)
+                {
+                    language = LanguageOptions.SelectedItem.ToString();
+                    if (LanguageForm != null)
+                        LanguageForm.Close();
+                });
+                Select.Text = "Select";
+                Select.Location = new Point(5, LanguageOptions.Location.Y + LanguageOptions.Height + 5); ;
+                LanguageForm.Controls.Add(LanguageOptions);
+                LanguageForm.Controls.Add(Select);
+                LanguageForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                LanguageForm.AutoSize = true;
+                LanguageForm.Height = Select.Location.Y + Select.Height + 5;
+                LanguageForm.Width = LanguageOptions.Location.X + LanguageOptions.Width + 90;
+                LanguageForm.ShowDialog();
+            }
+            return language;
+        }
+
+        /// <summary>
+        /// Generate a form with textbox that prompts the user for common name language.
+        /// </summary>
+        private string GetLanguageText()
+        {
+            string language;
+            using (Form LanguageForm = new Form())
+            {
+                LanguageForm.Text = @"Language";
+                Label Instruction = new Label();
+                Instruction.Text = "Please type in the language:";
+                Instruction.Location = new Point(5, 1);
+                Instruction.Size = new Size(200, Instruction.Size.Height);
+
+
+                TextBox LanguageText = new TextBox();
+                LanguageText.Location = new Point(5, LanguageText.Location.Y + LanguageText.Height + 5);
+
+                Button Select = new Button();
+                Select.Click += new EventHandler(delegate (Object o, EventArgs a)
+                {
+                    if (LanguageForm != null)
+                        LanguageForm.Close();
+                });
+                Select.Text = "Select";
+                Select.Location = new Point(5, LanguageText.Location.Y + LanguageText.Height + 5); ;
+                LanguageForm.Controls.Add(LanguageText);
+                LanguageForm.Controls.Add(Instruction);
+                LanguageForm.Controls.Add(Select);
+                LanguageForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+                LanguageForm.AutoSize = true;
+                LanguageForm.Height = Select.Location.Y + Select.Height + 5;
+                LanguageForm.Width = LanguageText.Location.X + LanguageText.Width + 90;
+                LanguageForm.ShowDialog();
+                language = LanguageText.Text;
+            }
+            return language;
+        }
     }
 }
